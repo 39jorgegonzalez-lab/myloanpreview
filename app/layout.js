@@ -1,5 +1,7 @@
+import "./globals.css";
+
 export const metadata = {
-  title: "MyLoanPreview",
+  title: "MyLoanPreview | Loan Calculator",
   description: "Preview your loan before you commit."
 };
 
