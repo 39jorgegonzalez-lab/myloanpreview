@@ -103,6 +103,13 @@ export default function Home() {
 
   return (
     <main className="page">
+    <nav className="card" style={{ marginBottom: "24px" }}>
+  <strong>MyLoanPreview Tools</strong>
+  <div style={{ marginTop: "12px", display: "flex", gap: "12px", flexWrap: "wrap" }}>
+    <a href="/" style={{ fontWeight: "700" }}>Loan Calculator</a>
+    <a href="/auto-loan-calculator" style={{ fontWeight: "700" }}>Auto Loan Calculator</a>
+  </div>
+</nav>
       <section className="hero">
         <h1>Loan Calculator</h1>
         <p>
