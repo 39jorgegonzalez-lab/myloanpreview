@@ -30,12 +30,10 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
+
 html,
 body {
   overflow-x: hidden;
-}
-html {
-  scroll-behavior: smooth;
 }
 
 body {
