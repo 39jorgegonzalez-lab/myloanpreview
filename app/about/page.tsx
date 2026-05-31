@@ -1,11 +1,7 @@
-import LegalPageLayout from "@/components/layout/LegalPageLayout";
 
 export default function AboutPage() {
   return (
-    <LegalPageLayout
-      title="About MYLOANPREVIEW"
-      description="Educational loan calculators and estimate tools designed to help users better understand borrowing scenarios and monthly payment possibilities."
-    >
+    <>
       <h2>Our Mission</h2>
 
       <p>
@@ -44,6 +40,6 @@ export default function AboutPage() {
         MYLOANPREVIEW is not a lender, broker, or financial advisor. We do not
         guarantee loan approval or specific financing outcomes.
       </p>
-    </LegalPageLayout>
+    </>
   );
 }

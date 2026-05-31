@@ -1,11 +1,7 @@
-import LegalPageLayout from "@/components/layout/LegalPageLayout";
 
 export default function PrivacyPolicyPage() {
   return (
-    <LegalPageLayout
-      title="Privacy Policy"
-      description="How MYLOANPREVIEW collects, uses, and protects information."
-    >
+    <>
       <h2>Information Collection</h2>
 
       <p>
@@ -46,6 +42,6 @@ export default function PrivacyPolicyPage() {
       <p>
         This privacy policy may be updated periodically as the website evolves.
       </p>
-    </LegalPageLayout>
+    </>
   );
 }
