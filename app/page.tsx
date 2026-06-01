@@ -74,7 +74,7 @@ export default function Home() {
 
       {/* HERO */}
 
-      <section className="max-w-6xl mx-auto px-6 py-24 text-center">
+      <section className="max-w-6xl mx-auto px-6 py-12 text-center">
       
         <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-8">
           Preview Your Possible Loan Payments Before You Apply
@@ -88,7 +88,7 @@ export default function Home() {
 
       {/* CALCULATOR TOOLS SECTION */}
 
-<section className="max-w-7xl mx-auto px-6 py-24">
+<section className="max-w-7xl mx-auto px-6 py-1">
   <div className="text-center mb-14">
     <p className="text-blue-700 font-semibold uppercase tracking-wide mb-4">
       Financial Tools
@@ -236,7 +236,7 @@ export default function Home() {
   </div>
 </section>
 
-<section className="max-w-6xl mx-auto px-6 pb-20">
+<section className="max-w-3x1 mx-auto px-96 pb-28 mt-20">
 
   <a
     href="/what-credit-score-do-you-need-for-a-car-loan"
