@@ -269,6 +269,68 @@ export default function Home() {
 
 </section>
 
+<section className="max-w-7xl mx-auto px-6 py-20">
+  <div className="text-center mb-12">
+
+    <p className="text-blue-700 font-semibold uppercase tracking-wide mb-4">
+      Loan Learning Center
+    </p>
+
+    <h2 className="text-4xl font-bold text-slate-900 mb-6">
+      Learn Before You Borrow
+    </h2>
+
+    <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+      Explore educational guides designed to help you understand credit scores,
+      loan approvals, and financing requirements before applying.
+    </p>
+
+  </div>
+
+  <div className="grid md:grid-cols-3 gap-8">
+
+    <a
+      href="/what-credit-score-do-you-need-for-a-car-loan"
+      className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition"
+    >
+      <h3 className="text-2xl font-bold mb-4">
+        Auto Loan Guide
+      </h3>
+
+      <p className="text-slate-600">
+        Learn how credit scores affect vehicle financing approvals.
+      </p>
+    </a>
+
+    <a
+      href="/personal-loan-credit-score-guide"
+      className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition"
+    >
+      <h3 className="text-2xl font-bold mb-4">
+        Personal Loan Guide
+      </h3>
+
+      <p className="text-slate-600">
+        Understand personal loan credit requirements and approval factors.
+      </p>
+    </a>
+
+    <a
+      href="/mortgage-credit-score-guide"
+      className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition"
+    >
+      <h3 className="text-2xl font-bold mb-4">
+        Mortgage Guide
+      </h3>
+
+      <p className="text-slate-600">
+        Discover common mortgage credit score benchmarks and lender expectations.
+      </p>
+    </a>
+
+  </div>
+</section>
+
       {/* TRUST SECTION */}
 
       <section className="bg-white border-y border-slate-200">
