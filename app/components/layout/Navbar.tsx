@@ -130,15 +130,6 @@ export default function Navbar() {
             >
               About
             </Link>
-
-            <div className="pt-3">
-              <Link
-                href="/auto-loan-calculator"
-                className="flex items-center justify-center rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
-              >
-                Estimate Payments
-              </Link>
-            </div>
           </div>
         </div>
       )}
