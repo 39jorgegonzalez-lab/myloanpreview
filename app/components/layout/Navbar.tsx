@@ -9,7 +9,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-md">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-start px-4 sm:px-6 lg:px-8">
         
         {/* Logo */}
         <Link
@@ -32,53 +32,44 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-4 md:flex ml-0">
+
+<Link
+  href="/"
+  className="font-bold text-blue-700 hover:text-blue-800 ml-82 mr-8"
+>
+  Home
+</Link>
+
           <Link
             href="/auto-loan-calculator"
-            className="text-sm font-medium text-slate-700 transition hover:text-blue-600"
+            className="text-sm font-bold text-blue-700 transition hover:text-blue-800"
           >
             Auto Loans
           </Link>
 
           <Link
             href="/personal-loan-calculator"
-            className="text-sm font-medium text-slate-700 transition hover:text-blue-600"
+            className="text-sm font-bold text-blue-700 transition hover:text-blue-800"
           >
             Personal Loans
           </Link>
 
           <Link
             href="/mortgage-calculator"
-            className="text-sm font-medium text-slate-700 transition hover:text-blue-600"
+            className="text-sm font-bold text-blue-700 transition hover:text-blue-800"
           >
             Mortgages
           </Link>
 
           <Link
             href="/credit-score-loan-estimate"
-            className="text-sm font-medium text-slate-700 transition hover:text-blue-600"
+            className="text-sm font-bold text-blue-700 transition hover:text-blue-800"
           >
             Credit Estimate
           </Link>
-
-          <Link
-            href="/about"
-            className="text-sm font-medium text-slate-700 transition hover:text-blue-600"
-          >
-            About
-          </Link>
         </nav>
-
-        {/* Right CTA */}
-        <div className="hidden md:block">
-          <Link
-            href="/auto-loan-calculator"
-            className="inline-flex items-center rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700"
-          >
-            Estimate Payments
-          </Link>
-        </div>
-
+       
         {/* Mobile Menu Button */}
         <button
           className="rounded-xl p-2 text-slate-700 transition hover:bg-slate-100 md:hidden"
