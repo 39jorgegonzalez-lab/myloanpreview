@@ -236,43 +236,10 @@ export default function Home() {
   </div>
 </section>
 
-<section className="max-w-3x1 mx-auto px-96 pb-28 mt-20">
-
-  <a
-    href="/what-credit-score-do-you-need-for-a-car-loan"
-    className="block bg-white border border-slate-200 rounded-3xl p-10 shadow-sm hover:shadow-md hover:border-blue-300 transition"
-  >
-
-    <div className="text-center">
-
-      <p className="text-blue-700 font-semibold uppercase tracking-wide mb-4">
-        Latest Auto Loan Guide
-      </p>
-
-      <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-        What Credit Score Do You Need for a Car Loan?
-      </h2>
-
-      <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-8 mb-6">
-        Learn how lenders evaluate credit scores, debt-to-income ratio,
-        down payments, and other factors that may affect auto loan approval
-        and financing terms.
-      </p>
-
-      <span className="text-blue-700 font-semibold">
-        Read Guide →
-      </span>
-
-    </div>
-
-  </a>
-
-</section>
-
 <section className="max-w-7xl mx-auto px-6 py-20">
   <div className="text-center mb-12">
 
-    <p className="text-blue-700 font-semibold uppercase tracking-wide mb-4">
+    <p className="text-xl text-blue-700 font-semibold uppercase tracking-wide mb-4">
       Loan Learning Center
     </p>
 
@@ -392,7 +359,7 @@ export default function Home() {
 <section className="max-w-6xl mx-auto px-6 py-20">
   
   <div className="max-w-4xl mx-auto text-center mb-14">
-    <h2 className="text-4xl font-bold text-slate-900 mb-6">
+    <h2 className="text-xl text-blue-700 font-semibold uppercase tracking-wide mb-4">
       Free Loan Payment Calculators and Affordability Tools
     </h2>
 
