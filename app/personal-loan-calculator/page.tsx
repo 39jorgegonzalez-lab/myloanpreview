@@ -82,13 +82,6 @@ export default function PersonalLoanCalculator() {
 
     {/* CTA BUTTON */}
 
-    <a
-      href="/personal-loan-calculator"
-      className="bg-blue-700 hover:bg-blue-800 text-white px-5 py-3 rounded-xl font-semibold transition"
-    >
-      Get Estimate
-    </a>
-
   </div>
 
 </header>

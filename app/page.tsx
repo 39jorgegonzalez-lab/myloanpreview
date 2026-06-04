@@ -11,18 +11,25 @@ export default function Home() {
           {/* LOGO */}
 
           <a
-            href="/"
-            className="text-2xl font-bold tracking-tight"
-          >
-            MY LOAN PREVIEW
-          </a>
+  href="/"
+  className="flex items-center gap-3"
+>
+  <img
+    src="/logo.png"
+    alt="MYLOANPREVIEW Logo"
+    className="w-22 h-22 object-contain"
+  />
 
+  <span className="text-3xl font-bold tracking-tight">
+    MY LOAN PREVIEW
+  </span>
+</a>
 
           {/* NAVIGATION */}
 
-          <nav className="flex flex-wrap justify-center gap-4 md:gap-6 text-sm font-semibold">
+          <nav className="flex flex-wrap justify-center gap-4 md:gap-6 text-m font-semibold">
 
-            <a href="/" className="hover:text-blue-700 transition">
+            <a href="/" className="text-blue-700 hover:underline">
               Home
             </a>
 
@@ -49,7 +56,7 @@ export default function Home() {
 
             <a
               href="/about"
-              className="hover:text-blue-700 transition"
+              className="text-blue-700 hover:underline"
             >
               About
             </a>
@@ -69,7 +76,7 @@ export default function Home() {
 
       <section className="max-w-6xl mx-auto px-6 py-12 text-center">
       
-        <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-8">
+        <h1 className="text-lg md:text-6xl font-bold leading-tight mb-3">
           Preview Your Possible Loan Payments Before You Apply
         </h1>
         
@@ -83,7 +90,7 @@ export default function Home() {
 
 <section className="max-w-7xl mx-auto px-6 py-1">
   <div className="text-center mb-14">
-    <p className="text-blue-700 font-semibold uppercase tracking-wide mb-4">
+    <p className="text-xl text-blue-700 font-semibold uppercase tracking-wide mb-8">
       Financial Tools
     </p>
 
@@ -511,168 +518,7 @@ export default function Home() {
 
   </div>
 
-</section>
-
-<section className="max-w-6xl mx-auto px-6 pb-24">
-
-  <div className="max-w-5xl mx-auto">
-
-    <div className="text-center mb-12">
-      <h2 className="text-4xl font-bold text-slate-900 mb-4">
-        Loan Calculators for Smarter Financial Planning
-      </h2>
-
-      <p className="text-lg text-slate-600 leading-8">
-        Compare estimated monthly payments, explore affordability, and preview possible financing
-        scenarios using free online loan calculators from My Loan Preview.
-      </p>
-    </div>
-
-    <div className="grid md:grid-cols-2 gap-10">
-
-      <div className="space-y-6 text-slate-700 leading-8">
-
-        <p>
-          Our Auto Loan Calculator helps users estimate car payments, financing costs,
-          interest charges, loan terms, and vehicle affordability before applying for
-          an auto loan. Adjust down payment amounts, repayment terms, and interest rates
-          to compare different financing scenarios.
-        </p>
-
-        <p>
-          The Personal Loan Calculator can help estimate monthly loan payments for debt
-          consolidation, emergency expenses, home improvements, medical bills, or other
-          personal financing needs. Explore estimated repayment costs and total interest
-          over time using different loan amounts and repayment periods.
-        </p>
-
-        <p>
-          Use our Mortgage Calculator to estimate monthly mortgage payments, long-term
-          borrowing costs, home affordability, interest expenses, and estimated loan totals.
-          Compare different home financing options before speaking with lenders.
-        </p>
-
-      </div>
-
-      <div className="space-y-6 text-slate-700 leading-8">
-
-        <p>
-          My Loan Preview provides free educational loan estimate tools designed to help
-          users better understand borrowing costs and possible monthly payment ranges.
-          Our calculators are intended for informational and planning purposes only.
-        </p>
-
-        <p>
-          Estimated loan payments may vary based on credit score, income, debt-to-income
-          ratio, lender requirements, loan term, APR, down payment, taxes, insurance,
-          and other financial factors.
-        </p>
-
-        <p>
-          Whether you are researching auto financing, comparing personal loan options,
-          or planning for a future mortgage, My Loan Preview provides simple loan payment
-          estimate tools to support smarter financial decisions before applying.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<section className="max-w-6xl mx-auto px-6 pb-24">
-
-  <div className="max-w-4xl mx-auto">
-
-    <div className="text-center mb-14">
-      <h2 className="text-4xl font-bold text-slate-900 mb-4">
-        Frequently Asked Questions
-      </h2>
-
-      <p className="text-lg text-slate-600 leading-8">
-        Learn more about how My Loan Preview calculators and loan estimate tools work.
-      </p>
-    </div>
-
-    <div className="space-y-6">
-
-      {/* FAQ 1 */}
-
-      <div className="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm">
-        <h3 className="text-2xl font-semibold text-slate-900 mb-4">
-          Are the loan calculators free to use?
-        </h3>
-
-        <p className="text-slate-700 leading-8">
-          Yes. My Loan Preview provides free educational loan calculators for auto loans,
-          personal loans, and mortgage estimates. Users can explore different financing
-          scenarios without creating an account or submitting a loan application.
-        </p>
-      </div>
-
-      {/* FAQ 2 */}
-
-      <div className="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm">
-        <h3 className="text-2xl font-semibold text-slate-900 mb-4">
-          Does using these calculators affect my credit score?
-        </h3>
-
-        <p className="text-slate-700 leading-8">
-          No. Using our calculators does not require a credit check and does not impact
-          your credit score. My Loan Preview provides educational payment estimates only.
-        </p>
-      </div>
-
-      {/* FAQ 3 */}
-
-      <div className="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm">
-        <h3 className="text-2xl font-semibold text-slate-900 mb-4">
-          Are loan approvals guaranteed?
-        </h3>
-
-        <p className="text-slate-700 leading-8">
-          No. My Loan Preview is not a lender and does not guarantee loan approvals,
-          financing offers, interest rates, or repayment terms. Actual loan decisions
-          vary based on lender requirements, credit profile, income, debt-to-income ratio,
-          and other financial factors.
-        </p>
-      </div>
-
-      {/* FAQ 4 */}
-
-      <div className="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm">
-        <h3 className="text-2xl font-semibold text-slate-900 mb-4">
-          How accurate are the payment estimates?
-        </h3>
-
-        <p className="text-slate-700 leading-8">
-          Our loan calculators provide estimated payment examples based on the information
-          entered by the user. Actual monthly payments may differ depending on taxes,
-          insurance, lender fees, APR, credit score, loan structure, and other variables.
-        </p>
-      </div>
-
-      {/* FAQ 5 */}
-
-      <div className="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm">
-        <h3 className="text-2xl font-semibold text-slate-900 mb-4">
-          What types of loan calculators are available?
-        </h3>
-
-        <p className="text-slate-700 leading-8">
-          My Loan Preview currently offers Auto Loan Calculators, Personal Loan Calculators,
-          and Mortgage Calculators designed to help users estimate monthly payments,
-          borrowing costs, affordability, and repayment scenarios.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
+</section> 
 
       {/* FOOTER */}
 
@@ -738,6 +584,10 @@ export default function Home() {
               <a href="/disclaimer" className="block hover:text-white">
                 Disclaimer
               </a>
+
+<a href="/faq" className="block hover:text-white">
+  FAQ
+</a>
 
             </div>
 

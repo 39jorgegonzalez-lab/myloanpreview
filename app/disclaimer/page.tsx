@@ -1,5 +1,10 @@
+import Navbar from "../components/layout/Navbar";
+import Footer from "../components/layout/Footer";
+
 export default function DisclaimerPage() {
   return (
+  <>
+    <Navbar />
     <main className="bg-slate-50 py-16">
       <div className="mx-auto max-w-4xl rounded-3xl bg-white p-8 shadow-sm md:p-12">
 
@@ -77,5 +82,8 @@ export default function DisclaimerPage() {
         </div>
       </div>
     </main>
-  );
+<Footer />
+
+</>
+);
 }

@@ -1,73 +1,105 @@
-import Link from "next/link";
-
 export default function Footer() {
   return (
-    <footer className="border-t border-slate-200 bg-white">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-4 lg:px-8">
-        <div>
-          <h3 className="text-lg font-bold text-slate-950">MYLOANPREVIEW</h3>
-          <p className="mt-4 text-sm leading-6 text-slate-600">
-            Educational financial calculators designed to help users better
-            understand possible payments, affordability, and borrowing scenarios.
-          </p>
-        </div>
 
-        <div>
-          <h4 className="font-semibold text-slate-950">Calculators</h4>
-          <div className="mt-4 space-y-3 text-sm text-slate-600">
-            <Link href="/auto-loan-calculator" className="block hover:text-blue-600">
-              Auto Loan Calculator
-            </Link>
-            <Link href="/personal-loan-calculator" className="block hover:text-blue-600">
-              Personal Loan Calculator
-            </Link>
-            <Link href="/mortgage-calculator" className="block hover:text-blue-600">
-              Mortgage Calculator
-            </Link>
-            <Link href="/debt-to-income-calculator" className="block hover:text-blue-600">
-              DTI Calculator
-            </Link>
-            <Link href="/car-affordability-calculator" className="block hover:text-blue-600">
-              Car Affordability Calculator
-            </Link>
+      <footer className="bg-slate-900 text-slate-300">
+
+        <div className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-10">
+
+          <div>
+
+            <h3 className="text-white text-2xl font-bold mb-4">
+              MYLOANPREVIEW
+            </h3>
+
+            <p className="leading-relaxed text-slate-400">
+              Educational loan calculators and estimate tools
+              for auto loans, personal loans, and mortgages.
+            </p>
+
           </div>
-        </div>
 
-        <div>
-          <h4 className="font-semibold text-slate-950">Resources</h4>
-          <div className="mt-4 space-y-3 text-sm text-slate-600">
-            <Link href="/what-credit-score-do-you-need-for-a-car-loan" className="block hover:text-blue-600">
-              Credit Score Guide
-            </Link>
-            <Link href="/monthly-payment-calculator" className="block hover:text-blue-600">
-              Monthly Payment Calculator
-            </Link>
-            <Link href="/credit-score-loan-estimate" className="block hover:text-blue-600">
-              Credit Score Loan Estimate
-            </Link>
+
+          <div>
+
+            <h4 className="text-white font-semibold mb-4">
+              Calculators
+            </h4>
+
+            <div className="space-y-3">
+
+              <a href="/auto-loan-calculator" className="block hover:text-white">
+                Auto Loan Calculator
+              </a>
+
+              <a href="/personal-loan-calculator" className="block hover:text-white">
+                Personal Loan Calculator
+              </a>
+
+              <a href="/mortgage-calculator" className="block hover:text-white">
+                Mortgage Calculator
+              </a>
+
+            </div>
+
           </div>
-        </div>
 
-        <div>
-          <h4 className="font-semibold text-slate-950">Company</h4>
-          <div className="mt-4 space-y-3 text-sm text-slate-600">
-            <Link href="/about" className="block hover:text-blue-600">About</Link>
-            <Link href="/contact" className="block hover:text-blue-600">Contact</Link>
-            <Link href="/privacy-policy" className="block hover:text-blue-600">Privacy Policy</Link>
-            <Link href="/terms" className="block hover:text-blue-600">Terms</Link>
-            <Link href="/disclaimer" className="block hover:text-blue-600">Disclaimer</Link>
+
+          <div>
+
+            <h4 className="text-white font-semibold mb-4">
+              Company
+            </h4>
+
+            <div className="space-y-3">
+
+              <a href="/about" className="block hover:text-white">
+                About
+              </a>
+
+              <a href="/privacy-policy" className="block hover:text-white">
+                Privacy Policy
+              </a>
+
+              <a href="/disclaimer" className="block hover:text-white">
+                Disclaimer
+              </a>
+
+<a href="/faq" className="block hover:text-white">
+  FAQ
+</a>
+
+            </div>
+
           </div>
-        </div>
-      </div>
 
-      <div className="border-t border-slate-200 px-4 py-6">
-        <p className="mx-auto max-w-7xl text-xs leading-6 text-slate-500">
-          MYLOANPREVIEW is not a lender, broker, or financial advisor. All loan
-          estimates and calculations are for educational and informational
-          purposes only. Actual rates, payments, and approval terms may vary by
-          lender.
-        </p>
-      </div>
-    </footer>
+
+          <div>
+
+            <h4 className="text-white font-semibold mb-4">
+              Important Notice
+            </h4>
+
+            <p className="text-slate-400 leading-relaxed text-sm">
+              MYLOANPREVIEW is not a lender, financial institution,
+              or financial advisor. All loan estimates are educational only
+              and may not reflect actual loan terms or approvals.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div className="border-t border-slate-800">
+
+          <div className="max-w-7xl mx-auto px-6 py-6 text-sm text-slate-500 text-center">
+
+            © 2026 MYLOANPREVIEW — All Rights Reserved.
+
+          </div>
+
+        </div>
+
+      </footer>
   );
 }

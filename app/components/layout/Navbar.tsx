@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import Link from "next/link";
 import { Calculator, Menu, X } from "lucide-react";
 import { useState } from "react";
@@ -9,27 +11,25 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-md">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-start px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-24 max-w-7xl items-center justify-start px-4 sm:px-6 lg:px-8">
         
-        {/* Logo */}
-        <Link
-          href="/"
-          className="flex items-center gap-3 transition-opacity hover:opacity-90"
-        >
-          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-sm">
-            <Calculator className="h-5 w-5" />
-          </div>
+       {/* Logo */}
+<Link
+  href="/"
+  className="flex items-center gap-4 transition-opacity hover:opacity-90"
+>
+  <img
+    src="/logo.png"
+    alt="MYLOANPREVIEW Logo"
+    className="w-14 h-14 object-contain"
+  />
 
-          <div className="leading-tight">
-            <div className="text-lg font-extrabold tracking-tight text-slate-950">
-              MYLOANPREVIEW
-            </div>
-
-            <div className="hidden text-xs text-slate-500 sm:block">
-              Educational Loan Estimate Tools
-            </div>
-          </div>
-        </Link>
+  <div>
+    <div className="text-3xl font-extrabold tracking-tight text-slate-950">
+      MYLOANPREVIEW
+    </div>
+  </div>
+</Link>
 
         {/* Desktop Nav */}
         <nav className="hidden items-center gap-4 md:flex ml-0">
