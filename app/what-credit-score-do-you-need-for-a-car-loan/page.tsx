@@ -1,7 +1,6 @@
 import Navbar from "@/app/components/layout/Navbar";
 import Footer from "@/app/components/layout/Footer";
 
-
 export const metadata = {
   title: "What Credit Score Do You Need for a Car Loan? | MYLOANPREVIEW",
   description:
@@ -122,124 +121,51 @@ export default function CreditScoreCarLoanPage() {
               </tbody>
             </table>
           </div>
-        </section>
+         </section>
 
-        {/* Main Content */}
-        <section className="max-w-5xl mx-auto px-6 pb-12">
-          <div className="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm">
+  <section className="max-w-5xl mx-auto px-6 pb-12">
+  <div className="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm">
 
-            <h2 className="text-3xl font-bold mb-6">
-              How Lenders Evaluate Auto Loan Applications
-            </h2>
+    <h2 className="text-3xl font-bold mb-6">
+      How Lenders Evaluate Auto Loan Applications
+    </h2>
 
-            <div className="space-y-6 text-lg text-slate-700 leading-8">
+    <div className="space-y-6 text-lg text-slate-700 leading-8">
 
-              <p>
-                Credit score is only one factor lenders may evaluate during the
-                financing process.
-              </p>
+      <p>
+        Credit score is only one factor lenders may evaluate during the
+        financing process.
+      </p>
 
-              <ul className="list-disc pl-6 space-y-3">
-                <li>Monthly income</li>
-                <li>Debt-to-income ratio</li>
-                <li>Employment history</li>
-                <li>Down payment amount</li>
-                <li>Vehicle age and mileage</li>
-                <li>Loan term length</li>
-              </ul>
+      <ul className="list-disc pl-6 space-y-3">
+        <li>Monthly income</li>
+        <li>Debt-to-income ratio</li>
+        <li>Employment history</li>
+        <li>Down payment amount</li>
+        <li>Vehicle age and mileage</li>
+        <li>Loan term length</li>
+      </ul>
 
-              <p>
-                Borrowers with larger down payments or lower debt levels may
-                receive better financing terms even with average credit scores.
-              </p>
+      <p>
+        Borrowers with larger down payments or lower debt levels may
+        receive better financing terms even with average credit scores.
+      </p>
 
-            </div>
-          </div>
-        </section>
+      <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6 mt-8">
+        <p className="text-blue-900 font-bold">
+          MYLOANPREVIEW provides educational estimates only and does not
+          guarantee loan approval or financing terms.
+        </p>
+      </div>
 
-        {/* FAQ */}
-        <section className="max-w-5xl mx-auto px-6 pb-12">
-          <div className="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm">
+</div>
+</div>
+</section>
 
-            <h2 className="text-3xl font-bold mb-8">
-              Frequently Asked Questions
-            </h2>
+</main>
 
-            <div className="space-y-8">
+<Footer />
 
-              <div>
-                <h3 className="text-2xl font-bold mb-3">
-                  Can I get a car loan with bad credit?
-                </h3>
-
-                <p className="text-lg text-slate-700 leading-8">
-                  Some lenders offer financing options for borrowers with lower
-                  credit scores, although interest rates may be higher.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-2xl font-bold mb-3">
-                  Can a larger down payment help approval chances?
-                </h3>
-
-                <p className="text-lg text-slate-700 leading-8">
-                  Larger down payments may reduce lender risk and improve
-                  financing terms.
-                </p>
-              </div>
-
-            </div>
-          </div>
-        </section>
-
-        {/* Related Tools */}
-        <section className="max-w-5xl mx-auto px-6 pb-20">
-          <div className="bg-white rounded-3xl border border-slate-200 p-10 shadow-sm">
-
-            <h2 className="text-3xl font-bold text-center mb-10">
-              Related Financial Tools
-            </h2>
-
-            <div className="grid md:grid-cols-2 gap-8">
-
-              <a
-                href="/auto-loan-calculator"
-                className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(29,78,216,0.45)] transition-all duration-300 block"
-              >
-                <div className="text-5xl mb-5">🚗</div>
-
-                <h3 className="text-2xl font-bold mb-4">
-                  Auto Loan Calculator
-                </h3>
-
-                <p className="text-slate-600 leading-relaxed">
-                  Estimate possible monthly car payments and financing costs.
-                </p>
-              </a>
-
-              <a
-                href="/credit-score-loan-estimate"
-                className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(29,78,216,0.45)] transition-all duration-300 block"
-              >
-                <div className="text-5xl mb-5">📊</div>
-
-                <h3 className="text-2xl font-bold mb-4">
-                  Credit Score Loan Estimate
-                </h3>
-
-                <p className="text-slate-600 leading-relaxed">
-                  Explore how credit score ranges may affect loan estimates.
-                </p>
-              </a>
-
-            </div>
-          </div>
-        </section>
-
-      </main>
-
-      <Footer />
-    </>
-  );
+</>
+);
 }
