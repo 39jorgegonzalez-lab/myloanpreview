@@ -18,7 +18,7 @@ export default function AboutPage() {
           <div className="space-y-10">
 
             <section>
-              <h2 className="text-2xl font-semibold text-blue-700 mb-4">
+              <h2 className="text-xl font-semibold text-blue-700 mb-4">
                 Our Mission
               </h2>
 
@@ -36,7 +36,7 @@ export default function AboutPage() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-blue-700 mb-4">
+              <h2 className="text-xl font-semibold text-blue-700 mb-4">
                 Educational Purpose
               </h2>
 
@@ -53,7 +53,7 @@ export default function AboutPage() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-blue-700 mb-4">
+              <h2 className="text-xl font-semibold text-blue-700 mb-4">
                 What We Offer
               </h2>
 
@@ -68,7 +68,7 @@ export default function AboutPage() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-blue-700 mb-4">
+              <h2 className="text-xl font-semibold text-blue-700 mb-4">
                 Transparency
               </h2>
 
