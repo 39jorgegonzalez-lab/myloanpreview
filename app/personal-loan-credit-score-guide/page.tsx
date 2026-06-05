@@ -26,7 +26,7 @@ export default function PersonalLoanGuide() {
               your chances.
             </p>
 
-            <h2 className="text-2xl font-bold mb-4">
+            <h2 className="text-black text-2xl font-bold mb-4">
               Typical Credit Score Ranges
             </h2>
 
@@ -38,7 +38,7 @@ export default function PersonalLoanGuide() {
               <li><strong>Below 580:</strong> Approval may be difficult.</li>
             </ul>
 
-            <h2 className="text-2xl font-bold mb-4">
+            <h2 className="text-black text-2xl font-bold mb-4">
               Other Factors Lenders Consider
             </h2>
 
@@ -51,7 +51,7 @@ export default function PersonalLoanGuide() {
             </ul>
 
             <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6">
-              <p className="text-blue-900">
+              <p className="text-blue-900 font-bold">
                 MYLOANPREVIEW provides educational estimates only and does not
                 guarantee loan approval or financing terms.
               </p>

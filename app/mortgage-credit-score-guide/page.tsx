@@ -25,7 +25,7 @@ export default function MortgageGuide() {
               interest rates.
             </p>
 
-            <h2 className="text-2xl font-bold mb-4">
+            <h2 className="text-black text-2xl font-bold mb-4">
               Common Mortgage Credit Score Benchmarks
             </h2>
 
@@ -37,7 +37,7 @@ export default function MortgageGuide() {
               <li><strong>Below 580:</strong> Approval may be challenging.</li>
             </ul>
 
-            <h2 className="text-2xl font-bold mb-4">
+            <h2 className="text-black text-2xl font-bold mb-4">
               Factors Beyond Credit Score
             </h2>
 
@@ -50,7 +50,7 @@ export default function MortgageGuide() {
             </ul>
 
             <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6">
-              <p className="text-blue-900">
+              <p className="text-blue-900 font-bold">
                 Loan approval requirements vary by lender and program.
                 Information on MYLOANPREVIEW is educational only.
               </p>
