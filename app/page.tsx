@@ -34,11 +34,11 @@ export default function Home() {
             </a>
 
             <a
-  href="/auto-loan-calculator"
-  className="text-blue-700 hover:underline"
->
-  Auto Loan Calculator
-</a>
+              href="/auto-loan-calculator"
+              className="text-blue-700 hover:underline"
+            >
+              Auto Loan Calculator
+            </a>
 
             <a
               href="/personal-loan-calculator"
@@ -111,7 +111,7 @@ export default function Home() {
 
     <a
       href="/auto-loan-calculator"
-      className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-lg transition block"
+      className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(29,78,216,0.45)] transition-all duration-300 block"
     >
       <div className="text-5xl mb-6">🚗</div>
 
@@ -129,7 +129,7 @@ export default function Home() {
 
     <a
       href="/personal-loan-calculator"
-      className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-lg transition block"
+      className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(29,78,216,0.45)] transition-all duration-300 block"
     >
       <div className="text-5xl mb-6">💳</div>
 
@@ -147,7 +147,7 @@ export default function Home() {
 
     <a
       href="/mortgage-calculator"
-      className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-lg transition block"
+      className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(29,78,216,0.45)] transition-all duration-300 block"
     >
       <div className="text-5xl mb-6">🏠</div>
 
@@ -165,7 +165,7 @@ export default function Home() {
 
     <a
       href="/debt-to-income-calculator"
-      className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-lg transition block"
+      className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(29,78,216,0.45)] transition-all duration-300 block"
     >
       <div className="text-5xl mb-6">📊</div>
 
@@ -183,7 +183,7 @@ export default function Home() {
 
     <a
       href="/car-affordability-calculator"
-      className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-lg transition block"
+      className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(29,78,216,0.45)] transition-all duration-300 block"
     >
       <div className="text-5xl mb-6">🚘</div>
 
@@ -201,7 +201,7 @@ export default function Home() {
 
     <a
       href="/monthly-payment-calculator"
-      className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-lg transition block"
+      className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(29,78,216,0.45)] transition-all duration-300 block"
     >
       <div className="text-5xl mb-6">📅</div>
 
@@ -219,7 +219,7 @@ export default function Home() {
 
     <a
       href="/credit-score-loan-estimate"
-      className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-lg transition block md:col-span-2 xl:col-span-1"
+      className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(29,78,216,0.45)] transition-all duration-300 block"
     >
       <div className="text-5xl mb-6">📈</div>
 
@@ -258,7 +258,7 @@ export default function Home() {
 
     <a
       href="/what-credit-score-do-you-need-for-a-car-loan"
-      className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition"
+      className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(29,78,216,0.45)] transition-all duration-300 block"
     >
       <h3 className="text-2xl font-bold mb-4">
         Auto Loan Guide
@@ -271,7 +271,7 @@ export default function Home() {
 
     <a
       href="/personal-loan-credit-score-guide"
-      className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition"
+      className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(29,78,216,0.45)] transition-all duration-300 block"
     >
       <h3 className="text-2xl font-bold mb-4">
         Personal Loan Guide
@@ -284,7 +284,7 @@ export default function Home() {
 
     <a
       href="/mortgage-credit-score-guide"
-      className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition"
+      className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(29,78,216,0.45)] transition-all duration-300 block"
     >
       <h3 className="text-2xl font-bold mb-4">
         Mortgage Guide
@@ -499,7 +499,7 @@ export default function Home() {
               MYLOANPREVIEW
             </h3>
 
-            <p className="leading-relaxed text-slate-400">
+            <p className="leading-relaxed text-white">
               Educational loan calculators and estimate tools
               for auto loans, personal loans, and mortgages.
             </p>
@@ -509,21 +509,21 @@ export default function Home() {
 
           <div>
 
-            <h4 className="text-white font-semibold mb-4">
+            <h4 className="text-lg text-white font-semibold mb-4">
               Calculators
             </h4>
 
             <div className="space-y-3">
 
-              <a href="/auto-loan-calculator" className="block hover:text-white">
+              <a href="/auto-loan-calculator" className="block hover:underline text-white">
                 Auto Loan Calculator
               </a>
 
-              <a href="/personal-loan-calculator" className="block hover:text-white">
+              <a href="/personal-loan-calculator" className="block hover:underline text-white">
                 Personal Loan Calculator
               </a>
 
-              <a href="/mortgage-calculator" className="block hover:text-white">
+              <a href="/mortgage-calculator" className="block hover:underline text-white">
                 Mortgage Calculator
               </a>
 
@@ -534,25 +534,25 @@ export default function Home() {
 
           <div>
 
-            <h4 className="text-white font-semibold mb-4">
+            <h4 className="text-lg text-white font-semibold mb-4">
               Company
             </h4>
 
             <div className="space-y-3">
 
-              <a href="/about" className="block hover:text-white">
+              <a href="/about" className="block hover:underline text-white">
                 About
               </a>
 
-              <a href="/privacy-policy" className="block hover:text-white">
+              <a href="/privacy-policy" className="block hover:underline text-white">
                 Privacy Policy
               </a>
 
-              <a href="/disclaimer" className="block hover:text-white">
+              <a href="/disclaimer" className="block hover:underline text-white">
                 Disclaimer
               </a>
 
-<a href="/faq" className="block hover:text-white">
+<a href="/faq" className="block hover:underline text-white">
   FAQ
 </a>
 
@@ -563,11 +563,11 @@ export default function Home() {
 
           <div>
 
-            <h4 className="text-white font-semibold mb-4">
+            <h4 className="text-lg text-white font-semibold mb-4">
               Important Notice
             </h4>
 
-            <p className="text-slate-400 leading-relaxed text-sm">
+            <p className="text-white leading-relaxed text-sm">
               MYLOANPREVIEW is not a lender, financial institution,
               or financial advisor. All loan estimates are educational only
               and may not reflect actual loan terms or approvals.

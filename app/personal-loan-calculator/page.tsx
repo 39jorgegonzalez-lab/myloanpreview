@@ -1,5 +1,5 @@
 "use client";
-
+import Navbar from "@/app/components/layout/Navbar";
 import { useState } from "react";
 
 export default function PersonalLoanCalculator() {
@@ -24,74 +24,19 @@ export default function PersonalLoanCalculator() {
       currency: "USD",
     });
 
-  return (
+return (
+  <>
+    <Navbar />
+
     <main className="min-h-screen bg-slate-100 text-slate-900">
 
-      <header className="bg-white border-b border-slate-200 sticky top-0 z-50">
-
-  <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col md:flex-row items-center justify-between gap-4">
-
-    {/* LOGO */}
-
-    <a
-      href="/"
-      className="text-2xl font-bold tracking-tight"
-    >
-      MY LOAN PREVIEW
-    </a>
-
-
-    {/* NAVIGATION */}
-
-    <nav className="flex flex-wrap justify-center gap-4 md:gap-6 text-sm font-semibold">
-
-      <a href="/" className="hover:text-blue-700 transition">
-        Home
-      </a>
-
-      <a
-        href="/auto-loan-calculator"
-        className="hover:text-blue-700 transition"
-      >
-        Auto Loans
-      </a>
-
-      <a
-        href="/personal-loan-calculator"
-        className="hover:text-blue-700 transition"
-      >
-        Personal Loans
-      </a>
-
-      <a
-        href="/mortgage-calculator"
-        className="hover:text-blue-700 transition"
-      >
-        Mortgage
-      </a>
-
-      <a
-        href="/about"
-        className="hover:text-blue-700 transition"
-      >
-        About
-      </a>
-
-    </nav>
-
-
     {/* CTA BUTTON */}
-
-  </div>
-
-</header>
-
 
       <section className="max-w-7xl mx-auto px-6 py-16">
 
         <div className="text-center max-w-3xl mx-auto mb-12">
 
-          <p className="text-blue-700 font-semibold uppercase tracking-wide mb-3">
+          <p className="text-lg text-blue-700 font-semibold uppercase tracking-wide mb-4">
             Personal Loan Estimate
           </p>
 
@@ -99,7 +44,7 @@ export default function PersonalLoanCalculator() {
             Personal Loan Calculator
           </h1>
 
-          <p className="text-lg text-slate-600">
+          <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Estimate possible monthly payments, total interest,
             and total repayment costs for personal loans.
           </p>
@@ -227,7 +172,7 @@ export default function PersonalLoanCalculator() {
 
       <a
         href="/auto-loan-calculator"
-        className="border border-slate-200 rounded-2xl p-8 hover:shadow-md transition block"
+        className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(29,78,216,0.45)] transition-all duration-300 block"
       >
 
         <div className="text-5xl mb-5">
@@ -250,7 +195,7 @@ export default function PersonalLoanCalculator() {
 
       <a
         href="/mortgage-calculator"
-        className="border border-slate-200 rounded-2xl p-8 hover:shadow-md transition block"
+        className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(29,78,216,0.45)] transition-all duration-300 block"
       >
 
         <div className="text-5xl mb-5">
@@ -273,8 +218,9 @@ export default function PersonalLoanCalculator() {
   </div>
 
 </section>
-    </main>
-  );
+</main>
+</>
+);
 }
 
 

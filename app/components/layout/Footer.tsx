@@ -11,7 +11,7 @@ export default function Footer() {
               MYLOANPREVIEW
             </h3>
 
-            <p className="leading-relaxed text-slate-400">
+            <p className="leading-relaxed text-white">
               Educational loan calculators and estimate tools
               for auto loans, personal loans, and mortgages.
             </p>
@@ -21,21 +21,21 @@ export default function Footer() {
 
           <div>
 
-            <h4 className="text-white font-semibold mb-4">
+            <h4 className="text-lg text-white font-semibold mb-4">
               Calculators
             </h4>
 
             <div className="space-y-3">
 
-              <a href="/auto-loan-calculator" className="block hover:text-white">
+              <a href="/auto-loan-calculator" className="block hover:underline text-white">
                 Auto Loan Calculator
               </a>
 
-              <a href="/personal-loan-calculator" className="block hover:text-white">
+              <a href="/personal-loan-calculator" className="block hover:underline text-white">
                 Personal Loan Calculator
               </a>
 
-              <a href="/mortgage-calculator" className="block hover:text-white">
+              <a href="/mortgage-calculator" className="block hover:underline text-white">
                 Mortgage Calculator
               </a>
 
@@ -46,25 +46,25 @@ export default function Footer() {
 
           <div>
 
-            <h4 className="text-white font-semibold mb-4">
+            <h4 className="text-lg text-white font-semibold mb-4">
               Company
             </h4>
 
             <div className="space-y-3">
 
-              <a href="/about" className="block hover:text-white">
+              <a href="/about" className="block hover:underline text-white">
                 About
               </a>
 
-              <a href="/privacy-policy" className="block hover:text-white">
+              <a href="/privacy-policy" className="block hover:underline text-white">
                 Privacy Policy
               </a>
 
-              <a href="/disclaimer" className="block hover:text-white">
+              <a href="/disclaimer" className="block hover:underline text-white">
                 Disclaimer
               </a>
 
-<a href="/faq" className="block hover:text-white">
+<a href="/faq" className="block hover:underline text-white">
   FAQ
 </a>
 
@@ -75,11 +75,11 @@ export default function Footer() {
 
           <div>
 
-            <h4 className="text-white font-semibold mb-4">
+            <h4 className="text-lg text-white font-semibold mb-4">
               Important Notice
             </h4>
 
-            <p className="text-slate-400 leading-relaxed text-sm">
+            <p className="text-white leading-relaxed text-sm">
               MYLOANPREVIEW is not a lender, financial institution,
               or financial advisor. All loan estimates are educational only
               and may not reflect actual loan terms or approvals.

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
+import Navbar from "@/app/components/layout/Navbar";
 export default function MortgageCalculator() {
   const [homePrice, setHomePrice] = useState(350000);
   const [downPayment, setDownPayment] = useState(70000);
@@ -30,68 +30,13 @@ export default function MortgageCalculator() {
       currency: "USD",
     });
 
-  return (
+return (
+  <>
+    <Navbar />
+
     <main className="min-h-screen bg-slate-100 text-slate-900">
 
-      <header className="bg-white border-b border-slate-200 sticky top-0 z-50">
-
-  <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col md:flex-row items-center justify-between gap-4">
-
-    {/* LOGO */}
-
-    <a
-      href="/"
-      className="text-2xl font-bold tracking-tight"
-    >
-      MY LOAN PREVIEW
-    </a>
-
-
-    {/* NAVIGATION */}
-
-    <nav className="flex flex-wrap justify-center gap-4 md:gap-6 text-sm font-semibold">
-
-      <a href="/" className="hover:text-blue-700 transition">
-        Home
-      </a>
-
-      <a
-        href="/auto-loan-calculator"
-        className="hover:text-blue-700 transition"
-      >
-        Auto Loans
-      </a>
-
-      <a
-        href="/personal-loan-calculator"
-        className="hover:text-blue-700 transition"
-      >
-        Personal Loans
-      </a>
-
-      <a
-        href="/mortgage-calculator"
-        className="hover:text-blue-700 transition"
-      >
-        Mortgage
-      </a>
-
-      <a
-        href="/about"
-        className="hover:text-blue-700 transition"
-      >
-        About
-      </a>
-
-    </nav>
-
-
     {/* CTA BUTTON */}
-
-   </div>
-
-</header>
-
 
       <section className="max-w-7xl mx-auto px-6 py-16">
 
@@ -238,7 +183,7 @@ export default function MortgageCalculator() {
 
       <a
         href="/auto-loan-calculator"
-        className="border border-slate-200 rounded-2xl p-8 hover:shadow-md transition block"
+        className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(29,78,216,0.45)] transition-all duration-300 block"
       >
 
         <div className="text-5xl mb-5">
@@ -261,7 +206,7 @@ export default function MortgageCalculator() {
 
       <a
         href="/personal-loan-calculator"
-        className="border border-slate-200 rounded-2xl p-8 hover:shadow-md transition block"
+        className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(29,78,216,0.45)] transition-all duration-300 block"
       >
 
         <div className="text-5xl mb-5">
@@ -285,6 +230,7 @@ export default function MortgageCalculator() {
 
 </section>
     </main>
+    </>
   );
 }
 

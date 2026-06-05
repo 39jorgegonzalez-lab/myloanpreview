@@ -17,11 +17,11 @@ export default function CreditScoreCarLoanPage() {
 
         {/* Hero */}
         <section className="py-16 px-6 text-center">
-          <p className="text-blue-700 font-semibold uppercase tracking-wide mb-4">
-            Auto Loan Education
+          <p className="text-lg text-blue-700 font-semibold uppercase tracking-wide mb-4">
+            Auto Loan GUIDE
           </p>
 
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 max-w-5xl mx-auto">
+          <h1 className="text-3xl md:text-5xl font-bold mb-6 max-w-3xl mx-auto">
             What Credit Score Do You Need for a Car Loan?
           </h1>
 
@@ -205,7 +205,7 @@ export default function CreditScoreCarLoanPage() {
 
               <a
                 href="/auto-loan-calculator"
-                className="border border-slate-200 rounded-2xl p-8 hover:shadow-md transition block"
+                className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(29,78,216,0.45)] transition-all duration-300 block"
               >
                 <div className="text-5xl mb-5">🚗</div>
 
@@ -220,7 +220,7 @@ export default function CreditScoreCarLoanPage() {
 
               <a
                 href="/credit-score-loan-estimate"
-                className="border border-slate-200 rounded-2xl p-8 hover:shadow-md transition block"
+                className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(29,78,216,0.45)] transition-all duration-300 block"
               >
                 <div className="text-5xl mb-5">📊</div>
 
