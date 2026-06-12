@@ -72,12 +72,29 @@ export default function Footer() {
 
           </div>
 
+<div>
+  <h4 className="text-lg text-white font-semibold mb-4">
+    Contact Us
+  </h4>
 
-          <div>
+  <p className="text-white leading-relaxed text-sm">
+    Questions or feedback?
+    We'd love to hear from you.
+    Email us at:
+  </p>
 
-            <h4 className="text-lg text-white font-semibold mb-4">
-              Important Notice
-            </h4>
+  <a
+    href="mailto:loanpreview@gmail.com"
+    className="block hover:underline text-cyan-300 mt-2"
+  >
+    loanpreview@gmail.com
+  </a>
+</div>
+
+<div>
+  <h4 className="text-lg text-white font-semibold mb-4">
+    Important Notice
+  </h4>
 
             <p className="text-white leading-relaxed text-sm">
               MYLOANPREVIEW is not a lender, financial institution,
