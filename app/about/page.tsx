@@ -11,7 +11,7 @@ export default function AboutPage() {
 
         <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-10 md:p-14">
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-900 mb-8 leading-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-8 leading-tight">
   About
   <br />
   MYLOANPREVIEW
