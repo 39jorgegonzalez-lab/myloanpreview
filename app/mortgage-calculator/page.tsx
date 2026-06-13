@@ -38,7 +38,7 @@ return (
 
     {/* CTA BUTTON */}
 
-      <section className="max-w-7xl mx-auto px-6 py-16">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16 overflow-x-hidden">
 
         <div className="text-center max-w-3xl mx-auto mb-12">
 
@@ -46,7 +46,7 @@ return (
             Mortgage Estimate
           </p>
 
-          <h1 className="text-5xl font-bold mb-6">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-6">
             Mortgage Calculator
           </h1>
 
@@ -58,11 +58,11 @@ return (
         </div>
 
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-8 w-full">
 
           {/* INPUTS */}
 
-          <div className="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm">
+          <div className="bg-white rounded-3xl p-6 md:p-8 shadow-sm mb-8 w-full overflow-hidden">
 
             <h2 className="text-2xl font-bold mb-6">
               Enter Mortgage Details
@@ -102,7 +102,7 @@ return (
 
           {/* RESULTS */}
 
-          <div className="bg-blue-700 text-white rounded-3xl p-8 shadow-sm">
+          <div className="bg-blue-700 text-white rounded-3xl p-6 md:p-8 shadow-sm w-full overflow-hidden">
 
             <h2 className="text-2xl font-bold mb-8">
               Estimated Results
@@ -114,7 +114,7 @@ return (
                 Estimated Monthly Payment
               </p>
 
-              <p className="text-5xl font-bold">
+              <p className="text-4xl sm:text-5xl font-bold break-words">
                 {money(monthlyPayment)}
               </p>
 
