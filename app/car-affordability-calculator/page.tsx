@@ -160,13 +160,13 @@ export default function CarAffordabilityCalculator() {
               Estimated Affordable Vehicle Price
             </p>
 
-            <h3 className="text-5xl font-bold">
-              {money(
-                isFinite(estimatedVehiclePrice)
-                  ? estimatedVehiclePrice
-                  : 0
-              )}
-            </h3>
+            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold break-words">
+  {money(
+    isFinite(estimatedVehiclePrice)
+      ? estimatedVehiclePrice
+      : 0
+  )}
+</h3>
           </div>
 
           <div className="space-y-6 text-lg">
