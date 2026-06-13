@@ -68,7 +68,7 @@ export default function CarAffordabilityCalculator() {
       <section className="max-w-7xl mx-auto px-6 pb-20 grid lg:grid-cols-2 gap-8">
         {/* INPUTS */}
 
-        <div className="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm">
+        <div className="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm w-full overflow-hidden">
           <h2 className="text-3xl font-bold mb-8">
             Enter Financial Information
           </h2>
@@ -150,7 +150,7 @@ export default function CarAffordabilityCalculator() {
 
         {/* RESULTS */}
 
-        <div className="bg-blue-700 text-white rounded-3xl p-8 shadow-lg">
+        <div className="bg-blue-700 text-white rounded-3xl p-8 shadow-lg w-full overflow-hidden">
           <h2 className="text-3xl font-bold mb-8">
             Estimated Results
           </h2>
@@ -238,7 +238,7 @@ export default function CarAffordabilityCalculator() {
             Explore Other Financial Tools
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-2 gap-8 w-full">
             <a
               href="/auto-loan-calculator"
               className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(29,78,216,0.45)] transition-all duration-300 block"
