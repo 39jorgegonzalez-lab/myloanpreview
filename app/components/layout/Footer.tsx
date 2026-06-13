@@ -78,8 +78,8 @@ export default function Footer() {
   </h4>
 
   <p className="text-white leading-relaxed text-sm">
-    Questions or feedback?
-    We'd love to hear from you.
+    Questions or feedback?                    
+    We'd love to hear from you.          
     Email us at:
   </p>
 
