@@ -18,6 +18,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+  icons: {
+  icon: "/icon.png",
+},
   metadataBase: new URL("https://www.myloanpreview.com"),
 
   alternates: {
