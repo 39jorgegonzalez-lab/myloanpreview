@@ -4,8 +4,7 @@ import Footer from "../components/layout/Footer";
 export default function AboutPage() {
   return (
     <>
-      <Navbar />
-
+    
       <main className="min-h-screen bg-slate-100 py-16 px-6">
       <div className="max-w-4xl mx-auto">
 

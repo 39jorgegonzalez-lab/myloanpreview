@@ -4,8 +4,7 @@ import Footer from "../components/layout/Footer";
 export default function DisclaimerPage() {
   return (
     <>
-      <Navbar />
-
+    
       <main className="min-h-screen bg-slate-100 py-16">
         <div className="max-w-4xl mx-auto px-6">
           <div className="bg-white rounded-3xl shadow-sm p-8 md:p-12">

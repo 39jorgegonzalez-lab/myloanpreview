@@ -35,8 +35,7 @@ export default function MonthlyPaymentCalculator() {
 
   return (
   <>
-    <Navbar />
-
+  
     <main className="min-h-screen bg-slate-100 text-slate-900">
       
       <section className="py-16 px-6 text-center">

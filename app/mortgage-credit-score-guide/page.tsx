@@ -4,8 +4,7 @@ import Footer from "../components/layout/Footer";
 export default function MortgageGuide() {
   return (
     <>
-      <Navbar />
-
+    
       <main className="bg-slate-50 min-h-screen">
         <section className="max-w-4xl mx-auto px-6 py-20">
           <div className="bg-white rounded-3xl border border-slate-200 p-10 shadow-sm">

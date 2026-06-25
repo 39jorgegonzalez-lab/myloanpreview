@@ -4,8 +4,7 @@ import Footer from "../components/layout/Footer";
 export default function FAQPage() {
   return (
   <>
-    <Navbar />
-
+  
     <main className="bg-slate-100 min-h-screen py-16 px-6">
       <div className="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-sm p-10 md:p-14">
 

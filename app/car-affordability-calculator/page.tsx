@@ -40,8 +40,7 @@ export default function CarAffordabilityCalculator() {
 
  return (
   <>
-    <Navbar />
-
+  
     <main className="min-h-screen bg-slate-100 text-slate-900">
       {/* NAVBAR */}
 
