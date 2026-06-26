@@ -37,38 +37,42 @@ export default function LearningCenterPage() {
           </h2>
 
           <div className="grid gap-6 md:grid-cols-2">
+  <GuideCard
+    title="What Credit Score Do You Need for a Personal Loan?"
+    description="Learn how lenders evaluate credit scores and what factors may affect personal loan approval."
+    href="/learning-center/what-credit-score-do-you-need-for-a-personal-loan"
+  />
 
-            <GuideCard
-              title="What Credit Score Do You Need for a Personal Loan?"
-              description="Learn how lenders evaluate credit scores and what factors may affect personal loan approval."
-              href="/learning-center/what-credit-score-do-you-need-for-a-personal-loan"
-            />
+  <GuideCard
+    title="What Credit Score Do You Need for a Car Loan?"
+    description="Learn how credit scores, income, down payment, and vehicle details may affect auto loan approval."
+    href="/learning-center/what-credit-score-do-you-need-for-a-car-loan"
+  />
 
-            <GuideCard
-              title="Does Checking Loan Rates Hurt Your Credit?"
-              description="Understand the difference between soft inquiries and hard inquiries before comparing loan offers."
-              href="#"
-            />
+  <GuideCard
+    title="Does Checking Loan Rates Hurt Your Credit?"
+    description="Understand the difference between soft inquiries and hard inquiries before comparing loan offers."
+    href="#"
+  />
 
-            <GuideCard
-              title="How Much Car Can I Afford?"
-              description="Estimate a realistic vehicle budget before visiting a dealership."
-              href="#"
-            />
+  <GuideCard
+    title="How Much Car Can I Afford?"
+    description="Estimate a realistic vehicle budget before visiting a dealership."
+    href="#"
+  />
 
-            <GuideCard
-              title="Loan Prequalification vs. Preapproval"
-              description="Learn the differences and why they matter before applying for financing."
-              href="#"
-            />
+  <GuideCard
+    title="Loan Prequalification vs. Preapproval"
+    description="Learn the differences and why they matter before applying for financing."
+    href="#"
+  />
 
-            <GuideCard
-              title="How Much Mortgage Can I Afford?"
-              description="Understand the key factors lenders consider when estimating mortgage affordability."
-              href="#"
-            />
-
-          </div>
+  <GuideCard
+    title="How Much Mortgage Can I Afford?"
+    description="Understand the key factors lenders consider when estimating mortgage affordability."
+    href="#"
+  />
+</div>
 
         </section>
 
