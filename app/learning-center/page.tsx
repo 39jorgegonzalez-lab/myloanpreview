@@ -68,10 +68,10 @@ export default function LearningCenterPage() {
   />
 
   <GuideCard
-    title="How Much Mortgage Can I Afford?"
-    description="Understand the key factors lenders consider when estimating mortgage affordability."
-    href="#"
-  />
+  title="What Credit Score Do You Need for a Mortgage?"
+  description="Learn how credit scores, income, debt-to-income ratio, and down payment may affect mortgage approval."
+  href="/learning-center/what-credit-score-do-you-need-for-a-mortgage"
+/>
 </div>
 
         </section>

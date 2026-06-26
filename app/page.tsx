@@ -168,7 +168,6 @@ export default function Home() {
 
 <section className="max-w-7xl mx-auto px-6 py-20">
   <div className="text-center mb-12">
-
     <p className="text-xl text-blue-700 font-semibold uppercase tracking-wide mb-4">
       Loan Learning Center
     </p>
@@ -177,54 +176,62 @@ export default function Home() {
       Learn Before You Borrow
     </h2>
 
-    <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+    <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-8">
       Explore educational guides designed to help you understand credit scores,
-      loan approvals, and financing requirements before applying.
+      loan approvals, auto loans, personal loans, mortgages, and affordability
+      before applying.
     </p>
 
+    <a
+      href="/learning-center"
+      className="inline-block mt-8 rounded-xl bg-blue-600 px-8 py-4 text-white font-semibold shadow-sm hover:bg-blue-700 transition"
+    >
+      Visit the Loan Learning Center →
+    </a>
   </div>
 
   <div className="grid md:grid-cols-3 gap-8">
-
     <a
-      href="/what-credit-score-do-you-need-for-a-car-loan"
+      href="/learning-center/what-credit-score-do-you-need-for-a-car-loan"
       className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(29,78,216,0.45)] transition-all duration-300 block"
     >
       <h3 className="text-2xl font-bold mb-4">
         Auto Loan Guide
       </h3>
 
-      <p className="text-slate-600">
-        Learn how credit scores affect vehicle financing approvals.
+      <p className="text-slate-600 leading-7">
+        Learn how credit scores, income, down payments, and vehicle details may
+        affect auto loan approval.
       </p>
     </a>
 
     <a
-      href="/personal-loan-credit-score-guide"
+      href="/learning-center/what-credit-score-do-you-need-for-a-personal-loan"
       className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(29,78,216,0.45)] transition-all duration-300 block"
     >
       <h3 className="text-2xl font-bold mb-4">
         Personal Loan Guide
       </h3>
 
-      <p className="text-slate-600">
-        Understand personal loan credit requirements and approval factors.
+      <p className="text-slate-600 leading-7">
+        Understand personal loan credit score ranges, approval factors, and
+        possible monthly payment planning.
       </p>
     </a>
 
     <a
-      href="/mortgage-credit-score-guide"
+      href="/learning-center/what-credit-score-do-you-need-for-a-mortgage"
       className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(29,78,216,0.45)] transition-all duration-300 block"
     >
       <h3 className="text-2xl font-bold mb-4">
         Mortgage Guide
       </h3>
 
-      <p className="text-slate-600">
-        Discover common mortgage credit score benchmarks and lender expectations.
+      <p className="text-slate-600 leading-7">
+        Discover how credit scores, income, debt-to-income ratio, and down
+        payment may affect mortgage approval.
       </p>
     </a>
-
   </div>
 </section>
 
