@@ -68,10 +68,10 @@ export default function LearningCenterPage() {
 />
 
   <GuideCard
-    title="Loan Prequalification vs. Preapproval"
-    description="Learn the differences and why they matter before applying for financing."
-    href="#"
-  />
+  title="Loan Prequalification vs. Preapproval"
+  description="Learn the difference between prequalification and preapproval, and why neither one guarantees final loan approval."
+  href="/learning-center/loan-prequalification-vs-preapproval"
+/>
 
   <GuideCard
   title="What Credit Score Do You Need for a Mortgage?"
