@@ -61,6 +61,12 @@ export default function LearningCenterPage() {
     href="#"
   />
 
+<GuideCard
+  title="What Is Debt-to-Income Ratio?"
+  description="Learn how lenders may use DTI to evaluate affordability before approving a loan."
+  href="/learning-center/what-is-debt-to-income-ratio"
+/>
+
   <GuideCard
     title="Loan Prequalification vs. Preapproval"
     description="Learn the differences and why they matter before applying for financing."
