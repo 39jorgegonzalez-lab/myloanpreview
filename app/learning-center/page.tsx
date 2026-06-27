@@ -50,10 +50,10 @@ export default function LearningCenterPage() {
   />
 
   <GuideCard
-    title="Does Checking Loan Rates Hurt Your Credit?"
-    description="Understand the difference between soft inquiries and hard inquiries before comparing loan offers."
-    href="#"
-  />
+  title="Does Checking Loan Rates Hurt Your Credit?"
+  description="Understand the difference between soft inquiries and hard inquiries before comparing loan offers."
+  href="/learning-center/does-checking-loan-rates-hurt-your-credit"
+/>
 
   <GuideCard
     title="How Much Car Can I Afford?"
