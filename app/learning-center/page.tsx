@@ -56,10 +56,10 @@ export default function LearningCenterPage() {
 />
 
   <GuideCard
-    title="How Much Car Can I Afford?"
-    description="Estimate a realistic vehicle budget before visiting a dealership."
-    href="#"
-  />
+  title="How Much Car Can I Afford?"
+  description="Estimate a realistic vehicle budget by reviewing income, debt, down payment, insurance, and total vehicle cost."
+  href="/learning-center/how-much-car-can-i-afford"
+/>
 
 <GuideCard
   title="What Is Debt-to-Income Ratio?"
