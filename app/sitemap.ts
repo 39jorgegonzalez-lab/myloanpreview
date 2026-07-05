@@ -1,40 +1,43 @@
 import type { MetadataRoute } from "next";
 
+const baseUrl = "https://www.myloanpreview.com";
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: "https://www.myloanpreview.com",
-      lastModified: new Date(),
-    },
+  const lastModified = new Date();
 
-    {
-      url: "https://www.myloanpreview.com/auto-loan-calculator",
-      lastModified: new Date(),
-    },
+  const routes = [
+    "",
 
-    {
-      url: "https://www.myloanpreview.com/personal-loan-calculator",
-      lastModified: new Date(),
-    },
+    // Main content hubs
+    "/learning-center",
 
-    {
-      url: "https://www.myloanpreview.com/mortgage-calculator",
-      lastModified: new Date(),
-    },
+    // Calculators
+    "/auto-loan-calculator",
+    "/personal-loan-calculator",
+    "/mortgage-calculator",
+    "/monthly-payment-calculator",
+    "/car-affordability-calculator",
+    "/debt-to-income-calculator",
+    "/credit-score-loan-estimate",
 
-    {
-      url: "https://www.myloanpreview.com/about",
-      lastModified: new Date(),
-    },
+    // Loan Learning Center guides
+    "/learning-center/what-credit-score-do-you-need-for-a-personal-loan",
+    "/learning-center/what-credit-score-do-you-need-for-a-car-loan",
+    "/learning-center/what-credit-score-do-you-need-for-a-mortgage",
+    "/learning-center/what-is-debt-to-income-ratio",
+    "/learning-center/loan-prequalification-vs-preapproval",
+    "/learning-center/does-checking-loan-rates-hurt-your-credit",
+    "/learning-center/how-much-car-can-i-afford",
 
-    {
-      url: "https://www.myloanpreview.com/privacy-policy",
-      lastModified: new Date(),
-    },
-
-    {
-      url: "https://www.myloanpreview.com/disclaimer",
-      lastModified: new Date(),
-    },
+    // Company / trust pages
+    "/about",
+    "/privacy-policy",
+    "/disclaimer",
+    "/faq",
   ];
+
+  return routes.map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified,
+  }));
 }
