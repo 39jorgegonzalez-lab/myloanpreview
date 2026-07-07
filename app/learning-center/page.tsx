@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import EmailSignupCTA from "../components/layout/EmailSignupCTA";
 
 export const metadata: Metadata = {
   title: "Learning Center | MYLOANPREVIEW",
@@ -81,6 +82,8 @@ export default function LearningCenterPage() {
 </div>
 
         </section>
+
+<EmailSignupCTA />
 
         {/* Free Calculators */}
 

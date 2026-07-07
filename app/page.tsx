@@ -1,3 +1,4 @@
+import EmailSignupCTA from "./components/layout/EmailSignupCTA";
 export default function Home() {
   return (
     <main className="min-h-screen bg-slate-100 text-slate-900">
@@ -234,6 +235,8 @@ export default function Home() {
     </a>
   </div>
 </section>
+
+<EmailSignupCTA />
 
       {/* TRUST SECTION */}
 
