@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Loan Learning Center guides
     "/learning-center/what-credit-score-do-you-need-for-a-personal-loan",
     "/learning-center/how-apr-works-on-a-loan",
+    "/learning-center/what-is-a-good-apr-for-a-personal-loan",
     "/learning-center/what-credit-score-do-you-need-for-a-car-loan",
     "/learning-center/what-credit-score-do-you-need-for-a-mortgage",
     "/learning-center/what-is-debt-to-income-ratio",

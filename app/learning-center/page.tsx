@@ -50,6 +50,12 @@ export default function LearningCenterPage() {
   href="/learning-center/how-apr-works-on-a-loan"
 />
 
+<GuideCard
+  title="What Is a Good APR for a Personal Loan?"
+  description="Learn what may be considered a good APR, why APR varies by borrower, and how to compare personal loan offers."
+  href="/learning-center/what-is-a-good-apr-for-a-personal-loan"
+/>
+
   <GuideCard
     title="What Credit Score Do You Need for a Car Loan?"
     description="Learn how credit scores, income, down payment, and vehicle details may affect auto loan approval."
