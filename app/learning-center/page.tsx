@@ -62,6 +62,12 @@ export default function LearningCenterPage() {
   href="/learning-center/how-to-compare-personal-loan-offers"
 />
 
+<GuideCard
+  title="Personal Loan Fees Explained"
+  description="Learn about common personal loan fees, including origination fees, late fees, prepayment penalties, and how fees can affect total cost."
+  href="/learning-center/personal-loan-fees-explained"
+/>
+
   <GuideCard
     title="What Credit Score Do You Need for a Car Loan?"
     description="Learn how credit scores, income, down payment, and vehicle details may affect auto loan approval."
