@@ -26,6 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/learning-center/what-is-a-good-apr-for-a-personal-loan",
     "/learning-center/how-to-compare-personal-loan-offers",
     "/learning-center/personal-loan-fees-explained",
+    "/learning-center/fixed-vs-variable-apr",
     "/learning-center/what-credit-score-do-you-need-for-a-car-loan",
     "/learning-center/what-credit-score-do-you-need-for-a-mortgage",
     "/learning-center/what-is-debt-to-income-ratio",

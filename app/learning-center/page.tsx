@@ -68,6 +68,12 @@ export default function LearningCenterPage() {
   href="/learning-center/personal-loan-fees-explained"
 />
 
+<GuideCard
+  title="Fixed vs. Variable APR: What Borrowers Should Know"
+  description="Learn how fixed and variable APRs work, how rate changes may affect payments and loan costs, and what to compare before choosing a loan."
+  href="/learning-center/fixed-vs-variable-apr"
+/>
+
   <GuideCard
     title="What Credit Score Do You Need for a Car Loan?"
     description="Learn how credit scores, income, down payment, and vehicle details may affect auto loan approval."
