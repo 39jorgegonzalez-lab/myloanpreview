@@ -74,6 +74,12 @@ export default function LearningCenterPage() {
   href="/learning-center/fixed-vs-variable-apr"
 />
 
+<GuideCard
+  title="How Loan Terms Affect Monthly Payments"
+  description="Learn how shorter and longer loan terms affect monthly payments, total interest, repayment time, and overall borrowing cost."
+  href="/learning-center/how-loan-terms-affect-monthly-payments"
+/>
+
   <GuideCard
     title="What Credit Score Do You Need for a Car Loan?"
     description="Learn how credit scores, income, down payment, and vehicle details may affect auto loan approval."
