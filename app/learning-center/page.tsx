@@ -86,6 +86,12 @@ export default function LearningCenterPage() {
   href="/learning-center/how-loan-terms-affect-monthly-payments"
 />
 
+<GuideCard
+  title="How to Lower Your Personal Loan Payment"
+  description="Learn how refinancing, a longer loan term, lender assistance, and other options may lower a personal loan payment—and what costs to compare."
+  href="/learning-center/how-to-lower-your-personal-loan-payment"
+/>
+
   <GuideCard
     title="What Credit Score Do You Need for a Car Loan?"
     description="Learn how credit scores, income, down payment, and vehicle details may affect auto loan approval."
