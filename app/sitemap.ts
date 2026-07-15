@@ -26,6 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/learning-center/what-is-a-good-apr-for-a-personal-loan",
     "/learning-center/how-to-compare-personal-loan-offers",
     "/learning-center/personal-loan-fees-explained",
+    "/learning-center/what-is-an-origination-fee",
     "/learning-center/fixed-vs-variable-apr",
     "/learning-center/how-loan-terms-affect-monthly-payments",
     "/learning-center/what-credit-score-do-you-need-for-a-car-loan",

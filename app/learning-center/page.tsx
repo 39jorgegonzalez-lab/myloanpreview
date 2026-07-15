@@ -69,6 +69,12 @@ export default function LearningCenterPage() {
 />
 
 <GuideCard
+  title="What Is an Origination Fee?"
+  description="Learn how origination fees work, how they may reduce loan proceeds, how they affect APR, and what to compare before accepting a loan."
+  href="/learning-center/what-is-an-origination-fee"
+/>
+
+<GuideCard
   title="Fixed vs. Variable APR: What Borrowers Should Know"
   description="Learn how fixed and variable APRs work, how rate changes may affect payments and loan costs, and what to compare before choosing a loan."
   href="/learning-center/fixed-vs-variable-apr"
