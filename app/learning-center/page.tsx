@@ -92,6 +92,12 @@ export default function LearningCenterPage() {
   href="/learning-center/how-to-lower-your-personal-loan-payment"
 />
 
+<GuideCard
+  title="Personal Loan Minimum Income: What to Know"
+  description="Learn how income, debt-to-income ratio, credit history, loan size, and lender requirements may affect personal loan eligibility."
+  href="/learning-center/personal-loan-minimum-income"
+/>
+
   <GuideCard
     title="What Credit Score Do You Need for a Car Loan?"
     description="Learn how credit scores, income, down payment, and vehicle details may affect auto loan approval."
