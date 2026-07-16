@@ -31,6 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/learning-center/how-loan-terms-affect-monthly-payments",
     "/learning-center/how-to-lower-your-personal-loan-payment",
     "/learning-center/personal-loan-minimum-income",
+    "/learning-center/why-was-my-personal-loan-estimate-higher-than-expected",
     "/learning-center/what-credit-score-do-you-need-for-a-car-loan",
     "/learning-center/what-credit-score-do-you-need-for-a-mortgage",
     "/learning-center/what-is-debt-to-income-ratio",

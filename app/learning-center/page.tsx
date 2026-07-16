@@ -98,6 +98,12 @@ export default function LearningCenterPage() {
   href="/learning-center/personal-loan-minimum-income"
 />
 
+<GuideCard
+  title="Why Was My Personal Loan Estimate Higher Than Expected?"
+  description="Learn why a personal loan payment or APR estimate may be higher than expected, including credit, debt, income, loan amount, term, and fees."
+  href="/learning-center/why-was-my-personal-loan-estimate-higher-than-expected"
+/>
+
   <GuideCard
     title="What Credit Score Do You Need for a Car Loan?"
     description="Learn how credit scores, income, down payment, and vehicle details may affect auto loan approval."
