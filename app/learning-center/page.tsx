@@ -104,6 +104,12 @@ export default function LearningCenterPage() {
   href="/learning-center/why-was-my-personal-loan-estimate-higher-than-expected"
 />
 
+<GuideCard
+  title="Secured vs. Unsecured Personal Loans"
+  description="Compare collateral requirements, possible APRs, approval factors, repayment risks, and borrower responsibilities before choosing a personal loan."
+  href="/learning-center/secured-vs-unsecured-personal-loans"
+/>
+
   <GuideCard
     title="What Credit Score Do You Need for a Car Loan?"
     description="Learn how credit scores, income, down payment, and vehicle details may affect auto loan approval."
