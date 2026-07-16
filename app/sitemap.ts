@@ -33,6 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/learning-center/personal-loan-minimum-income",
     "/learning-center/why-was-my-personal-loan-estimate-higher-than-expected",
     "/learning-center/secured-vs-unsecured-personal-loans",
+    "/learning-center/how-much-personal-loan-can-i-afford",
     "/learning-center/what-credit-score-do-you-need-for-a-car-loan",
     "/learning-center/what-credit-score-do-you-need-for-a-mortgage",
     "/learning-center/what-is-debt-to-income-ratio",

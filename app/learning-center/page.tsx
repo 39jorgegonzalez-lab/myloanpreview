@@ -110,6 +110,12 @@ export default function LearningCenterPage() {
   href="/learning-center/secured-vs-unsecured-personal-loans"
 />
 
+<GuideCard
+  title="How Much Personal Loan Can I Afford?"
+  description="Estimate a manageable personal loan amount by reviewing income, expenses, existing debts, APR, repayment term, fees, and emergency savings."
+  href="/learning-center/how-much-personal-loan-can-i-afford"
+/>
+
   <GuideCard
     title="What Credit Score Do You Need for a Car Loan?"
     description="Learn how credit scores, income, down payment, and vehicle details may affect auto loan approval."
