@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import EmailSignupCTA from "../../components/layout/EmailSignupCTA";
 
 export const metadata: Metadata = {
   title: "What Is Debt-to-Income Ratio? | MYLOANPREVIEW",
@@ -280,6 +281,8 @@ export default function DebtToIncomeRatioArticle() {
             </div>
           </div>
         </section>
+
+        <EmailSignupCTA />
 
         <section className="mt-12 rounded-xl border border-amber-200 bg-amber-50 p-6">
           <h2 className="mb-3 text-xl font-bold text-slate-900">
