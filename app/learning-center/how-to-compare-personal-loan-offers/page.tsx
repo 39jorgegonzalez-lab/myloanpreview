@@ -65,7 +65,7 @@ export default function HowToComparePersonalLoanOffersPage() {
               Personal loan offer comparison checklist
             </h2>
 
-            <div className="mt-5 overflow-hidden rounded-2xl border border-slate-200">
+            <div className="mt-5 overflow-x-auto rounded-2xl border border-slate-200">
               <table className="w-full border-collapse text-left text-sm">
                 <thead className="bg-slate-50 text-slate-900">
                   <tr>
