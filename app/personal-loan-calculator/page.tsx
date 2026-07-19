@@ -1,6 +1,7 @@
 "use client";
 import Navbar from "@/app/components/layout/Navbar";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { trackCalculatorUse } from "../lib/analytics";
 
 export default function PersonalLoanCalculator() {
   const [loanAmount, setLoanAmount] = useState(10000);
@@ -24,10 +25,21 @@ export default function PersonalLoanCalculator() {
       currency: "USD",
     });
 
+const hasTrackedCalculatorUse = useRef(false);
+
+function handleCalculatorInteraction(): void {
+  if (hasTrackedCalculatorUse.current) {
+    return;
+  }
+
+  hasTrackedCalculatorUse.current = true;
+  trackCalculatorUse("personal_loan");
+}
+
 return (
   <>
   
-    <main className="min-h-screen bg-slate-100 text-slate-900">
+    <main className="min-h-screen bg-slate-100 text-slate-900" onChangeCapture={handleCalculatorInteraction}>
 
     {/* CTA BUTTON */}
 

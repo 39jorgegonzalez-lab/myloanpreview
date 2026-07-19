@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { trackCalculatorUse } from "../lib/analytics";
 import Navbar from "@/app/components/layout/Navbar";
 
 export default function CarAffordabilityCalculator() {
@@ -38,10 +39,21 @@ export default function CarAffordabilityCalculator() {
       currency: "USD",
     });
 
+ const hasTrackedCalculatorUse = useRef(false);
+
+ function handleCalculatorInteraction(): void {
+   if (hasTrackedCalculatorUse.current) {
+     return;
+   }
+
+   hasTrackedCalculatorUse.current = true;
+   trackCalculatorUse("car_affordability");
+ }
+
  return (
   <>
   
-    <main className="min-h-screen bg-slate-100 text-slate-900">
+    <main className="min-h-screen bg-slate-100 text-slate-900" onChangeCapture={handleCalculatorInteraction}>
       {/* NAVBAR */}
 
       {/* HERO */}
