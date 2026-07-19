@@ -45,6 +45,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/about",
     "/privacy-policy",
     "/disclaimer",
+    "/affiliate-disclosure",
     "/faq",
   ];
 

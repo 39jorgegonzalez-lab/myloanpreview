@@ -63,6 +63,9 @@ export default function Footer() {
               <a href="/disclaimer" className="block hover:underline text-white">
                 Disclaimer
               </a>
+              <a href="/affiliate-disclosure" className="block hover:underline text-white">
+                Affiliate Disclosure
+              </a>
 
 <a href="/faq" className="block hover:underline text-white">
   FAQ
