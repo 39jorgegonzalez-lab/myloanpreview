@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
+import { GoogleAnalytics } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/next";
 import Footer from "./components/layout/Footer";
 import Navbar from "./components/layout/Navbar";
 const geistSans = Geist({
@@ -79,21 +81,6 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
 
-  <Script
-    src="https://www.googletagmanager.com/gtag/js?id=G-V2BKLEXMX7"
-    strategy="afterInteractive"
-  />
-
-  <Script id="google-analytics" strategy="afterInteractive">
-    {`
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-V2BKLEXMX7');
-    `}
-  </Script>
-
 <Navbar />
 
 {children}
@@ -162,6 +149,8 @@ export default function RootLayout({
     }),
   }}
 />
+<GoogleAnalytics gaId="G-V2BKLEXMX7" />
+<Analytics />
 </body>
     </html>
   );
