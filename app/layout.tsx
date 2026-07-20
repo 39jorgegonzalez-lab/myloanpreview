@@ -102,16 +102,10 @@ export default function RootLayout({
           logo: "https://www.myloanpreview.com/logo.png",
         },
 
-        {
+              {
           "@type": "WebSite",
           name: "My Loan Preview",
           url: "https://www.myloanpreview.com",
-          potentialAction: {
-            "@type": "SearchAction",
-            target:
-              "https://www.myloanpreview.com/?s={search_term_string}",
-            "query-input": "required name=search_term_string",
-          },
         },
 
         {
