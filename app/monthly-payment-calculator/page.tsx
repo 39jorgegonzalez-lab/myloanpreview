@@ -1,35 +1,148 @@
 "use client";
 
-import { useRef, useState } from "react";
+import {
+  type ChangeEvent,
+  useId,
+  useRef,
+  useState,
+} from "react";
 import { trackCalculatorUse } from "../lib/analytics";
-import Navbar from "@/app/components/layout/Navbar";
+
+type NumericInputValue = number | "";
+
+function numericValue(
+  value: NumericInputValue,
+): number {
+  return value === "" ? 0 : value;
+}
+
+function validateMonthlyPaymentInputs({
+  loanAmount,
+  interestRate,
+  loanTerm,
+}: {
+  loanAmount: NumericInputValue;
+  interestRate: NumericInputValue;
+  loanTerm: NumericInputValue;
+}): string | null {
+  if (loanAmount === "") {
+    return "Enter a loan amount.";
+  }
+
+  if (
+    loanAmount < 1 ||
+    loanAmount > 5000000
+  ) {
+    return "Loan amount must be between $1 and $5,000,000.";
+  }
+
+  if (interestRate === "") {
+    return "Enter an interest rate.";
+  }
+
+  if (
+    interestRate < 0 ||
+    interestRate > 100
+  ) {
+    return "Interest rate must be between 0% and 100%.";
+  }
+
+  if (loanTerm === "") {
+    return "Enter a loan term.";
+  }
+
+  if (
+    !Number.isInteger(loanTerm) ||
+    loanTerm < 1 ||
+    loanTerm > 480
+  ) {
+    return "Loan term must be a whole number from 1 to 480 months.";
+  }
+
+  return null;
+}
 
 export default function MonthlyPaymentCalculator() {
-  const [loanAmount, setLoanAmount] = useState("25000");
-  const [rate, setRate] = useState("6.5");
-  const [term, setTerm] = useState("60");
+  const [loanAmount, setLoanAmount] =
+    useState<NumericInputValue>(25000);
 
-  const numericLoanAmount = Number(loanAmount || 0);
-  const numericRate = Number(rate || 0);
-  const numericTerm = Number(term || 0);
+  const [interestRate, setInterestRate] =
+    useState<NumericInputValue>(6.5);
 
-  const monthlyRate = numericRate / 100 / 12;
+  const [loanTerm, setLoanTerm] =
+    useState<NumericInputValue>(60);
 
-  const monthlyPayment =
-    numericTerm <= 0
+  const validationMessage =
+    validateMonthlyPaymentInputs({
+      loanAmount,
+      interestRate,
+      loanTerm,
+    });
+
+  const numericLoanAmount =
+    numericValue(loanAmount);
+
+  const numericInterestRate =
+    numericValue(interestRate);
+
+  const numericLoanTerm =
+    numericValue(loanTerm);
+
+  const monthlyInterestRate =
+    numericInterestRate / 100 / 12;
+
+  const calculatedMonthlyPayment =
+    validationMessage !== null
       ? 0
-      : monthlyRate === 0
-      ? numericLoanAmount / numericTerm
-      : (numericLoanAmount *
-          monthlyRate *
-          Math.pow(1 + monthlyRate, numericTerm)) /
-        (Math.pow(1 + monthlyRate, numericTerm) - 1);
+      : monthlyInterestRate === 0
+        ? numericLoanAmount / numericLoanTerm
+        : (numericLoanAmount *
+            monthlyInterestRate *
+            Math.pow(
+              1 + monthlyInterestRate,
+              numericLoanTerm,
+            )) /
+          (Math.pow(
+            1 + monthlyInterestRate,
+            numericLoanTerm,
+          ) -
+            1);
 
-  const totalPaid = monthlyPayment * numericTerm;
-  const totalInterest = totalPaid - numericLoanAmount;
+  const calculatedTotalPaid =
+    calculatedMonthlyPayment * numericLoanTerm;
 
-  const money = (num: number) =>
-    num.toLocaleString("en-US", {
+  const calculatedTotalInterest =
+    calculatedTotalPaid - numericLoanAmount;
+
+  const hasValidResults =
+    validationMessage === null &&
+    Number.isFinite(calculatedMonthlyPayment) &&
+    Number.isFinite(calculatedTotalPaid) &&
+    Number.isFinite(calculatedTotalInterest) &&
+    calculatedMonthlyPayment >= 0 &&
+    calculatedTotalPaid >= 0 &&
+    calculatedTotalInterest >= 0;
+
+  const monthlyPayment = hasValidResults
+    ? calculatedMonthlyPayment
+    : 0;
+
+  const totalPaid = hasValidResults
+    ? calculatedTotalPaid
+    : 0;
+
+  const totalInterest = hasValidResults
+    ? calculatedTotalInterest
+    : 0;
+
+  const resultMessage =
+    validationMessage ??
+    (hasValidResults
+      ? null
+      : "We could not calculate a reliable estimate from these values. Review the loan amount, interest rate, and loan term and try again.");
+
+  const money = (value: number) =>
+    value.toLocaleString("en-US", {
       style: "currency",
       currency: "USD",
     });
@@ -46,173 +159,369 @@ export default function MonthlyPaymentCalculator() {
   }
 
   return (
-  <>
-  
-    <main className="min-h-screen bg-slate-100 text-slate-900" onChangeCapture={handleCalculatorInteraction}>
-      
-      <section className="py-16 px-6 text-center">
-        <p className="text-lg text-blue-700 font-semibold uppercase tracking-wide mb-4">
-          Loan Payment Estimate
-        </p>
+    <main
+      className="min-h-screen bg-slate-100 text-slate-900"
+      onChangeCapture={handleCalculatorInteraction}
+    >
+      <section className="mx-auto max-w-7xl overflow-x-hidden px-4 py-16 sm:px-6">
+        <div className="mx-auto mb-12 max-w-3xl text-center">
+          <p className="mb-4 font-semibold uppercase tracking-wide text-blue-700">
+            Loan Payment Estimate
+          </p>
 
-        <h1 className="text-4xl md:text-5xl font-bold mb-6">
-          Monthly Payment Calculator
-        </h1>
+          <h1 className="mb-6 text-4xl font-bold sm:text-5xl">
+            Monthly Payment Calculator
+          </h1>
 
-        <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-          Estimate your possible monthly payment based on loan amount,
-          interest rate, and repayment term.
-        </p>
-      </section>
+          <p className="mx-auto max-w-3xl text-lg leading-relaxed text-slate-600 md:text-xl">
+            Estimate a possible monthly loan payment,
+            total repayment amount, and total interest
+            using the loan amount, APR, and repayment
+            term entered below.
+          </p>
+        </div>
 
-      <section className="max-w-7xl mx-auto px-6 pb-20 grid lg:grid-cols-2 gap-8">
-        <div className="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm">
-          <h2 className="text-3xl font-bold mb-8">Enter Loan Details</h2>
+        <div className="grid gap-8 lg:grid-cols-2">
+          {/* INPUTS */}
 
-          <div className="space-y-6">
-            <div>
-              <label className="block font-semibold mb-2">Loan Amount</label>
-              <input
-                type="number"
+          <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+            <h2 className="mb-6 text-2xl font-bold">
+              Enter Loan Details
+            </h2>
+
+            <div className="space-y-6">
+              <InputBox
+                label="Loan Amount"
                 value={loanAmount}
-                placeholder="25000"
-                onChange={(e) => setLoanAmount(e.target.value)}
-                className="w-full border border-slate-300 rounded-xl px-4 py-4 text-lg outline-none focus:ring-2 focus:ring-blue-500"
+                setValue={setLoanAmount}
+                min={1}
+                max={5000000}
+                step="100"
+                inputMode="decimal"
+                required
+                helpText="Enter the amount that would be borrowed. Do not include fees unless they would be financed as part of the loan."
+              />
+
+              <InputBox
+                label="Interest Rate / APR (%)"
+                value={interestRate}
+                setValue={setInterestRate}
+                min={0}
+                max={100}
+                step="0.01"
+                inputMode="decimal"
+                required
+                helpText="Enter an estimated annual percentage rate. Enter 0 when estimating a zero-interest loan."
+              />
+
+              <InputBox
+                label="Loan Term (Months)"
+                value={loanTerm}
+                setValue={setLoanTerm}
+                min={1}
+                max={480}
+                step="1"
+                inputMode="numeric"
+                required
+                helpText="Enter the full repayment term in months. For example, five years equals 60 months."
               />
             </div>
 
-            <div>
-              <label className="block font-semibold mb-2">Interest Rate (%)</label>
-              <input
-                type="number"
-                value={rate}
-                placeholder="6.5"
-                onChange={(e) => setRate(e.target.value)}
-                className="w-full border border-slate-300 rounded-xl px-4 py-4 text-lg outline-none focus:ring-2 focus:ring-blue-500"
+            <p className="mt-6 text-sm leading-6 text-slate-500">
+              These input limits are calculator
+              safeguards. They do not represent lender
+              approval requirements, available loan
+              amounts, guaranteed rates, or guaranteed
+              repayment terms.
+            </p>
+          </div>
+
+          {/* RESULTS */}
+
+          <div className="self-start rounded-3xl bg-blue-700 p-6 text-white shadow-sm md:p-8">
+            <h2 className="mb-8 text-2xl font-bold">
+              Estimated Results
+            </h2>
+
+            {resultMessage && (
+              <div
+                role="status"
+                aria-live="polite"
+                className="mb-6 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm font-medium leading-6 text-amber-950"
+              >
+                {resultMessage}
+              </div>
+            )}
+
+            <div className="mb-6 rounded-2xl bg-white/10 p-6">
+              <p className="mb-2 text-blue-100">
+                Estimated Monthly Payment
+              </p>
+
+              <p
+                className="break-words text-4xl font-bold sm:text-5xl"
+                aria-live="polite"
+                aria-atomic="true"
+              >
+                {hasValidResults
+                  ? money(monthlyPayment)
+                  : "—"}
+              </p>
+            </div>
+
+            <div className="grid gap-4">
+              <Result
+                label="Estimated Loan Amount"
+                value={
+                  hasValidResults
+                    ? money(numericLoanAmount)
+                    : "—"
+                }
+              />
+
+              <Result
+                label="Total Amount Paid"
+                value={
+                  hasValidResults
+                    ? money(totalPaid)
+                    : "—"
+                }
+              />
+
+              <Result
+                label="Total Interest Paid"
+                value={
+                  hasValidResults
+                    ? money(totalInterest)
+                    : "—"
+                }
               />
             </div>
 
-            <div>
-              <label className="block font-semibold mb-2">Loan Term (Months)</label>
-              <input
-                type="number"
-                value={term}
-                placeholder="60"
-                onChange={(e) => setTerm(e.target.value)}
-                className="w-full border border-slate-300 rounded-xl px-4 py-4 text-lg outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
+            <p className="mt-6 text-sm leading-6 text-blue-100">
+              This estimate assumes fixed monthly
+              payments for the full term and no additional
+              payments. It does not automatically include
+              origination fees, late fees, insurance,
+              taxes, or other possible borrowing costs.
+            </p>
           </div>
         </div>
 
-        <div className="bg-blue-700 text-white rounded-3xl p-8 shadow-lg">
-          <h2 className="text-3xl font-bold mb-8">Estimated Results</h2>
+        {/* EDUCATIONAL SECTION */}
 
-          <div className="bg-blue-600 rounded-2xl p-6 mb-8">
-            <p className="text-lg mb-2">Estimated Monthly Payment</p>
-            <h3 className="text-5xl font-bold">
-              {money(isFinite(monthlyPayment) ? monthlyPayment : 0)}
-            </h3>
-          </div>
-
-          <div className="space-y-6 text-lg">
-            <div className="flex justify-between border-b border-blue-500 pb-4">
-              <span>Loan Amount</span>
-              <span className="font-bold">{money(numericLoanAmount)}</span>
-            </div>
-
-            <div className="flex justify-between border-b border-blue-500 pb-4">
-              <span>Total Amount Paid</span>
-              <span className="font-bold">
-                {money(isFinite(totalPaid) ? totalPaid : 0)}
-              </span>
-            </div>
-
-            <div className="flex justify-between border-b border-blue-500 pb-4">
-              <span>Total Interest Paid</span>
-              <span className="font-bold">
-                {money(isFinite(totalInterest) ? totalInterest : 0)}
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="max-w-6xl mx-auto px-6 pb-16">
-        <div className="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm">
-          <h2 className="text-3xl font-bold mb-6">
+        <div className="mt-10 rounded-3xl border border-slate-200 bg-white p-8">
+          <h2 className="mb-4 text-2xl font-bold">
             How Monthly Loan Payments Are Estimated
           </h2>
 
-          <p className="text-slate-700 leading-8 mb-6">
-            Monthly loan payments are commonly based on the loan amount,
-            interest rate, and repayment term. Longer terms may lower monthly
-            payments but can increase total interest paid over time.
+          <p className="mb-4 leading-relaxed text-slate-600">
+            For a fixed-rate installment loan, the
+            estimated monthly payment is calculated using
+            the amount borrowed, monthly interest rate,
+            and number of monthly payments.
           </p>
 
-          <p className="text-slate-700 leading-8">
-            My Loan Preview provides educational estimates only and is not a
-            lender, broker, or financial advisor. Actual loan payments may vary
-            based on lender requirements, credit profile, fees, and loan terms.
+          <p className="mb-4 leading-relaxed text-slate-600">
+            A longer term may reduce the monthly payment,
+            but it can increase the total interest paid.
+            A shorter term may increase the monthly
+            payment while reducing total interest.
+          </p>
+
+          <p className="mb-4 leading-relaxed text-slate-600">
+            For a 0% interest estimate, the calculator
+            divides the loan amount evenly across the
+            entered number of months.
+          </p>
+
+          <p className="text-sm leading-6 text-slate-500">
+            MYLOANPREVIEW provides educational estimates
+            only and is not a lender, broker, credit
+            repair company, or financial advisor. Actual
+            payments, fees, rates, approval decisions,
+            and loan terms may vary.
           </p>
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-6 pb-24">
-        <div className="bg-white rounded-3xl border border-slate-200 p-10 shadow-sm">
-          <h2 className="text-3xl font-bold text-center mb-10">
+      {/* INTERNAL LINKS */}
+
+      <section className="mx-auto max-w-6xl px-6 pb-24">
+        <div className="rounded-3xl border border-slate-200 bg-white p-10 shadow-sm">
+          <h2 className="mb-10 text-center text-3xl font-bold">
             Explore Other Calculators
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid gap-8 md:grid-cols-3">
             <a
-             href="/auto-loan-calculator" 
-            className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(29,78,216,0.45)] transition-all duration-300 block"
-              >
-              <div className="text-5xl mb-5">🚗</div>
-
-              <h3 className="text-2xl font-bold mb-4">
-                Auto Loan Calculator
-                </h3>
-
-              <p className="text-slate-600 leading-relaxed">
-                Estimate vehicle payments and financing costs.
-              </p>
-            </a>
-
-            <a 
-            href="/personal-loan-calculator" 
-            className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(29,78,216,0.45)] transition-all duration-300 block"
+              href="/auto-loan-calculator"
+              className="block rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(29,78,216,0.45)]"
             >
-            <div className="text-5xl mb-5">💳</div>
+              <div
+                className="mb-5 text-5xl"
+                aria-hidden="true"
+              >
+                🚗
+              </div>
 
-              <h3 className="text-2xl font-bold mb-4">
-                Personal Loan Calculator
-                </h3>
+              <h3 className="mb-4 text-2xl font-bold">
+                Auto Loan Calculator
+              </h3>
 
-              <p className="text-slate-600 leading-relaxed">
-                Preview personal loan repayment options.
+              <p className="leading-relaxed text-slate-600">
+                Estimate vehicle payments using trade-in
+                equity, taxes, fees, APR, and loan term.
               </p>
             </a>
 
-            <a 
-            href="/mortgage-calculator" 
-            className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(29,78,216,0.45)] transition-all duration-300 block"
+            <a
+              href="/personal-loan-calculator"
+              className="block rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(29,78,216,0.45)]"
+            >
+              <div
+                className="mb-5 text-5xl"
+                aria-hidden="true"
               >
-              <div className="text-5xl mb-5">🏠</div>
+                💳
+              </div>
 
-              <h3 className="text-2xl font-bold mb-4">
+              <h3 className="mb-4 text-2xl font-bold">
+                Personal Loan Calculator
+              </h3>
+
+              <p className="leading-relaxed text-slate-600">
+                Estimate possible personal-loan payments
+                and total borrowing costs.
+              </p>
+            </a>
+
+            <a
+              href="/mortgage-calculator"
+              className="block rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(29,78,216,0.45)]"
+            >
+              <div
+                className="mb-5 text-5xl"
+                aria-hidden="true"
+              >
+                🏠
+              </div>
+
+              <h3 className="mb-4 text-2xl font-bold">
                 Mortgage Calculator
-                </h3>
-                
-              <p className="text-slate-600 leading-relaxed">
-                Estimate mortgage payments and home financing.
+              </h3>
+
+              <p className="leading-relaxed text-slate-600">
+                Estimate principal, interest, taxes,
+                insurance, and other possible housing
+                costs.
               </p>
             </a>
           </div>
         </div>
       </section>
-       </main>
-  </>
-);
+    </main>
+  );
+}
+
+/* INPUT COMPONENT */
+
+function InputBox({
+  label,
+  value,
+  setValue,
+  step = "1",
+  min,
+  max,
+  inputMode = "decimal",
+  helpText,
+  required = false,
+}: {
+  label: string;
+  value: NumericInputValue;
+  setValue: (value: NumericInputValue) => void;
+  step?: string;
+  min?: number;
+  max?: number;
+  inputMode?: "decimal" | "numeric";
+  helpText?: string;
+  required?: boolean;
+}) {
+  const inputId = useId();
+  const helpId = `${inputId}-help`;
+
+  function handleChange(
+    event: ChangeEvent<HTMLInputElement>,
+  ): void {
+    const rawValue = event.currentTarget.value;
+
+    if (rawValue === "") {
+      setValue("");
+      return;
+    }
+
+    const nextValue = Number(rawValue);
+
+    if (Number.isFinite(nextValue)) {
+      setValue(nextValue);
+    }
+  }
+
+  return (
+    <div>
+      <label
+        htmlFor={inputId}
+        className="mb-2 block font-semibold"
+      >
+        {label}
+      </label>
+
+      <input
+        id={inputId}
+        type="number"
+        value={value}
+        step={step}
+        min={min}
+        max={max}
+        inputMode={inputMode}
+        required={required}
+        aria-describedby={
+          helpText ? helpId : undefined
+        }
+        onChange={handleChange}
+        className="w-full rounded-xl border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600"
+      />
+
+      {helpText && (
+        <p
+          id={helpId}
+          className="mt-2 text-sm leading-6 text-slate-500"
+        >
+          {helpText}
+        </p>
+      )}
+    </div>
+  );
+}
+
+/* RESULT COMPONENT */
+
+function Result({
+  label,
+  value,
+}: {
+  label: string;
+  value: string;
+}) {
+  return (
+    <div className="flex justify-between gap-4 border-b border-white/20 pb-4">
+      <span className="text-blue-100">
+        {label}
+      </span>
+
+      <span className="break-words text-right font-bold text-white">
+        {value}
+      </span>
+    </div>
+  );
 }
