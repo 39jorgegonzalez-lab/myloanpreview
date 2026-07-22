@@ -1,23 +1,123 @@
 "use client";
-import Navbar from "@/app/components/layout/Navbar";
-import { useRef, useState } from "react";
+
+import {
+  type ChangeEvent,
+  useId,
+  useRef,
+  useState,
+} from "react";
 import { trackCalculatorUse } from "../lib/analytics";
 
+type NumericInputValue = number | "";
+
+function validatePersonalLoanInputs({
+  loanAmount,
+  interestRate,
+  loanTerm,
+}: {
+  loanAmount: NumericInputValue;
+  interestRate: NumericInputValue;
+  loanTerm: NumericInputValue;
+}): string | null {
+  if (loanAmount === "") {
+    return "Enter a loan amount.";
+  }
+
+  if (loanAmount < 100) {
+    return "Loan amount must be at least $100.";
+  }
+
+  if (loanAmount > 1000000) {
+    return "Loan amount must be $1,000,000 or less.";
+  }
+
+  if (interestRate === "") {
+    return "Enter an interest rate.";
+  }
+
+  if (interestRate < 0 || interestRate > 100) {
+    return "Interest rate must be between 0% and 100%.";
+  }
+
+  if (loanTerm === "") {
+    return "Enter a loan term.";
+  }
+
+  if (
+    !Number.isInteger(loanTerm) ||
+    loanTerm < 1 ||
+    loanTerm > 120
+  ) {
+    return "Loan term must be a whole number from 1 to 120 months.";
+  }
+
+  return null;
+}
+
 export default function PersonalLoanCalculator() {
-  const [loanAmount, setLoanAmount] = useState(10000);
-  const [interestRate, setInterestRate] = useState(11.5);
-  const [loanTerm, setLoanTerm] = useState(36);
+  const [loanAmount, setLoanAmount] =
+    useState<NumericInputValue>(10000);
+  const [interestRate, setInterestRate] =
+    useState<NumericInputValue>(11.5);
+  const [loanTerm, setLoanTerm] =
+    useState<NumericInputValue>(36);
 
-  const monthlyRate = interestRate / 100 / 12;
+  const validationMessage =
+    validatePersonalLoanInputs({
+      loanAmount,
+      interestRate,
+      loanTerm,
+    });
 
-  const monthlyPayment =
-    monthlyRate === 0
-      ? loanAmount / loanTerm
-      : (loanAmount * monthlyRate * Math.pow(1 + monthlyRate, loanTerm)) /
-        (Math.pow(1 + monthlyRate, loanTerm) - 1);
+  const numericLoanAmount =
+    loanAmount === "" ? 0 : loanAmount;
+  const numericInterestRate =
+    interestRate === "" ? 0 : interestRate;
+  const numericLoanTerm =
+    loanTerm === "" ? 0 : loanTerm;
 
-  const totalPaid = monthlyPayment * loanTerm;
-  const totalInterest = totalPaid - loanAmount;
+  const monthlyRate =
+    numericInterestRate / 100 / 12;
+
+  const calculatedMonthlyPayment =
+    validationMessage !== null
+      ? 0
+      : monthlyRate === 0
+        ? numericLoanAmount / numericLoanTerm
+        : (numericLoanAmount *
+            monthlyRate *
+            Math.pow(
+              1 + monthlyRate,
+              numericLoanTerm,
+            )) /
+          (Math.pow(
+            1 + monthlyRate,
+            numericLoanTerm,
+          ) -
+            1);
+
+  const hasValidResults =
+    validationMessage === null &&
+    Number.isFinite(calculatedMonthlyPayment) &&
+    calculatedMonthlyPayment >= 0;
+
+  const monthlyPayment = hasValidResults
+    ? calculatedMonthlyPayment
+    : 0;
+
+  const totalPaid = hasValidResults
+    ? monthlyPayment * numericLoanTerm
+    : 0;
+
+  const totalInterest = hasValidResults
+    ? Math.max(totalPaid - numericLoanAmount, 0)
+    : 0;
+
+  const resultMessage =
+    validationMessage ??
+    (hasValidResults
+      ? null
+      : "We could not calculate a reliable estimate from these values. Review the loan details and try again.");
 
   const money = (num: number) =>
     num.toLocaleString("en-US", {
@@ -25,215 +125,237 @@ export default function PersonalLoanCalculator() {
       currency: "USD",
     });
 
-const hasTrackedCalculatorUse = useRef(false);
+  const hasTrackedCalculatorUse = useRef(false);
 
-function handleCalculatorInteraction(): void {
-  if (hasTrackedCalculatorUse.current) {
-    return;
+  function handleCalculatorInteraction(): void {
+    if (hasTrackedCalculatorUse.current) {
+      return;
+    }
+
+    hasTrackedCalculatorUse.current = true;
+    trackCalculatorUse("personal_loan");
   }
 
-  hasTrackedCalculatorUse.current = true;
-  trackCalculatorUse("personal_loan");
-}
-
-return (
-  <>
-  
-    <main className="min-h-screen bg-slate-100 text-slate-900" onChangeCapture={handleCalculatorInteraction}>
-
-    {/* CTA BUTTON */}
-
-      <section className="max-w-7xl mx-auto px-6 py-16">
-
-        <div className="text-center max-w-3xl mx-auto mb-12">
-
-          <p className="text-lg text-blue-700 font-semibold uppercase tracking-wide mb-4">
+  return (
+    <main
+      className="min-h-screen bg-slate-100 text-slate-900"
+      onChangeCapture={handleCalculatorInteraction}
+    >
+      <section className="mx-auto max-w-7xl overflow-x-hidden px-4 py-16 sm:px-6">
+        <div className="mx-auto mb-12 max-w-3xl text-center">
+          <p className="mb-4 font-semibold uppercase tracking-wide text-blue-700">
             Personal Loan Estimate
           </p>
 
-          <h1 className="text-5xl font-bold mb-6">
+          <h1 className="mb-6 text-4xl font-bold sm:text-5xl">
             Personal Loan Calculator
           </h1>
 
-          <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            Estimate possible monthly payments, total interest,
-            and total repayment costs for personal loans.
+          <p className="mx-auto max-w-3xl text-lg leading-relaxed text-slate-600 md:text-xl">
+            Estimate possible monthly payments, total
+            interest, and total repayment costs for a
+            personal loan.
           </p>
-
         </div>
 
-
-        <div className="grid lg:grid-cols-2 gap-8">
-
+        <div className="grid gap-8 lg:grid-cols-2">
           {/* INPUTS */}
 
-          <div className="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm">
-
-            <h2 className="text-2xl font-bold mb-6">
+          <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+            <h2 className="mb-6 text-2xl font-bold">
               Enter Loan Details
             </h2>
 
             <div className="space-y-6">
-
               <InputBox
                 label="Loan Amount"
                 value={loanAmount}
                 setValue={setLoanAmount}
+                min={100}
+                max={1000000}
+                step="100"
+                inputMode="numeric"
               />
 
               <InputBox
                 label="Interest Rate (%)"
                 value={interestRate}
                 setValue={setInterestRate}
-                step="0.1"
+                min={0}
+                max={100}
+                step="0.01"
+                inputMode="decimal"
               />
 
               <InputBox
                 label="Loan Term (Months)"
                 value={loanTerm}
                 setValue={setLoanTerm}
+                min={1}
+                max={120}
+                step="1"
+                inputMode="numeric"
               />
-
             </div>
 
+            <p className="mt-6 text-sm leading-6 text-slate-500">
+              These input limits are calculator
+              safeguards and do not represent lender
+              eligibility requirements or available loan
+              terms.
+            </p>
           </div>
-
 
           {/* RESULTS */}
 
-          <div className="bg-blue-700 text-white rounded-3xl p-8 shadow-sm">
-
-            <h2 className="text-2xl font-bold mb-8">
+          <div className="self-start rounded-3xl bg-blue-700 p-6 text-white shadow-sm md:p-8">
+            <h2 className="mb-8 text-2xl font-bold">
               Estimated Results
             </h2>
 
-            <div className="bg-white/10 rounded-2xl p-6 mb-6">
+            {resultMessage && (
+              <div
+                role="status"
+                aria-live="polite"
+                className="mb-6 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm font-medium leading-6 text-amber-950"
+              >
+                {resultMessage}
+              </div>
+            )}
 
-              <p className="text-blue-100 mb-2">
+            <div className="mb-6 rounded-2xl bg-white/10 p-6">
+              <p className="mb-2 text-blue-100">
                 Estimated Monthly Payment
               </p>
 
-              <p className="text-5xl font-bold">
-                {money(monthlyPayment)}
+              <p
+                className="break-words text-4xl font-bold sm:text-5xl"
+                aria-live="polite"
+                aria-atomic="true"
+              >
+                {hasValidResults
+                  ? money(monthlyPayment)
+                  : "—"}
               </p>
-
             </div>
 
             <div className="grid gap-4">
-
               <Result
                 label="Estimated Loan Amount"
-                value={money(loanAmount)}
+                value={
+                  hasValidResults
+                    ? money(numericLoanAmount)
+                    : "—"
+                }
               />
 
               <Result
                 label="Total Amount Paid"
-                value={money(totalPaid)}
+                value={
+                  hasValidResults
+                    ? money(totalPaid)
+                    : "—"
+                }
               />
 
               <Result
                 label="Total Interest Paid"
-                value={money(totalInterest)}
+                value={
+                  hasValidResults
+                    ? money(totalInterest)
+                    : "—"
+                }
               />
-
             </div>
-
           </div>
-
         </div>
-
 
         {/* EDUCATIONAL SECTION */}
 
-        <div className="bg-white rounded-3xl border border-slate-200 p-8 mt-10">
-
-          <h2 className="text-2xl font-bold mb-4">
+        <div className="mt-10 rounded-3xl border border-slate-200 bg-white p-8">
+          <h2 className="mb-4 text-2xl font-bold">
             Understanding Personal Loan Payments
           </h2>
 
-          <p className="text-slate-600 leading-relaxed mb-4">
-            Personal loan payments depend on several factors including
-            loan amount, repayment term, interest rate, and credit profile.
-            Lower interest rates and shorter repayment terms typically
-            reduce total interest costs over time.
+          <p className="mb-4 leading-relaxed text-slate-600">
+            Personal loan payments depend on factors
+            including the loan amount, repayment term,
+            interest rate, fees, and borrower
+            qualifications. Lower interest rates and
+            shorter repayment terms generally reduce
+            total interest costs, although shorter terms
+            may result in higher monthly payments.
           </p>
 
-          <p className="text-slate-500 text-sm">
-            MYLOANPREVIEW provides educational estimates only and is not
-            a lender, broker, or financial advisor. Actual rates and loan
-            approval terms may vary by lender and borrower qualifications.
+          <p className="text-sm leading-6 text-slate-500">
+            MYLOANPREVIEW provides educational estimates
+            only and is not a lender, broker, or financial
+            advisor. This calculator does not include
+            origination fees, late fees, optional
+            products, or other possible lender charges.
+            Actual rates, approval decisions, fees, and
+            loan terms may vary.
           </p>
-
         </div>
-
       </section>
-{/* OTHER CALCULATORS */}
 
-<section className="max-w-6xl mx-auto px-6 pb-24">
+      {/* OTHER CALCULATORS */}
 
-  <div className="bg-white rounded-3xl border border-slate-200 p-10 shadow-sm">
+      <section className="mx-auto max-w-6xl px-6 pb-24">
+        <div className="rounded-3xl border border-slate-200 bg-white p-10 shadow-sm">
+          <h2 className="mb-10 text-center text-3xl font-bold">
+            Explore Other Calculators
+          </h2>
 
-    <h2 className="text-3xl font-bold text-center mb-10">
-      Explore Other Calculators
-    </h2>
+          <div className="grid gap-8 md:grid-cols-2">
+            <a
+              href="/auto-loan-calculator"
+              className="block rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(29,78,216,0.45)]"
+            >
+              <div
+                className="mb-5 text-5xl"
+                aria-hidden="true"
+              >
+                🚗
+              </div>
 
-    <div className="grid md:grid-cols-2 gap-8">
+              <h3 className="mb-4 text-2xl font-bold">
+                Auto Loan Calculator
+              </h3>
 
-      {/* AUTO */}
+              <p className="leading-relaxed text-slate-600">
+                Estimate car payments, total loan cost,
+                and monthly affordability.
+              </p>
+            </a>
 
-      <a
-        href="/auto-loan-calculator"
-        className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(29,78,216,0.45)] transition-all duration-300 block"
-      >
+            <a
+              href="/mortgage-calculator"
+              className="block rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(29,78,216,0.45)]"
+            >
+              <div
+                className="mb-5 text-5xl"
+                aria-hidden="true"
+              >
+                🏠
+              </div>
 
-        <div className="text-5xl mb-5">
-          🚗
+              <h3 className="mb-4 text-2xl font-bold">
+                Mortgage Calculator
+              </h3>
+
+              <p className="leading-relaxed text-slate-600">
+                Explore mortgage payments, long-term
+                borrowing costs, and possible housing
+                expenses.
+              </p>
+            </a>
+          </div>
         </div>
-
-        <h3 className="text-2xl font-bold mb-4">
-          Auto Loan Calculator
-        </h3>
-
-        <p className="text-slate-600 leading-relaxed">
-          Estimate car payments, total loan cost,
-          and monthly affordability.
-        </p>
-
-      </a>
-
-
-      {/* MORTGAGE */}
-
-      <a
-        href="/mortgage-calculator"
-        className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(29,78,216,0.45)] transition-all duration-300 block"
-      >
-
-        <div className="text-5xl mb-5">
-          🏠
-        </div>
-
-        <h3 className="text-2xl font-bold mb-4">
-          Mortgage Calculator
-        </h3>
-
-        <p className="text-slate-600 leading-relaxed">
-          Explore mortgage affordability,
-          estimated payments, and housing costs.
-        </p>
-
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-</main>
-</>
-);
+      </section>
+    </main>
+  );
 }
-
 
 /* INPUT COMPONENT */
 
@@ -242,31 +364,60 @@ function InputBox({
   value,
   setValue,
   step = "1",
+  min,
+  max,
+  inputMode = "decimal",
 }: {
   label: string;
-  value: number;
-  setValue: (value: number) => void;
+  value: NumericInputValue;
+  setValue: (value: NumericInputValue) => void;
   step?: string;
+  min?: number;
+  max?: number;
+  inputMode?: "decimal" | "numeric";
 }) {
+  const inputId = useId();
+
+  function handleChange(
+    event: ChangeEvent<HTMLInputElement>,
+  ): void {
+    const rawValue = event.currentTarget.value;
+
+    if (rawValue === "") {
+      setValue("");
+      return;
+    }
+
+    const nextValue = Number(rawValue);
+
+    if (Number.isFinite(nextValue)) {
+      setValue(nextValue);
+    }
+  }
+
   return (
     <div>
-
-      <label className="block font-semibold mb-2">
+      <label
+        htmlFor={inputId}
+        className="mb-2 block font-semibold"
+      >
         {label}
       </label>
 
       <input
+        id={inputId}
         type="number"
         value={value}
         step={step}
-        onChange={(e) => setValue(Number(e.target.value))}
-        className="w-full border border-slate-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600"
+        min={min}
+        max={max}
+        inputMode={inputMode}
+        onChange={handleChange}
+        className="w-full rounded-xl border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600"
       />
-
     </div>
   );
 }
-
 
 /* RESULT COMPONENT */
 
@@ -279,15 +430,13 @@ function Result({
 }) {
   return (
     <div className="flex justify-between gap-4 border-b border-white/20 pb-4">
-
       <span className="text-blue-100">
         {label}
       </span>
 
-      <span className="font-bold">
+      <span className="break-words text-right font-bold">
         {value}
       </span>
-
     </div>
   );
 }
