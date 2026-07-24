@@ -14,7 +14,10 @@ export default function FAQPage() {
 
         <div className="space-y-10">
 
-          <div>
+                    <div
+            id="provides-loans"
+            className="scroll-mt-28"
+          >
             <h2 className="text-xl font-bold text-blue-700 mb-2">
               Does My Loan Preview provide loans?
             </h2>
@@ -23,7 +26,10 @@ export default function FAQPage() {
             </p>
           </div>
 
-          <div>
+                    <div
+            id="guaranteed-approval"
+            className="scroll-mt-28"
+          >
             <h2 className="text-xl font-bold text-blue-700 mb-2">
               Are loan approvals guaranteed?
             </h2>
@@ -32,7 +38,10 @@ export default function FAQPage() {
             </p>
           </div>
 
-          <div>
+                    <div
+            id="calculator-accuracy"
+            className="scroll-mt-28"
+          >
             <h2 className="text-xl font-bold text-blue-700 mb-2">
               Are the calculator results accurate?
             </h2>
@@ -41,7 +50,10 @@ export default function FAQPage() {
             </p>
           </div>
 
-          <div>
+                    <div
+            id="credit-score"
+            className="scroll-mt-28"
+          >
             <h2 className="text-xl font-bold text-blue-700 mb-2">
               Will using these calculators affect my credit score?
             </h2>
