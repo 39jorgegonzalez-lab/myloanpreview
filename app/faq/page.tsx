@@ -1,5 +1,10 @@
-import Navbar from "../components/layout/Navbar";
-import Footer from "../components/layout/Footer";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Frequently Asked Questions",
+  description:
+    "Find answers about MYLOANPREVIEW calculators, educational estimates, loan approvals, credit checks, and privacy.",
+};
 
 export default function FAQPage() {
   return (
@@ -21,8 +26,11 @@ export default function FAQPage() {
             <h2 className="text-xl font-bold text-blue-700 mb-2">
               Does My Loan Preview provide loans?
             </h2>
-            <p className="text-slate-700">
-              No. My Loan Preview is an educational website that provides loan estimate tools and affordability calculators.
+            <p className="text-slate-700 leading-7">
+              No. MYLOANPREVIEW is an educational website that provides loan
+              estimate tools and affordability calculators. It is not a lender,
+              broker, bank, or financial advisor and does not issue loans or
+              financing offers.
             </p>
           </div>
 
@@ -33,8 +41,11 @@ export default function FAQPage() {
             <h2 className="text-xl font-bold text-blue-700 mb-2">
               Are loan approvals guaranteed?
             </h2>
-            <p className="text-slate-700">
-              No. Loan approvals depend on lender requirements, income, credit profile, debt obligations, and other financial factors.
+            <p className="text-slate-700 leading-7">
+              No. MYLOANPREVIEW does not guarantee approval, qualification,
+              rates, terms, or financing offers. Actual decisions depend on
+              lender requirements, income, credit history, debt obligations,
+              and other financial factors.
             </p>
           </div>
 
@@ -45,8 +56,12 @@ export default function FAQPage() {
             <h2 className="text-xl font-bold text-blue-700 mb-2">
               Are the calculator results accurate?
             </h2>
-            <p className="text-slate-700">
-              Calculator results are estimates based on the information entered and should be used for educational purposes only.
+            <p className="text-slate-700 leading-7">
+              Calculator results are educational estimates based on the
+              information entered and the assumptions explained on each
+              calculator page. Actual lender offers may differ because of
+              rates, fees, taxes, insurance, credit history, income, debt,
+              collateral, and lender policies.
             </p>
           </div>
 
@@ -57,8 +72,11 @@ export default function FAQPage() {
             <h2 className="text-xl font-bold text-blue-700 mb-2">
               Will using these calculators affect my credit score?
             </h2>
-            <p className="text-slate-700">
-              No. Using the calculators on this website does not affect your credit score.
+            <p className="text-slate-700 leading-7">
+              No. Using MYLOANPREVIEW calculators does not submit a loan
+              application, initiate a hard or soft credit inquiry, or affect
+              your credit score. The calculators use only the information you
+              enter to produce educational estimates.
             </p>
           </div>
 

@@ -1,5 +1,10 @@
-import Navbar from "../components/layout/Navbar";
-import Footer from "../components/layout/Footer";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About MYLOANPREVIEW",
+  description:
+    "Learn about MYLOANPREVIEW, its educational loan calculators, affordability tools, and responsible estimate practices.",
+};
 
 export default function AboutPage() {
   return (
@@ -74,13 +79,15 @@ export default function AboutPage() {
               </h2>
 
               <p className="text-slate-600 leading-8">
-                MYLOANPREVIEW is not a lender, broker, or financial advisor.
+                MYLOANPREVIEW is not a lender, broker, bank, or financial
+                advisor.
               </p>
 
               <p className="text-slate-600 leading-8 mt-4">
-                We do not guarantee loan approval or specific financing
-                outcomes. All estimates are educational examples based on
-                information provided by the user.
+                We do not issue loans, make credit decisions, set lender rates
+                or terms, or guarantee approval, qualification, or financing
+                offers. All estimates are educational examples based on the
+                information entered.
               </p>
             </section>
 

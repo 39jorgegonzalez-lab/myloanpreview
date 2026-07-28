@@ -17,7 +17,7 @@ export default function AffiliateDisclosurePage() {
 
           <p className="mt-4 text-sm text-slate-500">
             Last updated:{" "}
-            <time dateTime="2026-07-19">July 19, 2026</time>
+            <time dateTime="2026-07-28">July 28, 2026</time>
           </p>
         </header>
 
@@ -108,10 +108,11 @@ export default function AffiliateDisclosurePage() {
             </h2>
 
             <p className="mt-4 leading-8">
-              MYLOANPREVIEW is not a lender, bank, financial institution, or
-              financial advisor. It does not make credit decisions, issue
-              loans, set lender rates or terms, or guarantee approval for any
-              financial product.
+              MYLOANPREVIEW is not a lender, broker, bank, financial
+              institution, or financial advisor. It does not make credit
+              decisions, issue loans, set lender rates or terms, or guarantee
+              approval, qualification, eligibility, or financing offers for
+              any financial product.
             </p>
 
             <p className="mt-4 leading-8">
