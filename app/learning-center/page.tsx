@@ -29,12 +29,12 @@ export default function LearningCenterPage() {
 
         </div>
 
-        {/* Featured Guides */}
+        {/* All Guides */}
 
         <section className="mt-20">
 
           <h2 className="text-3xl font-bold text-slate-900 mb-8">
-            Featured Guides
+            All Guides
           </h2>
 
           <div className="grid gap-6 md:grid-cols-2">
@@ -190,6 +190,11 @@ export default function LearningCenterPage() {
             <CalculatorCard
               title="Debt-to-Income Calculator"
               href="/debt-to-income-calculator"
+            />
+
+            <CalculatorCard
+              title="Monthly Payment Calculator"
+              href="/monthly-payment-calculator"
             />
 
             <CalculatorCard
