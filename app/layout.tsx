@@ -27,7 +27,7 @@ export const metadata = {
   metadataBase: new URL("https://www.myloanpreview.com"),
 
   alternates: {
-    canonical: "https://www.myloanpreview.com",
+    canonical: "./",
   },
 
   title: {
