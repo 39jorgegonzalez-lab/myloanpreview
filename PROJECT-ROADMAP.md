@@ -506,7 +506,7 @@ We are building a trusted educational platform—not just a collection of calcul
 # September 29, 2026 Completion Program
 
 **Program window:** August 3 through September 29, 2026
-**Current status:** Step 1 of 9 in progress
+**Current status:** Step 1 of 9 complete; Step 2 is next
 **Primary objective:** Complete Version 1 creation, perform a full-site review,
 establish measurement and responsible monetization systems, and build a strong,
 repeatable Google visibility foundation.
@@ -557,8 +557,61 @@ Three-month performance recorded before this program:
 - Core Web Vitals: not yet evaluated because of insufficient field data
 - External links reported by Search Console: 0
 
-A current Last 28 Days baseline must be recorded before setting exact September
-29 search-growth targets.
+### Last 28 Days Search Console baseline — August 3, 2026
+
+- Search type: Web
+- Total clicks: 0
+- Total impressions: 768
+- Average CTR: 0%
+- Average position: 81.9
+- Reported query rows: 248
+- Reported page rows: 23
+
+### First priority pages selected from Search Console
+
+1. **Car-loan credit-score guide — primary near-term opportunity**
+   - Page impressions: 259
+   - Page average position: 68.6
+   - `what credit score do you need for a car loan`: position 18.0
+   - `credit score needed for car loan`: position 19.2
+   - `credit score needed for auto loan`: position 20.2
+
+2. **Loan-terms guide — closest-ranking opportunity**
+   - Page impressions: 24
+   - Page average position: 42.4
+   - `how does choosing a shorter loan term affect my monthly payment?`:
+     position 11.0
+   - `how do loan terms affect the cost of credit`: position 18.0
+   - Current query volume is limited, so repeated impressions are required
+     before treating one-position readings as stable.
+
+3. **Mortgage credit-score guide — longer-term authority opportunity**
+   - Page impressions: 329
+   - Page average position: 93.3
+   - `credit score for mortgage`: 148 impressions at position 97.0
+   - Strong demand signal exists, but the page is not yet a near-term ranking
+     opportunity.
+
+The personal-loan credit-score guide is not a first-round priority because its
+visible queries currently rank mainly between positions 78 and 98.
+
+### September 29 search visibility working targets
+
+These are directional performance targets, not ranking guarantees:
+
+- Reach at least 1,500 impressions in a comparable Last 28 Days report.
+- Reach at least 10 organic clicks in a comparable Last 28 Days report.
+- Move sitewide CTR above 0%, with a working target of at least 0.5%.
+- Establish at least three non-brand priority queries at average positions of
+  30 or better with repeated impressions.
+- Establish at least one priority query in the top 10 with repeated impressions.
+- Move at least two car-loan credit-score queries to position 15 or better.
+- Establish at least one loan-terms query at position 10 or better with at least
+  five impressions during the comparison period.
+- Improve the mortgage credit-score guide from page position 93.3 toward
+  position 75 or better while preserving or increasing impressions.
+- Maintain no manual actions, no security issues, no non-HTTPS URLs, and no
+  identified content-page indexing regressions.
 
 ### Measurement baseline
 
@@ -613,7 +666,7 @@ A current Last 28 Days baseline must be recorded before setting exact September
 ## Step 1 — Lock Roadmap, Baseline, and Completion Criteria
 
 **Dates:** August 3–4
-**Status:** IN PROGRESS
+**Status:** PASS
 
 Complete when:
 
