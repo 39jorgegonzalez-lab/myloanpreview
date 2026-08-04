@@ -40,13 +40,17 @@ export default function MortgageCreditScoreArticle() {
             Quick Answer
           </h2>
 
+          <p className="mb-6 leading-8 text-slate-700">
+            There is no single credit score required for every mortgage. A score
+            near 620 remains a common lender benchmark and still applies in some
+            underwriting scenarios, but it is not a universal cutoff.
+          </p>
+
           <p className="leading-8 text-slate-700">
-            Many mortgage lenders view a credit score of{" "}
-            <strong>620 or higher</strong> as an important benchmark for some
-            mortgage programs, but requirements vary by loan type, lender,
-            down payment, income, debt-to-income ratio, and overall financial
-            profile. Some loan programs may allow lower scores, while stronger
-            scores may help you qualify for better rates.
+            Requirements vary by loan program, lender, automated or manual
+            underwriting, down payment, income, debt-to-income ratio, property,
+            and overall financial profile. Some programs may allow lower scores,
+            while stronger scores may help with pricing and available options.
           </p>
         </section>
 
@@ -87,16 +91,18 @@ export default function MortgageCreditScoreArticle() {
               <div className="p-5">
                 <h3 className="font-bold text-slate-900">620 to 739</h3>
                 <p className="mt-2 leading-7 text-slate-700">
-                  Often viewed as a common mortgage qualifying range, but
-                  approval still depends on the full application.
+                  A common planning range at many lenders, but not a universal
+                  mortgage cutoff. Program rules and underwriting methods can
+                  produce different outcomes.
                 </p>
               </div>
 
               <div className="p-5">
                 <h3 className="font-bold text-slate-900">Below 620</h3>
                 <p className="mt-2 leading-7 text-slate-700">
-                  Some mortgage options may still be possible, but lender
-                  requirements may be stricter and rates or costs may be higher.
+                  Some mortgage options may still be possible. FHA, VA, automated
+                  underwriting, and individual lender standards may differ, and
+                  lenders may impose stricter requirements or higher costs.
                 </p>
               </div>
             </div>
@@ -215,10 +221,10 @@ export default function MortgageCreditScoreArticle() {
               </h3>
 
               <p className="mt-2 leading-8 text-slate-700">
-                A score of 620 or higher is often an important mortgage
-                benchmark, while higher scores may help borrowers qualify for
-                more competitive rates. Actual requirements vary by loan program
-                and lender.
+                There is no single good score for every mortgage. Scores near 620
+                remain common planning benchmarks at many lenders, while stronger
+                scores may help with pricing and available options. Some programs
+                and underwriting paths may apply different standards.
               </p>
             </div>
 
@@ -228,9 +234,10 @@ export default function MortgageCreditScoreArticle() {
               </h3>
 
               <p className="mt-2 leading-8 text-slate-700">
-                Some mortgage programs may allow lower credit scores, but
-                approval is not guaranteed. Lenders may require a stronger down
-                payment, lower debt-to-income ratio, or additional documentation.
+                It may be possible. FHA policy generally permits maximum FHA
+                financing with a qualifying score of 580 or above, while scores
+                from 500 through 579 are generally limited to 90% loan-to-value.
+                Lenders may set higher minimums, and approval is not guaranteed.
               </p>
             </div>
 
@@ -260,6 +267,52 @@ export default function MortgageCreditScoreArticle() {
           </div>
         </section>
 
+        <section className="mt-12 rounded-xl border border-slate-200 bg-white p-8">
+          <h2 className="mb-4 text-2xl font-bold text-slate-900">
+            Official Mortgage Program Sources
+          </h2>
+
+          <p className="mb-5 leading-8 text-slate-700">
+            Mortgage credit requirements can change, and individual lenders may
+            apply stricter standards. These official resources explain important
+            program-level rules and underwriting updates.
+          </p>
+
+          <ul className="space-y-3 leading-7">
+            <li>
+              <a
+                href="https://singlefamily.fanniemae.com/applications-technology/desktop-underwriter-desktop-originator/desktop-underwriter-credit-risk-assessment-updates"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-blue-700 underline decoration-blue-300 underline-offset-4 hover:text-blue-900"
+              >
+                Fannie Mae: Desktop Underwriter Credit Risk Assessment Updates
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="https://answers.hud.gov/FHA/s/article/Does-FHA-require-a-minimum-credit-score-and-how-is-it-determined"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-blue-700 underline decoration-blue-300 underline-offset-4 hover:text-blue-900"
+              >
+                HUD: FHA Minimum Credit Score Guidance
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="https://benefits.va.gov/homeloans/documents/docs/lgy-eligibility-for-va-home-loan-toolkit.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-blue-700 underline decoration-blue-300 underline-offset-4 hover:text-blue-900"
+              >
+                U.S. Department of Veterans Affairs: Home Loan Eligibility Toolkit
+              </a>
+            </li>
+          </ul>
+        </section>
         <EmailSignupCTA />
 
         <section className="mt-12 rounded-xl border border-amber-200 bg-amber-50 p-6">
