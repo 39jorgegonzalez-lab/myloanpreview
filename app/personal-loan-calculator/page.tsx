@@ -364,6 +364,72 @@ export default function PersonalLoanCalculator() {
           </div>
         </div>
       </section>
+
+      {/* FAQ */}
+
+      <section className="mx-auto max-w-5xl px-6 pb-24">
+        <h2 className="mb-10 text-center text-3xl font-bold">
+          Personal Loan Calculator FAQs
+        </h2>
+
+        <div className="space-y-6">
+          <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <h3 className="mb-4 text-2xl font-bold">
+              What does this personal loan calculator
+              estimate?
+            </h3>
+
+            <p className="leading-8 text-slate-700">
+              It uses the entered loan amount, interest rate,
+              and repayment term to estimate a monthly payment,
+              total interest, and total repayment amount.
+              The results are planning estimates and not
+              lender quotes.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <h3 className="mb-4 text-2xl font-bold">
+              Are personal loan fees included?
+            </h3>
+
+            <p className="leading-8 text-slate-700">
+              No. The calculator does not separately include
+              origination fees, late fees, optional products,
+              or other possible lender charges. Those costs
+              may change the amount received or the total
+              borrowing cost.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <h3 className="mb-4 text-2xl font-bold">
+              How does the loan term affect the payment?
+            </h3>
+
+            <p className="leading-8 text-slate-700">
+              A shorter term may produce a higher monthly
+              payment while reducing total interest. A longer
+              term may reduce the monthly payment but increase
+              the total interest paid.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <h3 className="mb-4 text-2xl font-bold">
+              Does this estimate mean I will be approved?
+            </h3>
+
+            <p className="leading-8 text-slate-700">
+              No. Using the calculator does not submit a loan
+              application or provide an approval decision.
+              Lenders may consider credit, income, existing
+              debts, documentation, and other factors.
+            </p>
+          </div>
+        </div>
+      </section>
+
     </main>
   );
 }

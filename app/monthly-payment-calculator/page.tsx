@@ -431,6 +431,71 @@ export default function MonthlyPaymentCalculator() {
           </div>
         </div>
       </section>
+
+      {/* FAQ */}
+
+      <section className="mx-auto max-w-5xl px-6 pb-24">
+        <h2 className="mb-10 text-center text-3xl font-bold">
+          Monthly Payment Calculator FAQs
+        </h2>
+
+        <div className="space-y-6">
+          <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <h3 className="mb-4 text-2xl font-bold">
+              What types of loans can this calculator
+              estimate?
+            </h3>
+
+            <p className="leading-8 text-slate-700">
+              It is designed for fixed-rate installment-loan
+              examples with regular monthly payments. It does
+              not model revolving credit, variable rates, or
+              irregular repayment schedules.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <h3 className="mb-4 text-2xl font-bold">
+              How does the loan term affect the payment?
+            </h3>
+
+            <p className="leading-8 text-slate-700">
+              A longer term may reduce the monthly payment but
+              increase total interest. A shorter term may
+              increase the payment while reducing the possible
+              total interest cost.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <h3 className="mb-4 text-2xl font-bold">
+              How does the interest rate affect the estimated
+              cost?
+            </h3>
+
+            <p className="leading-8 text-slate-700">
+              With the same loan amount and term, a higher
+              interest rate generally increases the monthly
+              payment and total interest. A lower interest rate
+              generally reduces both.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <h3 className="mb-4 text-2xl font-bold">
+              Is the result a lender quote or approval?
+            </h3>
+
+            <p className="leading-8 text-slate-700">
+              No. The result is an educational estimate based
+              on the information entered. Actual payments,
+              rates, fees, terms, and approval decisions may
+              differ.
+            </p>
+          </div>
+        </div>
+      </section>
+
     </main>
   );
 }

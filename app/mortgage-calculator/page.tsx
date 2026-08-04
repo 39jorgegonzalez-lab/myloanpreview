@@ -742,6 +742,70 @@ export default function MortgageCalculator() {
           </div>
         </div>
       </section>
+
+      {/* FAQ */}
+
+      <section className="mx-auto max-w-5xl px-6 pb-24">
+        <h2 className="mb-10 text-center text-3xl font-bold">
+          Mortgage Calculator FAQs
+        </h2>
+
+        <div className="space-y-6">
+          <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <h3 className="mb-4 text-2xl font-bold">
+              What costs can the mortgage estimate include?
+            </h3>
+
+            <p className="leading-8 text-slate-700">
+              The estimate can include principal and interest
+              plus entered amounts for property taxes,
+              homeowners insurance, mortgage insurance, HOA
+              fees, and other possible monthly housing costs.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <h3 className="mb-4 text-2xl font-bold">
+              Why might a lender estimate be different?
+            </h3>
+
+            <p className="leading-8 text-slate-700">
+              A lender may use different interest rates,
+              taxes, insurance amounts, escrow estimates,
+              fees, mortgage-insurance rules, and rounding.
+              Those differences can change the final payment.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <h3 className="mb-4 text-2xl font-bold">
+              How does the down payment affect the estimate?
+            </h3>
+
+            <p className="leading-8 text-slate-700">
+              A larger down payment generally reduces the
+              estimated loan amount and principal-and-interest
+              payment. It may also affect mortgage insurance,
+              but requirements vary by loan program and lender.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <h3 className="mb-4 text-2xl font-bold">
+              Does this estimate mean I qualify for a
+              mortgage?
+            </h3>
+
+            <p className="leading-8 text-slate-700">
+              No. The calculator provides an educational
+              payment estimate only. Qualification and
+              approval depend on lender requirements and the
+              complete financial and property information.
+            </p>
+          </div>
+        </div>
+      </section>
+
     </main>
   );
 }

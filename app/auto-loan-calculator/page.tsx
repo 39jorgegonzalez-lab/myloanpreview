@@ -575,6 +575,70 @@ export default function AutoLoanCalculator() {
           </div>
         </div>
       </section>
+
+      {/* FAQ */}
+
+      <section className="mx-auto max-w-5xl px-6 pb-24">
+        <h2 className="mb-10 text-center text-3xl font-bold">
+          Auto Loan Calculator FAQs
+        </h2>
+
+        <div className="space-y-6">
+          <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <h3 className="mb-4 text-2xl font-bold">
+              How does trade-in equity affect the loan?
+            </h3>
+
+            <p className="leading-8 text-slate-700">
+              Positive trade-in equity generally reduces the
+              amount financed. When the trade-in payoff is
+              greater than the trade-in value, the remaining
+              negative equity may increase the amount financed
+              when it is included in the new loan.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <h3 className="mb-4 text-2xl font-bold">
+              Are vehicle taxes and fees included?
+            </h3>
+
+            <p className="leading-8 text-slate-700">
+              The estimate includes only the taxes and fees
+              entered into the calculator. Tax treatment and
+              dealer charges vary by location and transaction,
+              so actual amounts may differ.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <h3 className="mb-4 text-2xl font-bold">
+              Does a longer auto loan lower the payment?
+            </h3>
+
+            <p className="leading-8 text-slate-700">
+              A longer term may reduce the estimated monthly
+              payment, but it can increase total interest. A
+              shorter term may increase the payment while
+              reducing the possible long-term interest cost.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <h3 className="mb-4 text-2xl font-bold">
+              Does this calculator guarantee financing?
+            </h3>
+
+            <p className="leading-8 text-slate-700">
+              No. The result is an educational estimate and
+              is not a dealer offer, lender quote, or approval
+              decision. Actual financing depends on the lender,
+              borrower, vehicle, and transaction details.
+            </p>
+          </div>
+        </div>
+      </section>
+
     </main>
   );
 }
