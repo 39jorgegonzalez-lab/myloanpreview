@@ -500,3 +500,264 @@ If the answer to most of these questions is "no," we should not build it.
 MYLOANPREVIEW should become the first website consumers visit when they want to understand loans, estimate payments, improve affordability, and make informed borrowing decisions.
 
 We are building a trusted educational platform—not just a collection of calculators.
+
+---
+
+# September 29, 2026 Completion Program
+
+**Program window:** August 3 through September 29, 2026
+**Current status:** Step 1 of 9 in progress
+**Primary objective:** Complete Version 1 creation, perform a full-site review,
+establish measurement and responsible monetization systems, and build a strong,
+repeatable Google visibility foundation.
+
+This program does not depend on publishing the largest number of pages. It
+depends on making each important calculator, guide, and user journey accurate,
+useful, trustworthy, connected, measurable, and worthy of continued search
+visibility.
+
+The long-term mission is comprehensive coverage across loan categories. Version
+1 establishes the high-quality platform, core tools, and priority topic coverage
+needed to expand responsibly without publishing shallow content.
+
+## Verified Baseline — August 3, 2026
+
+### Repository and production
+
+- Production branch: `main`
+- Production commit: `d23848f`
+- Automated tests: 78 passed
+- Production build: 41 of 41 routes generated
+- Live sitemap content URLs: 33
+- Live self-referencing canonicals: 33 of 33 correct
+- Intentional permanent redirects: 3
+- Broken redirect destinations: 0
+
+### Current completion estimates
+
+- Overall Version 1 site: approximately 75%
+- Learning Center: approximately 85%
+- Trust, legal, and disclosure work: 100% for Version 1
+- Current calculators: 7
+- Current Learning Center guides: 19
+
+### Google Search Console baseline
+
+Three-month performance recorded before this program:
+
+- Total clicks: 42
+- Total impressions: 714
+- Average CTR: 5.9%
+- Average position: 74.9
+- Indexed pages: 25
+- Missing content pages identified in indexing exclusions: 0
+- Manual actions: PASS — no issues detected
+- Security issues: PASS — no issues detected
+- HTTPS: PASS — 0 non-HTTPS URLs
+- Core Web Vitals: not yet evaluated because of insufficient field data
+- External links reported by Search Console: 0
+
+A current Last 28 Days baseline must be recorded before setting exact September
+29 search-growth targets.
+
+### Measurement baseline
+
+- Google Analytics 4 is installed in production.
+- Production page-view tracking is verified.
+- `calculator_used` is verified in GA4 Realtime.
+- `email_cta_click` is verified in GA4 Realtime.
+- All 7 calculators call the calculator-use tracking helper.
+- Email CTA click tracking is live.
+- Affiliate click tracking infrastructure exists.
+- Guide CTA tracking exists but is not yet wired to live guide links.
+- Lead-form start and completed-lead tracking exist but are not yet used.
+
+### Email baseline
+
+- Brevo signup CTA is live.
+- The CTA opens the external signup form successfully.
+- Email CTA clicks are recorded in GA4.
+- A complete test subscription and Brevo subscriber-record verification are
+  still required.
+
+### Monetization baseline
+
+- Display advertising: planning only
+- Ad network installed: no
+- Live display advertisements: no
+- Affiliate components: built but not placed on live pages
+- Active affiliate partnerships: not established
+- Lead-generation forms: not implemented
+- Email signup: live
+- Monetization must remain secondary to trust, usefulness, and compliance.
+
+## Program Rules
+
+1. Quality beats quantity.
+2. Every material change must solve a verified user, search, measurement, or
+   business need.
+3. No guaranteed-approval, guaranteed-rate, or guaranteed-financing language.
+4. Search visibility and educational promotion continue in parallel with
+   remaining Version 1 work.
+5. Paid advertising waits until conversion measurement, lead handling, and
+   compliance are ready.
+6. Purchased backlinks, bulk directories, and mass low-quality promotion are
+   prohibited.
+7. Every production change requires tests, build verification, staged-diff
+   review, deployment verification, and live production verification.
+8. Terminal output and production evidence are the source of truth.
+9. No unnecessary reorganization or speculative rewrites.
+10. September 29 is the Version 1 completion and growth-foundation checkpoint,
+    not the end of long-term expansion.
+
+## Step 1 — Lock Roadmap, Baseline, and Completion Criteria
+
+**Dates:** August 3–4
+**Status:** IN PROGRESS
+
+Complete when:
+
+- This execution program is committed and deployed to the repository.
+- The Last 28 Days Search Console baseline is recorded.
+- Current GA4, email, monetization, and production status are documented.
+- Priority pages and search opportunities are selected from real data.
+- September 29 completion and measurement criteria are finalized.
+
+## Step 2 — Finish Remaining Version 1 Creation Gaps
+
+**Dates:** August 5–14
+**Status:** NOT STARTED
+
+Complete when:
+
+- Every current calculator has its required educational, related-resource, FAQ,
+  and disclaimer structure where appropriate.
+- Every current guide has a useful next action and sufficient supporting depth.
+- Missing Version 1 content and navigation gaps are documented and resolved.
+- No unfinished placeholders or unsupported claims remain.
+- New work is limited to justified Version 1 requirements.
+
+## Step 3 — Full Site and Calculator Review
+
+**Dates:** August 15–21
+**Status:** NOT STARTED
+
+Complete when:
+
+- All calculator formulas, safeguards, examples, and disclosures are reviewed.
+- Desktop and mobile layouts are verified.
+- Navigation, search, footer, email CTAs, forms, redirects, and internal links
+  are verified.
+- Metadata, canonicals, sitemap, robots rules, structured data, and assets are
+  audited.
+- Accessibility, performance, trust, legal, and content consistency checks are
+  completed.
+- Full tests and production build pass.
+
+## Step 4 — Measurement, Conversion, and Email Readiness
+
+**Dates:** August 22–27
+**Status:** NOT STARTED
+
+Complete when:
+
+- GA4 page views and required custom events are verified in production.
+- Calculator, email, guide CTA, affiliate, and future lead events have defined
+  names and parameters.
+- A complete Brevo test subscription is verified.
+- Conversion events and reporting views are documented.
+- Lead handling, data collection, consent, and privacy requirements are defined
+  before any lead-generation launch.
+
+## Step 5 — Responsible Monetization Establishment
+
+**Dates:** August 28–September 3
+**Status:** NOT STARTED
+
+Complete when:
+
+- The monetization channel order is finalized.
+- Required publisher, affiliate, or partner applications are completed where
+  appropriate.
+- Approved placements, disclosures, tracking, and mobile safeguards are ready.
+- No monetization element resembles a calculator result or approval outcome.
+- No unapproved advertising network or unreviewed lender offer is forced live.
+- At least one responsible revenue path is technically and operationally ready,
+  subject to third-party approval where required.
+
+## Step 6 — Strengthen Topical Authority and Original Value
+
+**Dates:** September 4–13
+**Status:** NOT STARTED
+
+Complete when:
+
+- Priority loan-topic clusters are clearly connected.
+- Important underlinked guides receive relevant contextual links.
+- Priority pages include original practical value such as scenario tables,
+  comparisons, decision checkpoints, cost breakdowns, or calculators.
+- Thin, repetitive, or generic sections are improved only where evidence
+  supports the change.
+- Internal linking supports both users and search discovery.
+
+## Step 7 — Educational Distribution and Legitimate Outreach
+
+**Dates:** September 14–20
+**Status:** NOT STARTED
+
+Complete when:
+
+- Useful guides and tools are distributed through selected legitimate channels.
+- Outreach targets relevant organizations, publications, educators, and
+  resource pages.
+- Outreach is personalized and value-based.
+- Referral visits, earned links, mentions, and responses are recorded.
+- No purchased links, mass submissions, or spam promotion are used.
+
+## Step 8 — Search Measurement and Query-Informed Optimization
+
+**Dates:** September 21–25
+**Status:** NOT STARTED
+
+Complete when:
+
+- Search Console performance is compared with the locked baseline.
+- Query, page, device, and country results are reviewed.
+- Priority pages are adjusted only when real search data supports the change.
+- Indexing, HTTPS, manual actions, security, Core Web Vitals, and links reports
+  are rechecked.
+- Improvements, declines, and inconclusive results are recorded honestly.
+
+## Step 9 — Final Production Review and Next 90-Day Plan
+
+**Dates:** September 26–29
+**Status:** NOT STARTED
+
+Complete when:
+
+- The final Version 1 production audit passes.
+- Repository, GitHub, and Vercel production are synchronized.
+- Tests, build, routes, sitemap, canonicals, redirects, and critical live
+  journeys pass.
+- Version 1 completion status is documented.
+- Analytics, email, monetization, and search-growth results are summarized.
+- Remaining risks and dependencies are documented.
+- A quality-first October through December expansion roadmap is approved.
+
+## September 29 Success Standard
+
+By September 29, MYLOANPREVIEW should be:
+
+- A finished and reviewed Version 1 product
+- Technically healthy and production-verified
+- Accurate, transparent, and useful across its core loan categories
+- Measurable through verified analytics and conversion events
+- Supported by a functioning email-growth system
+- Ready for responsible monetization without weakening trust
+- Showing measurable Google visibility growth or clear evidence about what must
+  improve next
+- Operating from a repeatable content, optimization, and outreach process
+
+Google rankings cannot be guaranteed on a fixed date. The program succeeds by
+giving visitors and search engines increasingly strong reasons to trust, use,
+return to, cite, and recommend MYLOANPREVIEW.
