@@ -351,6 +351,17 @@ export default function PersonalLoanCalculator() {
               </p>
             </a>
           </div>
+          <div className="mt-8 border-t border-slate-200 pt-6 text-center">
+            <p className="text-sm font-semibold uppercase tracking-wide text-blue-700">
+              Related guide
+            </p>
+            <a
+              href="/learning-center/how-much-personal-loan-can-i-afford"
+              className="mt-2 inline-block font-semibold text-blue-700 underline decoration-blue-300 underline-offset-4 transition hover:text-blue-900"
+            >
+              How Much Personal Loan Can I Afford?
+            </a>
+          </div>
         </div>
       </section>
     </main>

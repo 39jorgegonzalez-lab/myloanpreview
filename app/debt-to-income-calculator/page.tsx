@@ -664,6 +664,17 @@ export default function DebtToIncomeCalculator() {
               </p>
             </a>
           </div>
+          <div className="mt-8 border-t border-slate-200 pt-6 text-center">
+            <p className="text-sm font-semibold uppercase tracking-wide text-blue-700">
+              Related guide
+            </p>
+            <a
+              href="/learning-center/what-is-debt-to-income-ratio"
+              className="mt-2 inline-block font-semibold text-blue-700 underline decoration-blue-300 underline-offset-4 transition hover:text-blue-900"
+            >
+              What Is Debt-to-Income Ratio?
+            </a>
+          </div>
         </div>
       </section>
 
