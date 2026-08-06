@@ -40,14 +40,14 @@ function validateCarAffordabilityInputs({
   loanTerm: NumericInputValue;
 }): string | null {
   if (grossMonthlyIncome === "") {
-    return "Enter your gross monthly income.";
+    return "Enter your monthly take-home income.";
   }
 
   if (
     grossMonthlyIncome < 500 ||
     grossMonthlyIncome > 1000000
   ) {
-    return "Gross monthly income must be between $500 and $1,000,000.";
+    return "Monthly take-home income must be between $500 and $1,000,000.";
   }
 
   if (monthlyExpenses === "") {
@@ -360,7 +360,7 @@ export default function CarAffordabilityCalculator() {
             Preview a possible vehicle price using your
             remaining monthly cash flow, selected budget
             percentage, estimated ownership costs, down
-            payment, taxes, fees, APR, and loan term.
+            payment, taxes, fees, interest rate, and loan term.
           </p>
         </div>
 
@@ -378,7 +378,7 @@ export default function CarAffordabilityCalculator() {
               </h3>
 
               <InputBox
-                label="Gross Monthly Income"
+                label="Monthly Take-Home Income"
                 value={grossMonthlyIncome}
                 setValue={setGrossMonthlyIncome}
                 min={500}
@@ -386,7 +386,7 @@ export default function CarAffordabilityCalculator() {
                 step="100"
                 inputMode="decimal"
                 required
-                helpText="Enter income before taxes and other payroll deductions."
+                helpText="Enter monthly income available after taxes and payroll deductions."
               />
 
               <InputBox
@@ -479,7 +479,7 @@ export default function CarAffordabilityCalculator() {
                   />
 
                   <InputBox
-                    label="Interest Rate / APR (%)"
+                    label="Interest Rate (%)"
                     value={interestRate}
                     setValue={setInterestRate}
                     min={0}
@@ -646,7 +646,7 @@ export default function CarAffordabilityCalculator() {
           <p className="mb-4 leading-relaxed text-slate-600">
             The calculator first subtracts monthly
             expenses and the optional safety cushion from
-            gross monthly income. It then applies the
+            monthly take-home income. It then applies the
             vehicle-budget percentage you selected to the
             remaining monthly cash flow.
           </p>
@@ -704,7 +704,7 @@ export default function CarAffordabilityCalculator() {
 
               <p className="leading-relaxed text-slate-600">
                 Estimate payments using vehicle price,
-                trade-in equity, taxes, fees, APR, and
+                trade-in equity, taxes, fees, interest rate, and
                 loan term.
               </p>
             </a>

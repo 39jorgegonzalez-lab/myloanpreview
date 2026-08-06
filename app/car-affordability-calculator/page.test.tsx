@@ -12,6 +12,7 @@ import {
   vi,
 } from "vitest";
 
+import { trackCalculatorUse } from "../lib/analytics";
 import CarAffordabilityCalculator from "./page";
 
 vi.mock("../lib/analytics", () => ({
@@ -20,6 +21,7 @@ vi.mock("../lib/analytics", () => ({
 
 afterEach(() => {
   cleanup();
+  vi.clearAllMocks();
 });
 
 function getInput(name: string): HTMLInputElement {
@@ -44,7 +46,7 @@ describe("CarAffordabilityCalculator", () => {
     render(<CarAffordabilityCalculator />);
 
     expect(
-      getInput("Gross Monthly Income").value,
+      getInput("Monthly Take-Home Income").value,
     ).toBe("6000");
 
     expect(
@@ -60,7 +62,7 @@ describe("CarAffordabilityCalculator", () => {
     ).toBe("15");
 
     expect(
-      getInput("Interest Rate / APR (%)").value,
+      getInput("Interest Rate (%)").value,
     ).toBe("6.5");
 
     expect(
@@ -119,7 +121,7 @@ describe("CarAffordabilityCalculator", () => {
 
     changeInput("Other Financed Fees", "1000");
 
-    changeInput("Interest Rate / APR (%)", "0");
+    changeInput("Interest Rate (%)", "0");
 
     expect(
       screen.getByText("$25,000.00"),
@@ -154,14 +156,14 @@ describe("CarAffordabilityCalculator", () => {
     ).toBeTruthy();
   });
 
-  it("rejects a blank gross monthly income", () => {
+  it("rejects a blank monthly take-home income", () => {
     render(<CarAffordabilityCalculator />);
 
-    changeInput("Gross Monthly Income", "");
+    changeInput("Monthly Take-Home Income", "");
 
     expect(
       screen.getByText(
-        "Enter your gross monthly income.",
+        "Enter your monthly take-home income.",
       ),
     ).toBeTruthy();
 
@@ -277,5 +279,175 @@ describe("CarAffordabilityCalculator", () => {
     expect(
       screen.getAllByText("$0.00"),
     ).toHaveLength(4);
+  });
+  it.each(
+    [
+      [
+        "take-home income below the minimum",
+        "Monthly Take-Home Income",
+        "499",
+        "Monthly take-home income must be between $500 and $1,000,000.",
+      ],
+      [
+        "take-home income above the safeguard",
+        "Monthly Take-Home Income",
+        "1000001",
+        "Monthly take-home income must be between $500 and $1,000,000.",
+      ],
+      [
+        "blank monthly expenses",
+        "Monthly Expenses and Existing Debt Payments",
+        "",
+        "Enter your monthly expenses and existing debt payments.",
+      ],
+      [
+        "negative monthly expenses",
+        "Monthly Expenses and Existing Debt Payments",
+        "-1",
+        "Monthly expenses must be between $0 and $1,000,000.",
+      ],
+      [
+        "monthly expenses above the safeguard",
+        "Monthly Expenses and Existing Debt Payments",
+        "1000001",
+        "Monthly expenses must be between $0 and $1,000,000.",
+      ],
+      [
+        "safety cushion above the safeguard",
+        "Monthly Safety Cushion",
+        "1000001",
+        "Monthly safety cushion must be between $0 and $1,000,000.",
+      ],
+      [
+        "blank vehicle budget percentage",
+        "Vehicle Budget Share of Remaining Cash Flow (%)",
+        "",
+        "Enter a vehicle budget percentage.",
+      ],
+      [
+        "negative vehicle budget percentage",
+        "Vehicle Budget Share of Remaining Cash Flow (%)",
+        "-0.1",
+        "Vehicle budget percentage must be between 0% and 100%.",
+      ],
+      [
+        "negative estimated monthly vehicle costs",
+        "Estimated Monthly Insurance, Fuel, and Maintenance",
+        "-1",
+        "Estimated monthly vehicle costs must be between $0 and $100,000.",
+      ],
+      [
+        "estimated monthly vehicle costs above the safeguard",
+        "Estimated Monthly Insurance, Fuel, and Maintenance",
+        "100001",
+        "Estimated monthly vehicle costs must be between $0 and $100,000.",
+      ],
+      [
+        "negative down payment or trade-in equity",
+        "Down Payment or Trade-In Equity",
+        "-1",
+        "Down payment or trade-in equity must be between $0 and $5,000,000.",
+      ],
+      [
+        "down payment or trade-in equity above the safeguard",
+        "Down Payment or Trade-In Equity",
+        "5000001",
+        "Down payment or trade-in equity must be between $0 and $5,000,000.",
+      ],
+      [
+        "negative estimated sales tax rate",
+        "Estimated Sales Tax Rate (%)",
+        "-0.01",
+        "Estimated sales tax rate must be between 0% and 25%.",
+      ],
+      [
+        "estimated sales tax rate above the safeguard",
+        "Estimated Sales Tax Rate (%)",
+        "25.01",
+        "Estimated sales tax rate must be between 0% and 25%.",
+      ],
+      [
+        "negative financed fees",
+        "Other Financed Fees",
+        "-1",
+        "Other financed fees must be between $0 and $250,000.",
+      ],
+      [
+        "financed fees above the safeguard",
+        "Other Financed Fees",
+        "250001",
+        "Other financed fees must be between $0 and $250,000.",
+      ],
+      [
+        "blank interest rate",
+        "Interest Rate (%)",
+        "",
+        "Enter an interest rate.",
+      ],
+      [
+        "negative interest rate",
+        "Interest Rate (%)",
+        "-0.01",
+        "Interest rate must be between 0% and 100%.",
+      ],
+      [
+        "interest rate above the safeguard",
+        "Interest Rate (%)",
+        "100.01",
+        "Interest rate must be between 0% and 100%.",
+      ],
+      [
+        "blank loan term",
+        "Loan Term (Months)",
+        "",
+        "Enter a loan term.",
+      ],
+      [
+        "loan term above 120 months",
+        "Loan Term (Months)",
+        "121",
+        "Loan term must be a whole number from 1 to 120 months.",
+      ],
+    ] as const,
+  )(
+    "rejects invalid car-affordability inputs: %s",
+    (
+      _caseName,
+      inputName,
+      value,
+      expectedMessage,
+    ) => {
+      render(<CarAffordabilityCalculator />);
+
+      changeInput(inputName, value);
+
+      expect(
+        screen.getByText(expectedMessage),
+      ).toBeTruthy();
+    },
+  );
+
+  it("tracks calculator use once without financial values", () => {
+    render(<CarAffordabilityCalculator />);
+
+    changeInput(
+      "Monthly Take-Home Income",
+      "6500",
+    );
+
+    changeInput(
+      "Monthly Expenses and Existing Debt Payments",
+      "2600",
+    );
+
+    expect(
+      trackCalculatorUse,
+    ).toHaveBeenCalledTimes(1);
+
+    expect(
+      trackCalculatorUse,
+    ).toHaveBeenCalledWith(
+      "car_affordability",
+    );
   });
 });
