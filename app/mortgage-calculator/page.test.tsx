@@ -24,6 +24,23 @@ afterEach(() => {
   vi.clearAllMocks();
 });
 
+function getInput(name: string): HTMLInputElement {
+  return screen.getByRole("spinbutton", {
+    name,
+  }) as HTMLInputElement;
+}
+
+function changeInput(
+  name: string,
+  value: string,
+): void {
+  fireEvent.change(getInput(name), {
+    target: {
+      value,
+    },
+  });
+}
+
 describe("MortgageCalculator", () => {
   it("shows the expected default mortgage estimate", () => {
     render(<MortgageCalculator />);
@@ -402,5 +419,236 @@ describe("MortgageCalculator", () => {
     expect(
       trackCalculatorUse,
     ).toHaveBeenCalledWith("mortgage");
+  });
+  it("rejects a home price below the minimum", () => {
+    render(<MortgageCalculator />);
+
+    changeInput("Home Price", "999");
+
+    expect(
+      screen.getByText(
+        "Home price must be at least $1,000.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects a home price above the safeguard", () => {
+    render(<MortgageCalculator />);
+
+    changeInput("Home Price", "100000001");
+
+    expect(
+      screen.getByText(
+        "Home price must be $100,000,000 or less.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects a negative down payment", () => {
+    render(<MortgageCalculator />);
+
+    changeInput("Down Payment", "-1");
+
+    expect(
+      screen.getByText(
+        "Down payment cannot be negative.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects negative financed loan costs", () => {
+    render(<MortgageCalculator />);
+
+    changeInput("Financed Loan Costs", "-1");
+
+    expect(
+      screen.getByText(
+        "Financed loan costs cannot be negative.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects financed loan costs above the safeguard", () => {
+    render(<MortgageCalculator />);
+
+    changeInput("Financed Loan Costs", "10000001");
+
+    expect(
+      screen.getByText(
+        "Financed loan costs must be $10,000,000 or less.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects a negative interest rate", () => {
+    render(<MortgageCalculator />);
+
+    changeInput("Interest Rate (%)", "-0.01");
+
+    expect(
+      screen.getByText(
+        "Interest rate must be between 0% and 30%.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects an interest rate above the safeguard", () => {
+    render(<MortgageCalculator />);
+
+    changeInput("Interest Rate (%)", "30.01");
+
+    expect(
+      screen.getByText(
+        "Interest rate must be between 0% and 30%.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects a blank loan term", () => {
+    render(<MortgageCalculator />);
+
+    changeInput("Loan Term (Years)", "");
+
+    expect(
+      screen.getByText("Enter a loan term."),
+    ).toBeTruthy();
+  });
+
+  it("rejects a zero-year loan term", () => {
+    render(<MortgageCalculator />);
+
+    changeInput("Loan Term (Years)", "0");
+
+    expect(
+      screen.getByText(
+        "Loan term must be a whole number from 1 to 50 years.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects a loan term above 50 years", () => {
+    render(<MortgageCalculator />);
+
+    changeInput("Loan Term (Years)", "51");
+
+    expect(
+      screen.getByText(
+        "Loan term must be a whole number from 1 to 50 years.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects property taxes above the safeguard", () => {
+    render(<MortgageCalculator />);
+
+    changeInput("Annual Property Taxes", "5000001");
+
+    expect(
+      screen.getByText(
+        "Annual property taxes must be $5,000,000 or less.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects negative homeowners insurance", () => {
+    render(<MortgageCalculator />);
+
+    changeInput("Annual Homeowners Insurance", "-1");
+
+    expect(
+      screen.getByText(
+        "Annual homeowners insurance cannot be negative.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects homeowners insurance above the safeguard", () => {
+    render(<MortgageCalculator />);
+
+    changeInput(
+      "Annual Homeowners Insurance",
+      "1000001",
+    );
+
+    expect(
+      screen.getByText(
+        "Annual homeowners insurance must be $1,000,000 or less.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects negative mortgage insurance", () => {
+    render(<MortgageCalculator />);
+
+    changeInput("Monthly Mortgage Insurance", "-1");
+
+    expect(
+      screen.getByText(
+        "Monthly mortgage insurance cannot be negative.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects mortgage insurance above the safeguard", () => {
+    render(<MortgageCalculator />);
+
+    changeInput("Monthly Mortgage Insurance", "100001");
+
+    expect(
+      screen.getByText(
+        "Monthly mortgage insurance must be $100,000 or less.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects negative HOA fees", () => {
+    render(<MortgageCalculator />);
+
+    changeInput("Monthly HOA Fees", "-1");
+
+    expect(
+      screen.getByText(
+        "Monthly HOA fees cannot be negative.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects HOA fees above the safeguard", () => {
+    render(<MortgageCalculator />);
+
+    changeInput("Monthly HOA Fees", "100001");
+
+    expect(
+      screen.getByText(
+        "Monthly HOA fees must be $100,000 or less.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects negative other monthly housing costs", () => {
+    render(<MortgageCalculator />);
+
+    changeInput("Other Monthly Housing Costs", "-1");
+
+    expect(
+      screen.getByText(
+        "Other monthly housing costs cannot be negative.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects other monthly housing costs above the safeguard", () => {
+    render(<MortgageCalculator />);
+
+    changeInput(
+      "Other Monthly Housing Costs",
+      "100001",
+    );
+
+    expect(
+      screen.getByText(
+        "Other monthly housing costs must be $100,000 or less.",
+      ),
+    ).toBeTruthy();
   });
 });
