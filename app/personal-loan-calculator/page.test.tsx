@@ -12,6 +12,7 @@ import {
   vi,
 } from "vitest";
 
+import { trackCalculatorUse } from "../lib/analytics";
 import PersonalLoanCalculator from "./page";
 
 vi.mock("../lib/analytics", () => ({
@@ -20,6 +21,7 @@ vi.mock("../lib/analytics", () => ({
 
 afterEach(() => {
   cleanup();
+  vi.clearAllMocks();
 });
 
 describe("PersonalLoanCalculator", () => {
@@ -161,5 +163,160 @@ describe("PersonalLoanCalculator", () => {
         "Interest rate must be between 0% and 100%.",
       ),
     ).toBeTruthy();
+  });
+  it("rejects a loan amount below the minimum", () => {
+    render(<PersonalLoanCalculator />);
+
+    fireEvent.change(
+      screen.getByRole("spinbutton", {
+        name: "Loan Amount",
+      }),
+      {
+        target: {
+          value: "99",
+        },
+      },
+    );
+
+    expect(
+      screen.getByText(
+        "Loan amount must be at least $100.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects a loan amount above the safeguard", () => {
+    render(<PersonalLoanCalculator />);
+
+    fireEvent.change(
+      screen.getByRole("spinbutton", {
+        name: "Loan Amount",
+      }),
+      {
+        target: {
+          value: "1000001",
+        },
+      },
+    );
+
+    expect(
+      screen.getByText(
+        "Loan amount must be $1,000,000 or less.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects a blank interest rate", () => {
+    render(<PersonalLoanCalculator />);
+
+    fireEvent.change(
+      screen.getByRole("spinbutton", {
+        name: "Interest Rate (%)",
+      }),
+      {
+        target: {
+          value: "",
+        },
+      },
+    );
+
+    expect(
+      screen.getByText("Enter an interest rate."),
+    ).toBeTruthy();
+  });
+
+  it("rejects a negative interest rate", () => {
+    render(<PersonalLoanCalculator />);
+
+    fireEvent.change(
+      screen.getByRole("spinbutton", {
+        name: "Interest Rate (%)",
+      }),
+      {
+        target: {
+          value: "-0.01",
+        },
+      },
+    );
+
+    expect(
+      screen.getByText(
+        "Interest rate must be between 0% and 100%.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects a blank loan term", () => {
+    render(<PersonalLoanCalculator />);
+
+    fireEvent.change(
+      screen.getByRole("spinbutton", {
+        name: "Loan Term (Months)",
+      }),
+      {
+        target: {
+          value: "",
+        },
+      },
+    );
+
+    expect(
+      screen.getByText("Enter a loan term."),
+    ).toBeTruthy();
+  });
+
+  it("rejects a loan term above 120 months", () => {
+    render(<PersonalLoanCalculator />);
+
+    fireEvent.change(
+      screen.getByRole("spinbutton", {
+        name: "Loan Term (Months)",
+      }),
+      {
+        target: {
+          value: "121",
+        },
+      },
+    );
+
+    expect(
+      screen.getByText(
+        "Loan term must be a whole number from 1 to 120 months.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("tracks calculator use once without financial values", () => {
+    render(<PersonalLoanCalculator />);
+
+    fireEvent.change(
+      screen.getByRole("spinbutton", {
+        name: "Loan Amount",
+      }),
+      {
+        target: {
+          value: "12000",
+        },
+      },
+    );
+
+    fireEvent.change(
+      screen.getByRole("spinbutton", {
+        name: "Interest Rate (%)",
+      }),
+      {
+        target: {
+          value: "10",
+        },
+      },
+    );
+
+    expect(
+      trackCalculatorUse,
+    ).toHaveBeenCalledTimes(1);
+
+    expect(
+      trackCalculatorUse,
+    ).toHaveBeenCalledWith("personal_loan");
   });
 });
