@@ -258,7 +258,7 @@ export default function AutoLoanCalculator() {
           <p className="mx-auto max-w-3xl text-lg leading-relaxed text-slate-600 md:text-xl">
             Estimate a possible monthly vehicle payment
             using the purchase price, down payment,
-            trade-in equity, taxes, financed fees, APR,
+            trade-in equity, taxes, financed fees, interest rate,
             and loan term.
           </p>
         </div>
@@ -349,7 +349,7 @@ export default function AutoLoanCalculator() {
                   />
 
                   <InputBox
-                    label="Interest Rate / APR (%)"
+                    label="Interest Rate (%)"
                     value={interestRate}
                     setValue={setInterestRate}
                     min={0}

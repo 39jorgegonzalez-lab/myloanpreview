@@ -12,6 +12,7 @@ import {
   vi,
 } from "vitest";
 
+import { trackCalculatorUse } from "../lib/analytics";
 import AutoLoanCalculator from "./page";
 
 vi.mock("../lib/analytics", () => ({
@@ -20,6 +21,7 @@ vi.mock("../lib/analytics", () => ({
 
 afterEach(() => {
   cleanup();
+  vi.clearAllMocks();
 });
 
 function getInput(name: string): HTMLInputElement {
@@ -50,7 +52,7 @@ describe("AutoLoanCalculator", () => {
       "3000",
     );
     expect(
-      getInput("Interest Rate / APR (%)").value,
+      getInput("Interest Rate (%)").value,
     ).toBe("6.5");
     expect(
       getInput("Loan Term (Months)").value,
@@ -79,7 +81,7 @@ describe("AutoLoanCalculator", () => {
     );
     changeInput("Estimated Sales Tax", "1500");
     changeInput("Other Financed Fees", "500");
-    changeInput("Interest Rate / APR (%)", "0");
+    changeInput("Interest Rate (%)", "0");
 
     expect(screen.getByText("$433.33")).toBeTruthy();
     expect(
@@ -143,7 +145,7 @@ describe("AutoLoanCalculator", () => {
     );
     changeInput("Estimated Sales Tax", "1500");
     changeInput("Other Financed Fees", "500");
-    changeInput("Interest Rate / APR (%)", "0");
+    changeInput("Interest Rate (%)", "0");
 
     expect(screen.getByText("$516.67")).toBeTruthy();
     expect(
@@ -185,5 +187,207 @@ describe("AutoLoanCalculator", () => {
     expect(screen.getAllByText("—")).toHaveLength(
       5,
     );
+  });
+  it("rejects a vehicle price below the minimum", () => {
+    render(<AutoLoanCalculator />);
+
+    changeInput("Vehicle Price", "499");
+
+    expect(
+      screen.getByText(
+        "Vehicle price must be at least $500.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects a vehicle price above the safeguard", () => {
+    render(<AutoLoanCalculator />);
+
+    changeInput("Vehicle Price", "5000001");
+
+    expect(
+      screen.getByText(
+        "Vehicle price must be $5,000,000 or less.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects a down payment above the safeguard", () => {
+    render(<AutoLoanCalculator />);
+
+    changeInput("Down Payment", "5000001");
+
+    expect(
+      screen.getByText(
+        "Down payment must be between $0 and $5,000,000.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects a negative trade-in value", () => {
+    render(<AutoLoanCalculator />);
+
+    changeInput("Trade-In Value", "-1");
+
+    expect(
+      screen.getByText(
+        "Trade-in value must be between $0 and $5,000,000.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects a trade-in value above the safeguard", () => {
+    render(<AutoLoanCalculator />);
+
+    changeInput("Trade-In Value", "5000001");
+
+    expect(
+      screen.getByText(
+        "Trade-in value must be between $0 and $5,000,000.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects a negative trade-in payoff", () => {
+    render(<AutoLoanCalculator />);
+
+    changeInput("Amount Owed on Trade-In", "-1");
+
+    expect(
+      screen.getByText(
+        "Trade-in payoff must be between $0 and $5,000,000.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects a trade-in payoff above the safeguard", () => {
+    render(<AutoLoanCalculator />);
+
+    changeInput("Amount Owed on Trade-In", "5000001");
+
+    expect(
+      screen.getByText(
+        "Trade-in payoff must be between $0 and $5,000,000.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects negative estimated sales tax", () => {
+    render(<AutoLoanCalculator />);
+
+    changeInput("Estimated Sales Tax", "-1");
+
+    expect(
+      screen.getByText(
+        "Estimated sales tax must be between $0 and $1,000,000.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects estimated sales tax above the safeguard", () => {
+    render(<AutoLoanCalculator />);
+
+    changeInput("Estimated Sales Tax", "1000001");
+
+    expect(
+      screen.getByText(
+        "Estimated sales tax must be between $0 and $1,000,000.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects negative financed fees", () => {
+    render(<AutoLoanCalculator />);
+
+    changeInput("Other Financed Fees", "-1");
+
+    expect(
+      screen.getByText(
+        "Other financed fees must be between $0 and $250,000.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects financed fees above the safeguard", () => {
+    render(<AutoLoanCalculator />);
+
+    changeInput("Other Financed Fees", "250001");
+
+    expect(
+      screen.getByText(
+        "Other financed fees must be between $0 and $250,000.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects a blank interest rate", () => {
+    render(<AutoLoanCalculator />);
+
+    changeInput("Interest Rate (%)", "");
+
+    expect(
+      screen.getByText("Enter an interest rate."),
+    ).toBeTruthy();
+  });
+
+  it("rejects a negative interest rate", () => {
+    render(<AutoLoanCalculator />);
+
+    changeInput("Interest Rate (%)", "-0.01");
+
+    expect(
+      screen.getByText(
+        "Interest rate must be between 0% and 100%.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects an interest rate above the safeguard", () => {
+    render(<AutoLoanCalculator />);
+
+    changeInput("Interest Rate (%)", "100.01");
+
+    expect(
+      screen.getByText(
+        "Interest rate must be between 0% and 100%.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("rejects a blank loan term", () => {
+    render(<AutoLoanCalculator />);
+
+    changeInput("Loan Term (Months)", "");
+
+    expect(
+      screen.getByText("Enter a loan term."),
+    ).toBeTruthy();
+  });
+
+  it("rejects a loan term above 120 months", () => {
+    render(<AutoLoanCalculator />);
+
+    changeInput("Loan Term (Months)", "121");
+
+    expect(
+      screen.getByText(
+        "Loan term must be a whole number from 1 to 120 months.",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("tracks calculator use once without financial values", () => {
+    render(<AutoLoanCalculator />);
+
+    changeInput("Vehicle Price", "32000");
+    changeInput("Down Payment", "4000");
+
+    expect(
+      trackCalculatorUse,
+    ).toHaveBeenCalledTimes(1);
+
+    expect(
+      trackCalculatorUse,
+    ).toHaveBeenCalledWith("auto_loan");
   });
 });
