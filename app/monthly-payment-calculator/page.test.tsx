@@ -12,6 +12,7 @@ import {
   vi,
 } from "vitest";
 
+import { trackCalculatorUse } from "../lib/analytics";
 import MonthlyPaymentCalculator from "./page";
 
 vi.mock("../lib/analytics", () => ({
@@ -20,6 +21,7 @@ vi.mock("../lib/analytics", () => ({
 
 afterEach(() => {
   cleanup();
+  vi.clearAllMocks();
 });
 
 function getInput(name: string): HTMLInputElement {
@@ -48,7 +50,7 @@ describe("MonthlyPaymentCalculator", () => {
     ).toBe("25000");
 
     expect(
-      getInput("Interest Rate / APR (%)").value,
+      getInput("Interest Rate (%)").value,
     ).toBe("6.5");
 
     expect(
@@ -76,7 +78,7 @@ describe("MonthlyPaymentCalculator", () => {
     render(<MonthlyPaymentCalculator />);
 
     changeInput(
-      "Interest Rate / APR (%)",
+      "Interest Rate (%)",
       "0",
     );
 
@@ -148,7 +150,7 @@ describe("MonthlyPaymentCalculator", () => {
     render(<MonthlyPaymentCalculator />);
 
     changeInput(
-      "Interest Rate / APR (%)",
+      "Interest Rate (%)",
       "100.01",
     );
 
@@ -178,4 +180,88 @@ describe("MonthlyPaymentCalculator", () => {
       screen.getAllByText("—"),
     ).toHaveLength(4);
   });
-});
+
+  it.each(
+    [
+      [
+        "zero loan amount",
+        "Loan Amount",
+        "0",
+        "Loan amount must be between $1 and $5,000,000.",
+      ],
+      [
+        "loan amount above the safeguard",
+        "Loan Amount",
+        "5000001",
+        "Loan amount must be between $1 and $5,000,000.",
+      ],
+      [
+        "blank interest rate",
+        "Interest Rate (%)",
+        "",
+        "Enter an interest rate.",
+      ],
+      [
+        "negative interest rate",
+        "Interest Rate (%)",
+        "-0.01",
+        "Interest rate must be between 0% and 100%.",
+      ],
+      [
+        "blank loan term",
+        "Loan Term (Months)",
+        "",
+        "Enter a loan term.",
+      ],
+      [
+        "loan term above 480 months",
+        "Loan Term (Months)",
+        "481",
+        "Loan term must be a whole number from 1 to 480 months.",
+      ],
+    ] as const,
+  )(
+    "rejects invalid monthly-payment inputs: %s",
+    (
+      _caseName,
+      inputName,
+      value,
+      expectedMessage,
+    ) => {
+      render(<MonthlyPaymentCalculator />);
+
+      changeInput(inputName, value);
+
+      expect(
+        screen.getByText(expectedMessage),
+      ).toBeTruthy();
+
+      expect(
+        screen.getAllByText("—"),
+      ).toHaveLength(4);
+    },
+  );
+
+  it("tracks calculator use once without financial values", () => {
+    render(<MonthlyPaymentCalculator />);
+
+    changeInput(
+      "Loan Amount",
+      "26000",
+    );
+
+    changeInput(
+      "Interest Rate (%)",
+      "7",
+    );
+
+    expect(
+      trackCalculatorUse,
+    ).toHaveBeenCalledTimes(1);
+
+    expect(
+      trackCalculatorUse,
+    ).toHaveBeenCalledWith(
+      "monthly_payment",
+    );
+  });});

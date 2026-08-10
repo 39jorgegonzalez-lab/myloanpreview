@@ -176,7 +176,7 @@ export default function MonthlyPaymentCalculator() {
           <p className="mx-auto max-w-3xl text-lg leading-relaxed text-slate-600 md:text-xl">
             Estimate a possible monthly loan payment,
             total repayment amount, and total interest
-            using the loan amount, APR, and repayment
+            using the loan amount, interest rate, and repayment
             term entered below.
           </p>
         </div>
@@ -203,7 +203,7 @@ export default function MonthlyPaymentCalculator() {
               />
 
               <InputBox
-                label="Interest Rate / APR (%)"
+                label="Interest Rate (%)"
                 value={interestRate}
                 setValue={setInterestRate}
                 min={0}
@@ -211,7 +211,7 @@ export default function MonthlyPaymentCalculator() {
                 step="0.01"
                 inputMode="decimal"
                 required
-                helpText="Enter an estimated annual percentage rate. Enter 0 when estimating a zero-interest loan."
+                helpText="Enter an estimated annual interest rate. Enter 0 when estimating a zero-interest loan."
               />
 
               <InputBox
@@ -371,7 +371,7 @@ export default function MonthlyPaymentCalculator() {
 
               <p className="leading-relaxed text-slate-600">
                 Estimate vehicle payments using trade-in
-                equity, taxes, fees, APR, and loan term.
+                equity, taxes, fees, interest rate, and loan term.
               </p>
             </a>
 
