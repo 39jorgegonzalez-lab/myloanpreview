@@ -91,7 +91,7 @@ function getProjectedDtiSignal({
         return {
       label: "STOP AND REVIEW THIS SCENARIO",
       guidance:
-        "Projected monthly debt exceeds gross monthly income. This scenario leaves no gross income remaining for taxes or ordinary living expenses. Test a smaller proposed payment or review the entered debt amounts before proceeding.",
+        "Projected monthly debt equals or exceeds gross monthly income. This scenario leaves no gross income remaining for taxes or ordinary living expenses. Test a smaller proposed payment or review the entered debt amounts before proceeding.",
       panelClassName:
         "border-4 border-red-950 bg-red-700 shadow-xl ring-4 ring-red-300",
       labelClassName: "text-white",
@@ -616,7 +616,7 @@ export default function DebtToIncomeCalculator() {
 
               <p className="leading-relaxed text-slate-600">
                 Estimate payments using vehicle price,
-                trade-in equity, taxes, fees, APR, and
+                trade-in equity, taxes, fees, interest rate, and
                 loan term.
               </p>
             </a>
