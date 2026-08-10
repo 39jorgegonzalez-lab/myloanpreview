@@ -18,9 +18,9 @@ type LoanType =
 type RateAssumption = {
   scoreLabel: string;
   scoreRange: string;
-  lowApr: number;
-  highApr: number;
-  benchmarkApr?: number;
+  lowRate: number;
+  highRate: number;
+  benchmarkRate?: number;
   warningTitle?: string;
   warningText?: string;
 };
@@ -30,8 +30,8 @@ type PersonalLoanBand = {
   maximumScore: number;
   scoreLabel: string;
   scoreRange: string;
-  lowApr: number;
-  highApr: number;
+  lowRate: number;
+  highRate: number;
   warningTitle?: string;
   warningText?: string;
 };
@@ -41,8 +41,8 @@ type AutoLoanBand = {
   maximumScore: number;
   scoreLabel: string;
   scoreRange: string;
-  newAutoBenchmarkApr: number;
-  usedAutoBenchmarkApr: number;
+  newAutoBenchmarkRate: number;
+  usedAutoBenchmarkRate: number;
   planningSpread: number;
   warningTitle?: string;
   warningText?: string;
@@ -83,14 +83,14 @@ const LOAN_TYPE_DETAILS: Record<
 };
 
 /*
- * Personal-loan APR ranges are MYLOANPREVIEW
+ * Personal-loan interest-rate ranges are MYLOANPREVIEW
  * educational planning assumptions.
  *
  * They are not published averages for each score band
  * and are not lender offers.
  *
  * The ranges remain within broadly advertised unsecured
- * personal-loan APR spans reviewed in July 2026.
+ * personal-loan interest-rate spans reviewed in July 2026.
  */
 const PERSONAL_LOAN_BANDS: PersonalLoanBand[] = [
   {
@@ -98,32 +98,32 @@ const PERSONAL_LOAN_BANDS: PersonalLoanBand[] = [
     maximumScore: 850,
     scoreLabel: "Exceptional",
     scoreRange: "800–850",
-    lowApr: 7,
-    highApr: 13,
+    lowRate: 7,
+    highRate: 13,
   },
   {
     minimumScore: 740,
     maximumScore: 799,
     scoreLabel: "Very Good",
     scoreRange: "740–799",
-    lowApr: 9,
-    highApr: 16,
+    lowRate: 9,
+    highRate: 16,
   },
   {
     minimumScore: 670,
     maximumScore: 739,
     scoreLabel: "Good",
     scoreRange: "670–739",
-    lowApr: 13,
-    highApr: 23,
+    lowRate: 13,
+    highRate: 23,
   },
   {
     minimumScore: 580,
     maximumScore: 669,
     scoreLabel: "Fair",
     scoreRange: "580–669",
-    lowApr: 19,
-    highApr: 30,
+    lowRate: 19,
+    highRate: 30,
     warningTitle:
       "ELEVATED BORROWING-COST SCENARIO",
     warningText:
@@ -134,8 +134,8 @@ const PERSONAL_LOAN_BANDS: PersonalLoanBand[] = [
     maximumScore: 579,
     scoreLabel: "Lower Score Range",
     scoreRange: "300–579",
-    lowApr: 29,
-    highApr: 35.99,
+    lowRate: 29,
+    highRate: 35.99,
     warningTitle:
       "LIMITED AVAILABILITY AND HIGH-COST WARNING",
     warningText:
@@ -144,7 +144,7 @@ const PERSONAL_LOAN_BANDS: PersonalLoanBand[] = [
 ];
 
 /*
- * Auto benchmark APRs come from Experian's
+ * Auto benchmark rates come from Experian's
  * Q1 2026 State of the Automotive Finance Market data.
  *
  * The calculator expands each published category average
@@ -159,8 +159,8 @@ const AUTO_LOAN_BANDS: AutoLoanBand[] = [
     maximumScore: 850,
     scoreLabel: "Super Prime",
     scoreRange: "781–850",
-    newAutoBenchmarkApr: 4.55,
-    usedAutoBenchmarkApr: 6.3,
+    newAutoBenchmarkRate: 4.55,
+    usedAutoBenchmarkRate: 6.3,
     planningSpread: 1.25,
   },
   {
@@ -168,8 +168,8 @@ const AUTO_LOAN_BANDS: AutoLoanBand[] = [
     maximumScore: 780,
     scoreLabel: "Prime",
     scoreRange: "661–780",
-    newAutoBenchmarkApr: 6.23,
-    usedAutoBenchmarkApr: 8.77,
+    newAutoBenchmarkRate: 6.23,
+    usedAutoBenchmarkRate: 8.77,
     planningSpread: 1.75,
   },
   {
@@ -177,8 +177,8 @@ const AUTO_LOAN_BANDS: AutoLoanBand[] = [
     maximumScore: 660,
     scoreLabel: "Near Prime",
     scoreRange: "601–660",
-    newAutoBenchmarkApr: 9.67,
-    usedAutoBenchmarkApr: 14.03,
+    newAutoBenchmarkRate: 9.67,
+    usedAutoBenchmarkRate: 14.03,
     planningSpread: 2.5,
   },
   {
@@ -186,8 +186,8 @@ const AUTO_LOAN_BANDS: AutoLoanBand[] = [
     maximumScore: 600,
     scoreLabel: "Subprime",
     scoreRange: "501–600",
-    newAutoBenchmarkApr: 13.44,
-    usedAutoBenchmarkApr: 19.42,
+    newAutoBenchmarkRate: 13.44,
+    usedAutoBenchmarkRate: 19.42,
     planningSpread: 3.5,
     warningTitle:
       "HIGH-COST AUTO-FINANCING SCENARIO",
@@ -199,8 +199,8 @@ const AUTO_LOAN_BANDS: AutoLoanBand[] = [
     maximumScore: 500,
     scoreLabel: "Deep Subprime",
     scoreRange: "300–500",
-    newAutoBenchmarkApr: 16.01,
-    usedAutoBenchmarkApr: 21.77,
+    newAutoBenchmarkRate: 16.01,
+    usedAutoBenchmarkRate: 21.77,
     planningSpread: 4.5,
     warningTitle:
       "VERY HIGH-COST AND LIMITED-AVAILABILITY WARNING",
@@ -224,7 +224,7 @@ function clampCreditScore(
   );
 }
 
-function roundApr(
+function roundRate(
   value: number,
 ): number {
   return Math.round(value * 10) / 10;
@@ -282,8 +282,8 @@ function getRateAssumption(
     return {
       scoreLabel: band.scoreLabel,
       scoreRange: band.scoreRange,
-      lowApr: band.lowApr,
-      highApr: band.highApr,
+      lowRate: band.lowRate,
+      highRate: band.highRate,
       warningTitle: band.warningTitle,
       warningText: band.warningText,
     };
@@ -292,23 +292,23 @@ function getRateAssumption(
   const band =
     findAutoLoanBand(safeCreditScore);
 
-  const benchmarkApr =
+  const benchmarkRate =
     loanType === "new-auto"
-      ? band.newAutoBenchmarkApr
-      : band.usedAutoBenchmarkApr;
+      ? band.newAutoBenchmarkRate
+      : band.usedAutoBenchmarkRate;
 
   return {
     scoreLabel: band.scoreLabel,
     scoreRange: band.scoreRange,
-    benchmarkApr,
-    lowApr: roundApr(
+    benchmarkRate,
+    lowRate: roundRate(
       Math.max(
         0,
-        benchmarkApr - band.planningSpread,
+        benchmarkRate - band.planningSpread,
       ),
     ),
-    highApr: roundApr(
-      benchmarkApr + band.planningSpread,
+    highRate: roundRate(
+      benchmarkRate + band.planningSpread,
     ),
     warningTitle: band.warningTitle,
     warningText: band.warningText,
@@ -375,23 +375,23 @@ function validateCreditScoreLoanInputs({
 
 function calculateInstallmentPayment({
   principal,
-  annualApr,
+  annualRate,
   loanTerm,
 }: {
   principal: number;
-  annualApr: number;
+  annualRate: number;
   loanTerm: number;
 }): number {
   if (
     principal <= 0 ||
-    annualApr < 0 ||
+    annualRate < 0 ||
     loanTerm <= 0
   ) {
     return 0;
   }
 
   const monthlyRate =
-    annualApr / 100 / 12;
+    annualRate / 100 / 12;
 
   if (monthlyRate === 0) {
     return principal / loanTerm;
@@ -450,7 +450,7 @@ export default function CreditScoreLoanEstimate() {
     validationMessage === null
       ? calculateInstallmentPayment({
           principal: numericLoanAmount,
-          annualApr: rateAssumption.lowApr,
+          annualRate: rateAssumption.lowRate,
           loanTerm: numericLoanTerm,
         })
       : 0;
@@ -459,7 +459,7 @@ export default function CreditScoreLoanEstimate() {
     validationMessage === null
       ? calculateInstallmentPayment({
           principal: numericLoanAmount,
-          annualApr: rateAssumption.highApr,
+          annualRate: rateAssumption.highRate,
           loanTerm: numericLoanTerm,
         })
       : 0;
@@ -536,7 +536,7 @@ export default function CreditScoreLoanEstimate() {
       highValue,
     )}`;
 
-  const aprRange = (
+  const rateRange = (
     lowValue: number,
     highValue: number,
   ) =>
@@ -587,7 +587,7 @@ export default function CreditScoreLoanEstimate() {
           <p className="mx-auto max-w-4xl text-lg leading-relaxed text-slate-600 md:text-xl">
             See how the entered credit-score
             range may influence an illustrative
-            APR range, monthly payment, and total
+            interest-rate range, monthly payment, and total
             borrowing cost for the selected loan
             type.
           </p>
@@ -622,7 +622,7 @@ export default function CreditScoreLoanEstimate() {
                 step="1"
                 inputMode="numeric"
                 required
-                helpText="Enter a whole number from 300 to 850. The score materially changes the calculator's illustrative APR range."
+                helpText="Enter a whole number from 300 to 850. The score materially changes the calculator's illustrative interest-rate range."
               />
 
               <InputBox
@@ -660,15 +660,15 @@ export default function CreditScoreLoanEstimate() {
 
             <div className="mt-6 rounded-2xl border border-blue-200 bg-blue-50 p-4">
               <p className="font-semibold text-blue-950">
-                The visitor does not choose an APR
+                The visitor does not choose an interest rate
               </p>
 
               <p className="mt-2 text-sm leading-6 text-blue-900">
                 MYLOANPREVIEW selects an
-                illustrative APR planning range
+                illustrative interest-rate planning range
                 from the entered credit score and
                 loan type. A real lender determines
-                the actual APR after reviewing an
+                the actual interest rate and APR after reviewing an
                 application and its underwriting
                 factors.
               </p>
@@ -769,12 +769,12 @@ export default function CreditScoreLoanEstimate() {
               />
 
               <Result
-                label="Illustrative APR Range"
+                label="Illustrative Interest Rate Range"
                 value={
                   hasValidResults
-                    ? aprRange(
-                        rateAssumption.lowApr,
-                        rateAssumption.highApr,
+                    ? rateRange(
+                        rateAssumption.lowRate,
+                        rateAssumption.highRate,
                       )
                     : "—"
                 }
@@ -816,11 +816,11 @@ export default function CreditScoreLoanEstimate() {
 
             <p className="mt-6 text-sm leading-6 text-blue-100">
               The calculator applies the lower and
-              upper APR assumptions to the entered
+              upper interest-rate assumptions to the entered
               loan amount and term. Possible
               origination fees, taxes, insurance,
               late fees, add-ons, and other costs
-              are not automatically included.
+              are not automatically included. Because APR can include lender fees, the displayed interest-rate range is not an APR calculation.
             </p>
           </div>
         </div>
@@ -839,13 +839,13 @@ export default function CreditScoreLoanEstimate() {
               score into a broad range associated
               with the selected loan type. Lower
               score ranges receive higher
-              illustrative APR assumptions, while
+              illustrative interest-rate assumptions, while
               stronger score ranges receive lower
               assumptions.
             </p>
 
             <p className="mb-4 leading-relaxed text-slate-600">
-              The resulting APR range directly
+              The resulting interest-rate range directly
               changes the monthly-payment range and
               total-interest range. The credit-score
               field is therefore part of the
@@ -854,7 +854,7 @@ export default function CreditScoreLoanEstimate() {
             </p>
 
             <p className="leading-relaxed text-slate-600">
-              A higher APR generally increases both
+              A higher interest rate generally increases both
               the monthly payment and the total
               amount repaid when the loan amount and
               term remain unchanged.
@@ -913,7 +913,7 @@ export default function CreditScoreLoanEstimate() {
                 Personal-loan ranges are
                 MYLOANPREVIEW educational planning
                 assumptions within broadly published
-                unsecured personal-loan APR spans.
+                unsecured personal-loan interest-rate spans.
                 They are not observed average offers
                 for each credit-score band.
               </p>
@@ -946,7 +946,7 @@ export default function CreditScoreLoanEstimate() {
             <>
               <p className="mb-4 leading-relaxed text-slate-600">
                 Auto-loan assumptions use Experian
-                Q1 2026 average APRs by VantageScore
+                Q1 2026 published auto-loan rates by VantageScore
                 4.0 band as reference points. The
                 calculator expands each category
                 average into a wider educational
@@ -954,7 +954,7 @@ export default function CreditScoreLoanEstimate() {
                 personalized offer.
               </p>
 
-              {rateAssumption.benchmarkApr !==
+              {rateAssumption.benchmarkRate !==
                 undefined && (
                 <p className="mb-4 leading-relaxed text-slate-600">
                   Published category-average
@@ -962,7 +962,7 @@ export default function CreditScoreLoanEstimate() {
                   scenario:{" "}
                   <strong>
                     {percentage(
-                      rateAssumption.benchmarkApr,
+                      rateAssumption.benchmarkRate,
                     )}
                   </strong>
                   . This reference is not a rate
@@ -1024,7 +1024,7 @@ export default function CreditScoreLoanEstimate() {
 
               <p className="leading-relaxed text-slate-600">
                 Calculate payments when you already
-                have an APR from a lender or another
+                have an interest rate from a lender or another
                 source.
               </p>
             </a>
@@ -1096,13 +1096,13 @@ export default function CreditScoreLoanEstimate() {
         <div className="space-y-6">
           <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
             <h3 className="mb-4 text-2xl font-bold">
-              Does the credit score change the APR
+              Does the credit score change the interest-rate
               estimate?
             </h3>
 
             <p className="leading-8 text-slate-700">
               Yes. The entered score determines the
-              score band and illustrative APR range
+              score band and illustrative interest-rate range
               used by this calculator. A score of
               400 will not receive the same planning
               range as a score above 800.
@@ -1111,14 +1111,14 @@ export default function CreditScoreLoanEstimate() {
 
           <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
             <h3 className="mb-4 text-2xl font-bold">
-              Can I choose my APR?
+              Can I choose my interest rate?
             </h3>
 
             <p className="leading-8 text-slate-700">
               No. This tool selects an educational
-              APR range from the entered credit
+              interest-rate range from the entered credit
               score and loan type. A lender
-              determines the actual APR after
+              determines the actual interest rate and APR after
               reviewing the application and its
               underwriting factors.
             </p>
