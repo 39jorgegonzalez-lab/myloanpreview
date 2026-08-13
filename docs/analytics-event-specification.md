@@ -76,8 +76,8 @@ Approved `cta_location` values:
 
 Status:
 
-- IMPLEMENTED.
-- Production event verification is still pending.
+- LIVE.
+- Production event delivery verified with `homepage`.
 
 The event records only the categorical CTA location. It must not contain an
 email address or other signup-form data.
