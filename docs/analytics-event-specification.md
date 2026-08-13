@@ -182,3 +182,82 @@ Analytics events must never contain:
 
 When adding a new event or parameter, update this specification before
 deploying the tracking change.
+
+## 9. Reporting views and key-event policy
+
+### Realtime verification
+
+Use GA4 Realtime to verify newly deployed or changed events before relying on
+them for ongoing reporting.
+
+Confirm:
+
+- The intended event name appears.
+- The expected categorical parameters appear.
+- No personal, contact, credit, or financial values are present.
+- The event fires the intended number of times.
+
+### Ongoing event reporting
+
+Use the GA4 event reports to monitor event counts and trends for:
+
+- `calculator_used`
+- `email_cta_click`
+- `guide_cta_click` when implemented
+- `affiliate_click` when monetization is launched
+- `lead_form_start` when lead generation is launched
+- `generate_lead` when lead generation is launched
+
+`page_view` remains the traffic-measurement event and should not be treated as
+a conversion event.
+
+### Parameter reporting
+
+When breakdowns by custom event parameter are needed in reports or
+Explorations, register the required parameter as an event-scoped custom
+dimension in GA4.
+
+Current live parameters that may require reporting dimensions:
+
+- `calculator_name`
+- `cta_location`
+
+Future parameters should be registered only when their associated tracking
+path is implemented and reporting is needed:
+
+- `guide_slug`
+- `destination_type`
+- `partner_name`
+- `placement`
+- `form_name`
+
+### Key-event policy
+
+Do not mark every engagement event as a GA4 key event.
+
+Default classification:
+
+- `calculator_used`: engagement event; not a key event by default.
+- `email_cta_click`: email-interest micro-conversion; not a confirmed
+  subscription and not a key event by default.
+- `guide_cta_click`: navigation/engagement event; not a key event by default.
+- `affiliate_click`: monetization event; review key-event status when live
+  partner offers are launched.
+- `lead_form_start`: funnel-start event; not a completed lead.
+- `generate_lead`: completed lead event; mark as a key event only after the
+  lead system is live and confirmed acceptance behavior has been verified.
+
+### Recommended reporting review
+
+Regular measurement review should include:
+
+- Page views and active users.
+- Calculator engagement by `calculator_name`.
+- Email CTA interest by `cta_location`.
+- Affiliate clicks by partner and placement once affiliate offers are live.
+- Lead-form starts and accepted leads once lead generation is live.
+- Key-event counts only for actions intentionally classified as key events.
+
+Do not interpret an email CTA click, form start, affiliate click, calculator
+interaction, or page view as loan approval, qualification, lender acceptance,
+or a completed lead.
