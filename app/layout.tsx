@@ -42,6 +42,10 @@ export const metadata = {
     google: "I0v4Hx6F_CxEVIvHdHZ3TUySdItRW6kxjrx6uJs-Fk0",
   },
 
+  other: {
+    "google-adsense-account": "ca-pub-9227755878163808",
+  },
+
   keywords: [
     "loan calculator",
     "auto loan calculator",
