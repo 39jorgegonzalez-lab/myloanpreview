@@ -17,7 +17,7 @@ export default function PrivacyPolicyPage() {
 
           <p className="mt-4 text-sm text-slate-500">
             Last updated:{" "}
-            <time dateTime="2026-07-18">July 18, 2026</time>
+            <time dateTime="2026-08-19">August 19, 2026</time>
           </p>
         </header>
 
@@ -112,6 +112,33 @@ export default function PrivacyPolicyPage() {
 
           <section>
             <h2 className="text-2xl font-bold text-slate-950">
+              Advertising and Google AdSense
+            </h2>
+
+            <p className="mt-4 leading-8">
+              MYLOANPREVIEW is preparing to use Google AdSense to display
+              advertisements if the website is approved for the program.
+              Advertising is not presented as part of a calculator result,
+              loan approval estimate, or lender recommendation.
+            </p>
+
+            <p className="mt-4 leading-8">
+              If AdSense advertising is activated, Google and other third-party
+              vendors may use cookies or similar technologies to serve and
+              measure ads based on a visitor&apos;s prior visits to
+              MYLOANPREVIEW or other websites. Google&apos;s advertising
+              cookies may also be used by Google and its partners for
+              advertising and measurement purposes.
+            </p>
+
+            <p className="mt-4 leading-8">
+              Visitors may manage personalized advertising through
+              Google&apos;s advertising settings and may manage cookies
+              through their browser settings or applicable consent controls.
+            </p>
+          </section>
+          <section>
+            <h2 className="text-2xl font-bold text-slate-950">
               Vercel Web Analytics
             </h2>
 
@@ -164,9 +191,12 @@ export default function PrivacyPolicyPage() {
 
             <p className="mt-4 leading-8">
               Google Analytics and other services may use cookies or similar
-              technologies for measurement, security, and functionality.
-              Vercel Web Analytics is designed to operate without analytics
-              cookies.
+              technologies for measurement, security, and functionality. If
+              Google AdSense advertising is activated, Google and other
+              advertising vendors may also use cookies or similar technologies
+              for advertising, measurement, fraud prevention, and related
+              purposes. Vercel Web Analytics is designed to operate without
+              analytics cookies.
             </p>
 
             <p className="mt-4 leading-8">
@@ -204,9 +234,9 @@ export default function PrivacyPolicyPage() {
             </p>
 
             <p className="mt-4 leading-8">
-              Future affiliate offers, advertisements, lender referrals, or
-              lead-generation services will be disclosed before or when they
-              are introduced.
+              Affiliate offers, lender referrals, or lead-generation services
+              will be disclosed before or when they are introduced.
+              Advertising services are described separately in this policy.
             </p>
           </section>
 
