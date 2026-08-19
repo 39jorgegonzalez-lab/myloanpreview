@@ -758,7 +758,28 @@ Complete when:
 ## Step 5 — Responsible Monetization Establishment
 
 **Dates:** August 28–September 3
-**Status:** NOT STARTED
+**Status:** IN PROGRESS
+
+Current progress:
+
+- Google AdSense is the selected first display-ad monetization channel.
+- AdSense publisher setup is complete, site ownership is verified, and the
+  production domain has been submitted for review.
+- Google’s certified consent-management platform is configured for applicable
+  European privacy requirements.
+- The Privacy Policy includes Google AdSense and advertising-cookie
+  disclosures.
+- Automatic ads remain disabled and no AdSense ad-serving script or live ad
+  unit is installed.
+- Display-ad placement, disclosure, calculator-integrity, mobile, and
+  sensitive-data safeguards are documented.
+- Calculator-integrity review passed: no monetization element is presented as
+  a calculator result, approval outcome, or lender decision.
+- Network and partner-offer review passed: no unapproved advertising network,
+  lender offer, affiliate placement, or referral URL is live.
+- Remaining display-ad implementation is gated on AdSense domain approval and
+  final review of ads.txt, ad-unit strategy, pilot pages, and responsive
+  reserved-height behavior.
 
 Complete when:
 
