@@ -498,8 +498,16 @@ export default function PersonalLoanMinimumIncomePage() {
 
             <p className="mt-4 leading-7 text-slate-700">
               A smaller requested amount generally produces a lower payment when
-              the APR and term remain similar. This may improve affordability
-              and reduce the amount of additional debt included in the lender's
+              the APR and term remain similar. This may improve affordability.
+              You can also review{" "}
+              <Link
+                href="/learning-center/how-much-personal-loan-can-i-afford"
+                className="font-medium text-blue-700 hover:underline"
+              >
+                how much personal loan you can afford
+              </Link>{" "}
+              before deciding on a requested amount. A smaller request can also
+              reduce the amount of additional debt included in the lender's
               review.
             </p>
 
