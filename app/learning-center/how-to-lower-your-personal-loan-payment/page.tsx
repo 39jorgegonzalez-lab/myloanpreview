@@ -55,7 +55,16 @@ export default function HowToLowerYourPersonalLoanPaymentPage() {
             <p className="mt-4 leading-7 text-slate-700">
               The scheduled payment on a typical installment loan is primarily
               affected by the remaining principal balance, interest rate,
-              repayment term, payment frequency, and any financed charges.
+              repayment term, payment frequency, and any financed charges. If
+              your{" "}
+              <Link
+                href="/learning-center/why-was-my-personal-loan-estimate-higher-than-expected"
+                className="font-medium text-blue-700 hover:underline"
+              >
+                personal loan estimate was higher than expected
+              </Link>
+              , review which of those inputs changed before focusing on ways to
+              lower the payment.
             </p>
 
             <p className="mt-4 leading-7 text-slate-700">
