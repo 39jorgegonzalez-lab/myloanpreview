@@ -147,8 +147,17 @@ export default function MortgageCreditScoreArticle() {
               stable enough to support the mortgage payment.
             </li>
             <li>
-              <strong>Debt-to-income ratio:</strong> Your existing monthly debt
-              payments can affect how much home you may be able to afford.
+              <strong>
+                <Link
+                  href="/learning-center/what-is-debt-to-income-ratio"
+                  className="text-blue-700 hover:underline"
+                >
+                  Debt-to-income ratio
+                </Link>
+                :
+              </strong>{" "}
+              Your existing monthly debt payments can affect how much home you
+              may be able to afford.
             </li>
             <li>
               <strong>Down payment:</strong> A larger down payment may reduce
