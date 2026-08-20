@@ -122,9 +122,16 @@ export default function AutoLoanCreditScoreArticle() {
           </p>
 
           <p className="leading-8 text-slate-700">
-            Before choosing a vehicle, it helps to estimate the monthly payment
-            using different loan amounts, rates, and repayment terms. This can
-            help you avoid shopping based only on the sticker price.
+            Before choosing a vehicle, it helps to think about{" "}
+            <Link
+              href="/learning-center/how-much-car-can-i-afford"
+              className="font-medium text-blue-700 hover:underline"
+            >
+              how much car you can afford
+            </Link>{" "}
+            and estimate the monthly payment using different loan amounts,
+            rates, and repayment terms. This can help you avoid shopping based
+            only on the sticker price.
           </p>
         </section>
 
