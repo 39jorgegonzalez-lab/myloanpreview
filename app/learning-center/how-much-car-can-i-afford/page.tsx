@@ -184,8 +184,14 @@ export default function HowMuchCarCanIAffordArticle() {
 
           <p className="mb-6 leading-8 text-slate-700">
             You may be able to improve affordability by choosing a lower-priced
-            vehicle, making a larger down payment, improving your credit profile,
-            comparing financing options, avoiding unnecessary add-ons, or
+            vehicle, making a larger down payment,{" "}
+            <Link
+              href="/learning-center/what-credit-score-do-you-need-for-a-car-loan"
+              className="font-medium text-blue-700 hover:underline"
+            >
+              improving your credit profile
+            </Link>
+            {", "}comparing financing options, avoiding unnecessary add-ons, or
             selecting a payment that leaves room for insurance and maintenance.
           </p>
 
