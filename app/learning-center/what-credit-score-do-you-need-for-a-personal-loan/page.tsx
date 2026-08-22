@@ -159,6 +159,90 @@ export default function CreditScoreArticle() {
           </ul>
         </section>
 
+        <section className="mt-12">
+          <h2 className="mb-4 text-2xl font-bold text-slate-900">
+            Example: Why the Same Credit Score Can Lead to Different Results
+          </h2>
+
+          <p className="mb-6 leading-8 text-slate-700">
+            Consider two hypothetical applicants who both have a 690 credit
+            score. Their scores are the same, but other parts of their
+            financial profiles are different.
+          </p>
+
+          <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white">
+            <table className="min-w-[760px] w-full border-collapse text-left text-sm">
+              <caption className="sr-only">
+                Example comparing two applicants with the same 690 credit score
+              </caption>
+              <thead className="bg-slate-50 text-slate-900">
+                <tr>
+                  <th scope="col" className="border-b border-slate-200 px-4 py-3 font-semibold">
+                    Comparison factor
+                  </th>
+                  <th scope="col" className="border-b border-slate-200 px-4 py-3 font-semibold">
+                    Applicant A
+                  </th>
+                  <th scope="col" className="border-b border-slate-200 px-4 py-3 font-semibold">
+                    Applicant B
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody className="text-slate-700">
+                <tr>
+                  <th scope="row" className="border-b border-slate-200 px-4 py-3 font-medium text-slate-900">
+                    Credit score
+                  </th>
+                  <td className="border-b border-slate-200 px-4 py-3">690</td>
+                  <td className="border-b border-slate-200 px-4 py-3">690</td>
+                </tr>
+                <tr>
+                  <th scope="row" className="border-b border-slate-200 px-4 py-3 font-medium text-slate-900">
+                    Gross monthly income
+                  </th>
+                  <td className="border-b border-slate-200 px-4 py-3">$5,500</td>
+                  <td className="border-b border-slate-200 px-4 py-3">$3,800</td>
+                </tr>
+                <tr>
+                  <th scope="row" className="border-b border-slate-200 px-4 py-3 font-medium text-slate-900">
+                    Existing monthly debt payments
+                  </th>
+                  <td className="border-b border-slate-200 px-4 py-3">$750</td>
+                  <td className="border-b border-slate-200 px-4 py-3">$1,500</td>
+                </tr>
+                <tr>
+                  <th scope="row" className="border-b border-slate-200 px-4 py-3 font-medium text-slate-900">
+                    Existing DTI before the new loan
+                  </th>
+                  <td className="border-b border-slate-200 px-4 py-3">About 13.6%</td>
+                  <td className="border-b border-slate-200 px-4 py-3">About 39.5%</td>
+                </tr>
+                <tr>
+                  <th scope="row" className="px-4 py-3 font-medium text-slate-900">
+                    Requested loan amount
+                  </th>
+                  <td className="px-4 py-3">$8,000</td>
+                  <td className="px-4 py-3">$15,000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p className="mt-6 leading-8 text-slate-700">
+            Even with the same illustrative credit score, a lender may evaluate
+            these applications differently because income, existing debt,
+            requested loan amount, credit-report details, and underwriting
+            standards can all affect the review.
+          </p>
+
+          <p className="mt-4 text-sm leading-7 text-slate-600">
+            This is an educational example only. It does not predict approval,
+            APR, loan amount, or available terms. Lenders use their own
+            underwriting standards, and debt-to-income calculations may vary.
+          </p>
+        </section>
+
         <section className="mt-12 rounded-xl border border-slate-200 bg-white p-8">
           <h2 className="mb-4 text-2xl font-bold text-slate-900">
             How to Improve Your Chances Before Applying
