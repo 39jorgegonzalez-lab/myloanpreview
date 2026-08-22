@@ -183,7 +183,14 @@ export default function DebtToIncomeRatioArticle() {
             <li>
               <strong>Mortgages:</strong> Mortgage lenders often review DTI
               closely because housing payments are usually large long-term
-              obligations.
+              obligations. You can also review{" "}
+              <Link
+                href="/learning-center/what-credit-score-do-you-need-for-a-mortgage"
+                className="font-medium text-blue-700 hover:underline"
+              >
+                credit score requirements for a mortgage
+              </Link>{" "}
+              because DTI is only one part of the application.
             </li>
           </ul>
         </section>
