@@ -162,6 +162,75 @@ export default function HowMuchCarCanIAffordArticle() {
 
         <section className="mt-12">
           <h2 className="mb-4 text-2xl font-bold text-slate-900">
+            Example: How Loan Term Changes the Payment
+          </h2>
+
+          <p className="mb-6 leading-8 text-slate-700">
+            Consider an illustrative example with $25,000 financed at a fixed
+            7.0% APR. Keeping the amount financed and APR the same makes it
+            easier to see how the repayment term alone changes the monthly
+            payment and total interest cost.
+          </p>
+
+          <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white">
+            <table className="min-w-full text-left text-sm">
+              <caption className="sr-only">
+                Example payments for $25,000 financed at a fixed 7.0% APR
+              </caption>
+              <thead className="bg-slate-100 text-slate-900">
+                <tr>
+                  <th scope="col" className="px-4 py-3 font-semibold">Loan term</th>
+                  <th scope="col" className="px-4 py-3 font-semibold">Monthly payment</th>
+                  <th scope="col" className="px-4 py-3 font-semibold">Total interest</th>
+                  <th scope="col" className="px-4 py-3 font-semibold">Total repaid</th>
+                </tr>
+              </thead>
+
+              <tbody className="divide-y divide-slate-200 text-slate-700">
+                <tr>
+                  <th scope="row" className="px-4 py-3 font-medium text-slate-900">
+                    36 months
+                  </th>
+                  <td className="px-4 py-3">$771.93</td>
+                  <td className="px-4 py-3">$2,789.39</td>
+                  <td className="px-4 py-3">$27,789.39</td>
+                </tr>
+                <tr>
+                  <th scope="row" className="px-4 py-3 font-medium text-slate-900">
+                    48 months
+                  </th>
+                  <td className="px-4 py-3">$598.66</td>
+                  <td className="px-4 py-3">$3,735.49</td>
+                  <td className="px-4 py-3">$28,735.49</td>
+                </tr>
+                <tr>
+                  <th scope="row" className="px-4 py-3 font-medium text-slate-900">
+                    60 months
+                  </th>
+                  <td className="px-4 py-3">$495.03</td>
+                  <td className="px-4 py-3">$4,701.80</td>
+                  <td className="px-4 py-3">$29,701.80</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p className="mt-6 leading-8 text-slate-700">
+            In this example, extending the term from 36 to 60 months reduces
+            the estimated monthly payment by $276.90, but increases estimated
+            total interest by $1,912.41.
+          </p>
+
+          <p className="mt-4 text-sm leading-7 text-slate-600">
+            This is an educational example, not a lender quote or
+            available-rate promise. It assumes equal monthly payments, a fixed
+            7.0% APR, and no additional financed fees. Actual APRs, fees,
+            taxes, insurance, add-ons, trade-in values, and loan terms vary.
+          </p>
+        </section>
+
+        <section className="mt-12">
+          <h2 className="mb-4 text-2xl font-bold text-slate-900">
             Questions to Ask Before Buying a Car
           </h2>
 
