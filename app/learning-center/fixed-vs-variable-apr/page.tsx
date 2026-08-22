@@ -264,6 +264,76 @@ export default function FixedVsVariableAprPage() {
 
           <section>
             <h2 className="text-2xl font-bold text-slate-950">
+              Example: How a Rate Increase Can Change the Payment
+            </h2>
+
+            <p className="mt-4 leading-7 text-slate-700">
+              Consider a simplified installment-loan example with a $15,000
+              remaining balance and 36 equal monthly payments remaining. If
+              the rate used to calculate the payment rises from 9% to 13%
+              and then stays unchanged, the estimated payment increases.
+            </p>
+
+            <div className="mt-5 overflow-x-auto rounded-2xl border border-slate-200">
+              <table className="min-w-[700px] w-full border-collapse text-left text-sm">
+                <caption className="sr-only">
+                  Example showing how a higher rate changes payments on a $15,000 balance with 36 payments remaining
+                </caption>
+                <thead className="bg-slate-50 text-slate-900">
+                  <tr>
+                    <th scope="col" className="border-b border-slate-200 px-4 py-3 font-semibold">
+                      Rate used in example
+                    </th>
+                    <th scope="col" className="border-b border-slate-200 px-4 py-3 font-semibold">
+                      Monthly payment
+                    </th>
+                    <th scope="col" className="border-b border-slate-200 px-4 py-3 font-semibold">
+                      Total interest
+                    </th>
+                    <th scope="col" className="border-b border-slate-200 px-4 py-3 font-semibold">
+                      Total repaid
+                    </th>
+                  </tr>
+                </thead>
+
+                <tbody className="text-slate-700">
+                  <tr>
+                    <th scope="row" className="border-b border-slate-200 px-4 py-3 font-medium text-slate-950">
+                      9.0%
+                    </th>
+                    <td className="border-b border-slate-200 px-4 py-3">$477.00</td>
+                    <td className="border-b border-slate-200 px-4 py-3">$2,171.86</td>
+                    <td className="border-b border-slate-200 px-4 py-3">$17,171.86</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" className="px-4 py-3 font-medium text-slate-950">
+                      13.0%
+                    </th>
+                    <td className="px-4 py-3">$505.41</td>
+                    <td className="px-4 py-3">$3,194.73</td>
+                    <td className="px-4 py-3">$18,194.73</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p className="mt-4 leading-7 text-slate-700">
+              In this simplified example, the higher rate increases the
+              estimated monthly payment by $28.41 and increases estimated
+              interest over the remaining 36 payments by $1,022.88.
+            </p>
+
+            <p className="mt-4 text-sm leading-6 text-slate-600">
+              This is an educational illustration, not a lender quote or
+              available-rate promise. Actual variable-rate agreements may use
+              different indexes, margins, adjustment dates, caps, payment
+              recalculation methods, fees, and other rules. APR may also differ
+              from the interest rate used to calculate scheduled payments.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold text-slate-950">
               When a fixed APR may be easier to manage
             </h2>
 
