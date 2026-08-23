@@ -217,7 +217,12 @@ export default function HowToComparePersonalLoanOffersPage() {
             <h2 className="text-2xl font-bold text-slate-950">
               Simple comparison example
             </h2>
-
+            <p className="mt-4 leading-7 text-slate-700">
+              Suppose you are comparing two $10,000 personal loan offers. For
+              this simplified illustration, assume both loans have fixed rates,
+              no origination fees, and an APR equal to the interest rate used
+              to calculate the scheduled payments.
+            </p>
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
               <div className="rounded-2xl border border-slate-200 p-5">
                 <h3 className="font-semibold text-slate-950">Offer A</h3>
@@ -226,7 +231,9 @@ export default function HowToComparePersonalLoanOffersPage() {
                   <li>APR: 11.99%</li>
                   <li>Term: 36 months</li>
                   <li>Origination fee: $0</li>
-                  <li>Payment: higher than a longer-term option</li>
+                  <li>Estimated payment: $332.10 per month</li>
+                  <li>Estimated total interest: $1,955.43</li>
+                  <li>Estimated total repayment: $11,955.43</li>
                 </ul>
               </div>
 
@@ -236,17 +243,26 @@ export default function HowToComparePersonalLoanOffersPage() {
                   <li>Loan amount: $10,000</li>
                   <li>APR: 13.99%</li>
                   <li>Term: 60 months</li>
-                  <li>Origination fee: may apply</li>
-                  <li>Payment: lower, but total cost may be higher</li>
+                  <li>Origination fee: $0</li>
+                  <li>Estimated payment: $232.63 per month</li>
+                  <li>Estimated total interest: $3,957.84</li>
+                  <li>Estimated total repayment: $13,957.84</li>
                 </ul>
               </div>
             </div>
 
             <p className="mt-5 leading-7 text-slate-700">
-              Offer B may have a lower monthly payment because the term is
-              longer, but that does not automatically make it the cheaper loan.
-              Comparing APR, fees, term, and total repayment cost together gives
-              you a clearer view.
+              Offer B lowers the estimated monthly payment by about $99.47, but
+              the longer term and higher rate result in about $2,002.41 more
+              total interest in this illustration. A lower monthly payment does
+              not automatically mean a lower-cost loan.
+            </p>
+
+            <p className="mt-4 text-sm leading-6 text-slate-600">
+              Educational example only. Actual APRs, interest rates, fees,
+              payments, and available terms vary by lender and borrower. APR
+              may include fees and can differ from the interest rate used to
+              calculate scheduled payments.
             </p>
           </section>
 
