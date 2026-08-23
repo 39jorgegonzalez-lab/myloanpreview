@@ -168,6 +168,86 @@ export default function WhatIsAGoodAprForAPersonalLoanPage() {
 
           <section>
             <h2 className="text-2xl font-bold text-slate-950">
+              Example: How APR Can Change the Cost of the Same Loan
+            </h2>
+            <p className="mt-4 leading-7 text-slate-700">
+              Suppose two personal loan offers are both for $15,000 with
+              36-month repayment terms. To isolate the effect of the rate,
+              assume there are no fees and that each stated APR equals the
+              fixed interest rate used to calculate the scheduled payments.
+            </p>
+
+            <div className="mt-5 overflow-x-auto">
+              <table className="w-full min-w-[640px] border-collapse text-left">
+                <caption className="sr-only">
+                  Illustrative comparison of a $15,000 personal loan over 36
+                  months at 9 percent APR and 15 percent APR
+                </caption>
+                <thead>
+                  <tr className="border-b border-slate-300">
+                    <th
+                      scope="col"
+                      className="px-4 py-3 font-semibold text-slate-950"
+                    >
+                      Illustrative APR
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-4 py-3 font-semibold text-slate-950"
+                    >
+                      Monthly payment
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-4 py-3 font-semibold text-slate-950"
+                    >
+                      Total interest
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-4 py-3 font-semibold text-slate-950"
+                    >
+                      Total repayment
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="text-slate-700">
+                  <tr className="border-b border-slate-200">
+                    <th scope="row" className="px-4 py-3 font-medium">
+                      9.0%
+                    </th>
+                    <td className="px-4 py-3">$477.00</td>
+                    <td className="px-4 py-3">$2,171.86</td>
+                    <td className="px-4 py-3">$17,171.86</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" className="px-4 py-3 font-medium">
+                      15.0%
+                    </th>
+                    <td className="px-4 py-3">$519.98</td>
+                    <td className="px-4 py-3">$3,719.28</td>
+                    <td className="px-4 py-3">$18,719.28</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p className="mt-4 leading-7 text-slate-700">
+              In this illustration, the 15% option costs about $42.98 more per
+              month and $1,547.42 more in total interest than the 9% option,
+              even though the loan amount and repayment term are the same.
+            </p>
+
+            <p className="mt-4 text-sm leading-6 text-slate-600">
+              Educational example only. Actual APRs, interest rates, fees,
+              payments, and available terms vary by lender and borrower. APR
+              may include fees, so it can differ from the interest rate used to
+              calculate scheduled payments.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold text-slate-950">
               Signs an APR may be expensive
             </h2>
             <ul className="mt-4 space-y-3 leading-7 text-slate-700">
