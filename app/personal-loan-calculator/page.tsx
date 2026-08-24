@@ -361,6 +361,13 @@ export default function PersonalLoanCalculator() {
             >
               How Much Personal Loan Can I Afford?
             </a>
+            <br />
+            <a
+              href="/learning-center/why-was-my-personal-loan-estimate-higher-than-expected"
+              className="mt-2 inline-block font-semibold text-blue-700 underline decoration-blue-300 underline-offset-4 transition hover:text-blue-900"
+            >
+              Why Was My Personal Loan Estimate Higher Than Expected?
+            </a>
           </div>
         </div>
       </section>

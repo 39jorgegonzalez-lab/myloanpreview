@@ -142,10 +142,16 @@ export default function LoanPrequalificationVsPreapprovalArticle() {
           </h2>
 
           <p className="mb-6 leading-8 text-slate-700">
-            It depends on the type of credit check. A soft inquiry generally
-            does not affect your credit score. A hard inquiry may affect your
-            score and usually happens when a lender checks your credit as part of
-            a loan application.
+            It depends on the{" "}
+            <Link
+              href="/learning-center/does-checking-loan-rates-hurt-your-credit"
+              className="font-semibold text-blue-700 hover:text-blue-800"
+            >
+              type of credit check
+            </Link>
+            . A soft inquiry generally does not affect your credit score. A hard
+            inquiry may affect your score and usually happens when a lender
+            checks your credit as part of a loan application.
           </p>
 
           <p className="leading-8 text-slate-700">
@@ -178,8 +184,17 @@ export default function LoanPrequalificationVsPreapprovalArticle() {
               verify pay stubs, tax documents, deposits, or employment.
             </li>
             <li>
-              <strong>Debt-to-income ratio:</strong> Existing debts can affect
-              how much additional payment may be considered affordable.
+              <strong>
+                <Link
+                  href="/learning-center/what-is-debt-to-income-ratio"
+                  className="font-semibold text-blue-700 hover:text-blue-800"
+                >
+                  Debt-to-income ratio
+                </Link>
+                :
+              </strong>{" "}
+              Existing debts can affect how much additional payment may be
+              considered affordable.
             </li>
             <li>
               <strong>Collateral:</strong> Auto loans and mortgages may depend

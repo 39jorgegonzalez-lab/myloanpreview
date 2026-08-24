@@ -141,8 +141,17 @@ export default function CreditScoreArticle() {
               enough reliable income to handle the monthly payment.
             </li>
             <li>
-              <strong>Debt-to-income ratio:</strong> Existing debt payments may
-              affect how much additional debt you can reasonably afford.
+              <strong>
+                <Link
+                  href="/learning-center/what-is-debt-to-income-ratio"
+                  className="font-semibold text-blue-700 hover:text-blue-800"
+                >
+                  Debt-to-income ratio
+                </Link>
+                :
+              </strong>{" "}
+              Existing debt payments may affect how much additional debt you
+              can reasonably afford.
             </li>
             <li>
               <strong>Employment history:</strong> Stable employment may help

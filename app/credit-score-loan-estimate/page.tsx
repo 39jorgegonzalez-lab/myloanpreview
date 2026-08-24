@@ -912,8 +912,14 @@ export default function CreditScoreLoanEstimate() {
               <p className="mb-4 leading-relaxed text-slate-600">
                 Personal-loan ranges are
                 MYLOANPREVIEW educational planning
-                assumptions within broadly published
-                unsecured personal-loan interest-rate spans.
+                assumptions within broadly published{" "}
+                <a
+                  href="/learning-center/secured-vs-unsecured-personal-loans"
+                  className="font-semibold text-blue-700 underline decoration-blue-300 underline-offset-4 transition hover:text-blue-900"
+                >
+                  unsecured personal-loan
+                </a>{" "}
+                interest-rate spans.
                 They are not observed average offers
                 for each credit-score band.
               </p>

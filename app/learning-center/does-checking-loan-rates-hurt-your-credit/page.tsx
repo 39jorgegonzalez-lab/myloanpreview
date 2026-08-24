@@ -64,9 +64,15 @@ export default function CheckingLoanRatesCreditArticle() {
           </p>
 
           <p className="leading-8 text-slate-700">
-            Many loan comparison or prequalification tools advertise soft credit
-            checks, but you should still read the details before submitting your
-            information.
+            Many loan comparison or{" "}
+            <Link
+              href="/learning-center/loan-prequalification-vs-preapproval"
+              className="font-semibold text-blue-700 hover:text-blue-800"
+            >
+              prequalification tools
+            </Link>{" "}
+            advertise soft credit checks, but you should still read the details
+            before submitting your information.
           </p>
         </section>
 
@@ -170,7 +176,14 @@ export default function CheckingLoanRatesCreditArticle() {
           <p className="leading-8 text-slate-700">
             A lower monthly payment can sometimes come from a longer repayment
             term, which may increase the total interest paid over time. That is
-            why it helps to compare the full loan cost before deciding.
+            why it helps to{" "}
+            <Link
+              href="/learning-center/how-to-compare-personal-loan-offers"
+              className="font-semibold text-blue-700 hover:text-blue-800"
+            >
+              compare the full loan cost
+            </Link>{" "}
+            before deciding.
           </p>
         </section>
 

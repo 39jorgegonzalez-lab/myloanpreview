@@ -186,7 +186,15 @@ export default function HowAprWorksOnALoanPage() {
             </h2>
             <ul className="mt-4 space-y-3 leading-7 text-slate-700">
               <li>Does the APR include an origination fee or other loan fees?</li>
-              <li>Is the rate fixed or variable?</li>
+              <li>
+                Is the rate{" "}
+                <Link
+                  href="/learning-center/fixed-vs-variable-apr"
+                  className="font-medium text-blue-700 hover:underline"
+                >
+                  fixed or variable
+                </Link>?
+              </li>
               <li>What loan term is being used for the APR quote?</li>
               <li>Are there prepayment penalties?</li>
               <li>Will checking the rate affect my credit score?</li>
