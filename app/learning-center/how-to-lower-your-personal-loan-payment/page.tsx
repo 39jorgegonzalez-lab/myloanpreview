@@ -221,8 +221,8 @@ export default function HowToLowerYourPersonalLoanPaymentPage() {
 
             <p className="mt-4 leading-7 text-slate-700">
               This example compares three possible schedules for a $10,000
-              balance. It assumes fixed rates, equal monthly payments, and no
-              origination or refinancing fees.
+              balance. It assumes fixed rates, equal monthly payments, no fees,
+              and an APR equal to the interest rate used to calculate payments.
             </p>
 
             <div className="mt-5 overflow-x-auto rounded-2xl border border-slate-200">
@@ -516,7 +516,7 @@ export default function HowToLowerYourPersonalLoanPaymentPage() {
 
             <p className="mt-4 leading-7 text-slate-700">
               Contact the lender directly using the phone number on an official
-              statement or the lender's verified website. Do not send money or
+              statement or the lender&apos;s verified website. Do not send money or
               sensitive information to an unexpected caller or message.
             </p>
           </section>

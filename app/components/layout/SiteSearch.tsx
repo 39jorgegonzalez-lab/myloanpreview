@@ -24,6 +24,10 @@ export default function SiteSearch({
   open,
   onClose,
 }: SiteSearchProps) {
+  return open ? <SearchDialog onClose={onClose} /> : null;
+}
+
+function SearchDialog({ onClose }: Pick<SiteSearchProps, "onClose">) {
   const [query, setQuery] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -39,13 +43,6 @@ export default function SiteSearch({
   );
 
   useEffect(() => {
-    if (!open) {
-      return;
-    }
-
-    setQuery("");
-    setActiveIndex(0);
-
     const previouslyFocused =
       document.activeElement instanceof HTMLElement
         ? document.activeElement
@@ -67,18 +64,7 @@ export default function SiteSearch({
       document.body.style.overflow = previousOverflow;
       previouslyFocused?.focus();
     };
-  }, [open]);
-
-  useEffect(() => {
-    if (results.length === 0) {
-      setActiveIndex(0);
-      return;
-    }
-
-    if (activeIndex >= results.length) {
-      setActiveIndex(0);
-    }
-  }, [activeIndex, results.length]);
+  }, []);
 
   function handleInputKeyDown(
     event: KeyboardEvent<HTMLInputElement>,
@@ -162,10 +148,6 @@ export default function SiteSearch({
       event.preventDefault();
       firstElement.focus();
     }
-  }
-
-  if (!open) {
-    return null;
   }
 
   const activeResult = results[activeIndex];

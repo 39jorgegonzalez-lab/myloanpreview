@@ -185,7 +185,7 @@ export default function PersonalLoanMinimumIncomePage() {
               <p className="mt-3 leading-7 text-slate-700">
                 A lender may determine that an applicant meets its criteria, but
                 that does not automatically mean the payment will feel
-                comfortable within the applicant's complete household budget.
+                comfortable within the applicant&apos;s complete household budget.
               </p>
             </div>
           </section>
@@ -326,7 +326,7 @@ export default function PersonalLoanMinimumIncomePage() {
             </h2>
 
             <p className="mt-4 leading-7 text-slate-700">
-              Income alone does not show the applicant's complete financial
+              Income alone does not show the applicant&apos;s complete financial
               profile. Two applicants earning the same amount could receive
               different estimates or offers.
             </p>
@@ -429,7 +429,7 @@ export default function PersonalLoanMinimumIncomePage() {
 
             <p className="mt-4 leading-7 text-slate-700">
               Gross business revenue is not necessarily the same as personal
-              qualifying income. Business expenses, taxes, and the lender's
+              qualifying income. Business expenses, taxes, and the lender&apos;s
               calculation method may affect the amount used for review.
             </p>
           </section>
@@ -483,7 +483,7 @@ export default function PersonalLoanMinimumIncomePage() {
               <li>Correct possible errors on your credit reports.</li>
               <li>Make current payments on time when possible.</li>
               <li>Gather income documentation before applying.</li>
-              <li>Compare more than one lender's terms.</li>
+              <li>Compare more than one lender&apos;s terms.</li>
               <li>Use prequalification when available and appropriate.</li>
               <li>
                 Preview the proposed payment before submitting an application.
@@ -507,7 +507,7 @@ export default function PersonalLoanMinimumIncomePage() {
                 how much personal loan you can afford
               </Link>{" "}
               before deciding on a requested amount. A smaller request can also
-              reduce the amount of additional debt included in the lender's
+              reduce the amount of additional debt included in the lender&apos;s
               review.
             </p>
 
@@ -560,7 +560,7 @@ export default function PersonalLoanMinimumIncomePage() {
             </h2>
 
             <p className="mt-4 leading-7 text-slate-700">
-              Review the lender's adverse-action notice or instructions for
+              Review the lender&apos;s adverse-action notice or instructions for
               obtaining the principal reasons for the decision. The stated
               reasons may help identify whether income, existing debt, credit
               history, documentation, or another issue affected the result.

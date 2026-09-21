@@ -439,8 +439,9 @@ export default function HowLoanTermsAffectMonthlyPaymentsPage() {
             </p>
 
             <p className="mt-4 leading-7 text-slate-700">
-              After that, replace the example rate with the actual APRs and fees
-              available to you. A realistic comparison should use the official
+              After that, use each offer&apos;s interest rate for payment estimates
+              and compare its APR, fees, and total repayment separately. A
+              realistic comparison should use the official
               disclosures from each lender rather than an advertised starting
               rate alone.
             </p>

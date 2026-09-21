@@ -190,7 +190,7 @@ export default function Home() {
       </h3>
 
       <p className="text-slate-600 leading-8">
-        Explore illustrative APR, payment, and borrowing-cost
+        Explore illustrative interest-rate, payment, and borrowing-cost
         ranges influenced by the credit-score range entered.
       </p>
     </a>

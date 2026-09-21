@@ -427,7 +427,7 @@ export default function WhatIsAnOriginationFeePage() {
             </h2>
 
             <p className="mt-4 leading-7 text-slate-700">
-              Before accepting an offer, review the lender's official
+              Before accepting an offer, review the lender&apos;s official
               disclosures and agreement. Confirm the fee amount, APR, interest
               rate, payment schedule, amount financed, net proceeds, and total
               repayment obligation.

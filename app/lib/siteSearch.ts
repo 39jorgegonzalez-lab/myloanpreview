@@ -121,7 +121,7 @@ export const SITE_SEARCH_ITEMS: readonly SiteSearchItem[] = [
     title: "Credit Score Loan Estimate",
     category: "Calculator",
     description:
-      "Explore illustrative APR, payment, and borrowing-cost ranges influenced by credit score.",
+      "Explore illustrative interest-rate, payment, and borrowing-cost ranges influenced by credit score.",
     href: "/credit-score-loan-estimate",
     keywords: [
       "credit score",

@@ -1,6 +1,4 @@
-import type { Metadata } from "next";
 import "./globals.css";
-import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import Footer from "./components/layout/Footer";
@@ -74,10 +72,9 @@ export default function RootLayout({
 
 <Footer />
 
-<Script
+<script
   id="schema"
   type="application/ld+json"
-  strategy="afterInteractive"
   dangerouslySetInnerHTML={{
     __html: JSON.stringify({
       "@context": "https://schema.org",
@@ -93,38 +90,6 @@ export default function RootLayout({
           "@type": "WebSite",
           name: "My Loan Preview",
           url: "https://www.myloanpreview.com",
-        },
-
-        {
-          "@type": "FAQPage",
-          mainEntity: [
-            {
-              "@type": "Question",
-              name: "Are the loan calculators free to use?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "Yes. My Loan Preview provides free educational loan calculators for auto loans, personal loans, and mortgage estimates.",
-              },
-            },
-
-            {
-              "@type": "Question",
-              name: "Does using these calculators affect my credit score?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "No. Using our calculators does not affect your credit score and does not require a credit check.",
-              },
-            },
-
-            {
-              "@type": "Question",
-              name: "Are loan approvals guaranteed?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "No. My Loan Preview does not guarantee approvals, financing offers, or interest rates.",
-              },
-            },
-          ],
         },
       ],
     }),

@@ -82,7 +82,7 @@ export default function HowMuchCarCanIAffordArticle() {
           <ul className="space-y-4 leading-8 text-slate-700">
             <li>
               <strong>Loan payment:</strong> Principal and interest based on the
-              amount financed, APR, and loan term.
+              amount financed, interest rate, and loan term.
             </li>
             <li>
               <strong>Auto insurance:</strong> Insurance costs can vary based on
@@ -124,7 +124,7 @@ export default function HowMuchCarCanIAffordArticle() {
               </div>
 
               <div className="p-5">
-                <h3 className="font-bold text-slate-900">APR and Term</h3>
+                <h3 className="font-bold text-slate-900">Interest Rate and Term</h3>
                 <p className="mt-2 leading-7 text-slate-700">
                   The interest rate and repayment length affect both the monthly
                   payment and total interest paid.
@@ -223,8 +223,9 @@ export default function HowMuchCarCanIAffordArticle() {
 
           <p className="mt-4 text-sm leading-7 text-slate-600">
             This is an educational example, not a lender quote or
-            available-rate promise. It assumes equal monthly payments, a fixed
-            7.0% APR, and no additional financed fees. Actual APRs, fees,
+            available-rate promise. It assumes equal monthly payments, no fees,
+            and a fixed 7.0% APR equal to the interest rate used to calculate
+            payments. Actual APRs, interest rates, fees,
             taxes, insurance, add-ons, trade-in values, and loan terms vary.
           </p>
         </section>

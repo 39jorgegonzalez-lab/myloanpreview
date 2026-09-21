@@ -20,6 +20,24 @@ afterEach(() => {
 });
 
 describe("SiteSearch", () => {
+  it("resets the query and selection when reopened and restores scrolling", () => {
+    const onClose = vi.fn();
+    document.body.style.overflow = "auto";
+    const { rerender } = render(<SiteSearch open onClose={onClose} />);
+    const input = screen.getByRole("combobox");
+    fireEvent.change(input, { target: { value: "mortgage" } });
+    fireEvent.keyDown(input, { key: "ArrowDown" });
+    expect(document.body.style.overflow).toBe("hidden");
+
+    rerender(<SiteSearch open={false} onClose={onClose} />);
+    expect(screen.queryByRole("dialog")).toBeNull();
+    expect(document.body.style.overflow).toBe("auto");
+
+    rerender(<SiteSearch open onClose={onClose} />);
+    expect((screen.getByRole("combobox") as HTMLInputElement).value).toBe("");
+    expect(screen.getAllByRole("option")[0].getAttribute("aria-selected")).toBe("true");
+  });
+
   it("does not render when closed", () => {
     render(
       <SiteSearch

@@ -518,7 +518,7 @@ export default function WhyWasMyPersonalLoanEstimateHigherThanExpectedPage() {
 
             <p className="mt-4 leading-7 text-slate-700">
               Entering the interest rate into a calculator may produce a
-              principal-and-interest estimate. A lender's APR may be higher
+              principal-and-interest estimate. A lender&apos;s APR may be higher
               because certain fees are included in the cost calculation.
             </p>
 
@@ -559,7 +559,7 @@ export default function WhyWasMyPersonalLoanEstimateHigherThanExpectedPage() {
 
           <section>
             <h2 className="text-2xl font-bold text-slate-950">
-              What to review in the lender's offer
+              What to review in the lender&apos;s offer
             </h2>
 
             <ul className="mt-4 space-y-3 leading-7 text-slate-700">
