@@ -37,7 +37,7 @@ export default function Home() {
           </a>
         </div>
 
-        <p className="mx-auto mt-6 max-w-3xl text-sm leading-6 text-slate-500">
+        <p className="mx-auto mt-6 max-w-3xl text-sm leading-6 text-slate-600">
           MYLOANPREVIEW is not a lender or financial
           advisor. Results are educational estimates,
           not applications, approvals, or financing
