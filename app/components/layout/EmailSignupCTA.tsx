@@ -24,7 +24,7 @@ function getEmailCtaLocation(): string {
   return "other";
 }
 const brevoSignupUrl =
-  "https://0b68c915.sibforms.com/serve/MUIFAAdIFOeO_oSMh69neOevHqt-YEkR_aSDCVnc2hMKYOhTkjNI85--WuRdQix2MXYsUUg9o9XFhVui63o8Bb6GEokamEncG3zaK1zZUBl_Ggp1C0WAy2IeF9zgRx0uCqmAkYLrrVzZVKHJgcg3tVRGabex_vydFN0ShXJM1xwW1jY8ke05OF4prZsn5SoeNKXSaG5ynkS5tiZkHg==";
+  "https://0b68c915.sibforms.com/v2/serve/MUIFAAdIFOeO_oSMh69neOevHqt-YEkR_aSDCVnc2hMKYOhTkjNI85--WuRdQix2MXYsUUg9o9XFhVui63o8Bb6GEokamEncG3zaK1zZUBl_Ggp1C0WAy2IeF9zgRx0uCqmAkYLrrVzZVKHJgcg3tVRGabex_vydFN0ShXJM1xwW1jY8ke05OF4prZsn5SoeNKXSaG5ynkS5tiZkHg==";
 
 export default function EmailSignupCTA() {
   return (
